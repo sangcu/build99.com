@@ -32,8 +32,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     : Component.getLayout
 
   const {
-    title = 'Accommodation reservations | Tokyu Stay [Official]',
-    description = 'This is the accommodation reservation page for Tokyu Stay. Tokyu Stay is a hotel that offers mid- to long-term stays equipped with a washer/dryer and a kitchenette, and is located in Tokyo and other parts of Japan. The hotel is located close to the station and can be booked on the same day, so it can be used not only for business trips but also for sightseeing and travel.',
+    title = 'yLambda | Opsless Focus on writing code',
+    description = 'Simplify “Ops” to help developer focus on writing code.',
   } = pageProps as any
 
   return (
