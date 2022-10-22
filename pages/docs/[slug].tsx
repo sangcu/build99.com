@@ -1,6 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next'
-import Documentation from 'page-views/documentation'
-import { getAllDocSlugs, getDocData } from 'page-views/documentation/_utils'
+import Documentation from 'page-views/docs'
+import { getAllDocSlugs, getDocData } from 'page-views/docs/_utils'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllDocSlugs()

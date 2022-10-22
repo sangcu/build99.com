@@ -13,8 +13,8 @@ import classNames from 'classnames'
 const navigation = [
   {
     name: 'Docs',
-    href: '/documentation',
-    isCurrent: (pathName: string) => pathName?.includes('documentation'),
+    href: '/docs',
+    isCurrent: (pathName: string) => pathName?.includes('docs'),
   },
   { name: 'Parners', href: '#' },
   { name: 'About Us', href: '#' },

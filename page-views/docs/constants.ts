@@ -3,17 +3,17 @@ import { INavItem } from './types'
 
 export const DOCUMENTS_DIRECTORY = path.join(
   process.cwd(),
-  'page-views/documentation/_contents',
+  'page-views/docs/_contents',
 )
 
-export const DEFAULT_SLUG = 'home'
+export const DEFAULT_SLUG = 'introduction'
 
 export const navigation: INavItem[] = [
   {
-    name: 'Home',
-    slug: 'home',
+    name: 'Introduction',
+    slug: 'introduction',
     children: [
-      { name: 'Home 1.1', slug: 'home-11' },
+      { name: 'Getting started', slug: 'getting-started' },
       {
         name: 'Home 1.2',
         slug: 'home-12',

@@ -1,6 +1,6 @@
 import withErrorHandling from 'lib/server/withErrorHandling'
 import type { GetServerSideProps } from 'next'
-import { DEFAULT_SLUG } from 'page-views/documentation/constants'
+import { DEFAULT_SLUG } from 'page-views/docs/constants'
 
 const Documentation: React.FC = () => {
   return <div></div>
@@ -11,7 +11,7 @@ export const getServerSideProps: GetServerSideProps = withErrorHandling(
     return {
       redirect: {
         permanent: false,
-        destination: `/documentation/${DEFAULT_SLUG}`,
+        destination: `/docs/${DEFAULT_SLUG}`,
       },
     }
   },

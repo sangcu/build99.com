@@ -14,7 +14,7 @@ const NavItem: React.FC<INavItem> = ({
 
   return (
     <li className={classNames('pt-1 cursor-pointer')}>
-      <Link href={`/documentation/${slug}`}>
+      <Link href={`/docs/${slug}`}>
         <a
           className={classNames(
             level === 0 && 'font-semibold',
