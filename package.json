@@ -12,8 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "classnames": "^2.3.2",
+    "gray-matter": "^4.0.3",
     "next": "12.3.1",
     "next-i18next": "^12.1.0",
+    "next-mdx-remote": "^4.1.0",
     "next-seo": "^5.5.0",
     "pino": "^8.6.1",
     "react": "18.2.0",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.0",
+    "@tailwindcss/typography": "^0.5.7",
     "@types/node": "18.8.3",
     "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",

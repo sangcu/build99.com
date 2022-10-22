@@ -7,9 +7,15 @@ import Bars3Icon from 'public/icons/bars-3.svg'
 import XMarkIcon from 'public/icons/x-mark.svg'
 
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 const navigation = [
-  { name: 'Docs', href: '#' },
+  {
+    name: 'Docs',
+    href: '/documentation',
+    isCurrent: (pathName: string) => pathName?.includes('documentation'),
+  },
   { name: 'Parners', href: '#' },
   { name: 'About Us', href: '#' },
 ]
@@ -21,10 +27,14 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
   const { t } = useTranslation()
-
+  const router = useRouter()
+  console.log('path', router.pathname)
   return (
-    <Popover as="header" className="relative">
-      <div className="bg-gray-900 pt-6">
+    <Popover
+      as="header"
+      className="fixed left-0 top-0 w-full bg-gray-900 bg-clip-padding z-50"
+    >
+      <div className="py-4">
         <nav
           className="relative mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6"
           aria-label="Global"
@@ -47,13 +57,18 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
             </div>
             <div className="hidden space-x-8 md:ml-10 md:flex">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-base font-medium text-white hover:text-gray-300"
-                >
-                  {item.name}
-                </a>
+                <Link href={item.href} key={item.name}>
+                  <a
+                    className={classNames(
+                      'text-base font-medium ',
+                      item?.isCurrent && item?.isCurrent(router.pathname)
+                        ? 'text-orange-500 hover:text-orange-600 font-semibold'
+                        : 'text-white hover:text-gray-300',
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -102,13 +117,18 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
             <div className="pt-5 pb-6">
               <div className="space-y-1 px-2">
                 {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50"
-                  >
-                    {item.name}
-                  </a>
+                  <Link href={item.href} key={item.name}>
+                    <a
+                      className={classNames(
+                        'block rounded-md px-3 py-2 text-base ',
+                        item?.isCurrent && item?.isCurrent(router.pathname)
+                          ? 'text-orange-600 hover:bg-gray-50 font-semibold'
+                          : 'font-medium text-gray-900 hover:bg-gray-50',
+                      )}
+                    >
+                      {item.name}
+                    </a>
+                  </Link>
                 ))}
               </div>
               <div className="mt-6 px-5">

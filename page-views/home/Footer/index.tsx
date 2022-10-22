@@ -1,6 +1,6 @@
+import SubscriptionForm from 'layouts/Layout/SubscriptionForm'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
-import SubscriptionForm from '../SubscriptionForm'
 
 const Footer: React.FC = () => {
   const { t } = useTranslation()
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
     },
   ]
   return (
-    <footer className="bg-gray-50" aria-labelledby="footer-heading">
+    <footer className="w-full bg-gray-50" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

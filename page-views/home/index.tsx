@@ -1,38 +1,25 @@
-import type { NextPage } from 'next'
-import { useState } from 'react'
-
-import Header from './Header'
 import Introduction from './Introduction'
 import AppDetail from './AppDetail'
 import Architecture from './Architecture'
 import HowItWork from './HowItWork'
-import SubscriptionForm from './SubscriptionForm'
+import { NextPageWithLayout } from 'pages/_app'
+import Layout from 'layouts/Layout'
+import { ReactElement } from 'react'
 import Footer from './Footer'
-import { Modal } from 'components'
 
-const Home: NextPage = () => {
-  const [openModal, setOpenModal] = useState(false)
-
-  const onSignIn = () => setOpenModal(true)
-  const onSignUp = () => setOpenModal(true)
-
+const Home: NextPageWithLayout = () => {
   return (
-    <div className="bg-white">
-      <div className="relative overflow-hidden">
-        <Header onSignIn={onSignIn} onSignUp={onSignUp} />
-        <main>
-          <Introduction />
-          <AppDetail />
-          <Architecture />
-          <HowItWork />
-        </main>
-        <Footer />
-      </div>
-      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-        <SubscriptionForm />
-      </Modal>
-    </div>
+    <>
+      <Introduction />
+      <AppDetail />
+      <Architecture />
+      <HowItWork />
+    </>
   )
 }
+
+Home.getLayout = (page: ReactElement) => (
+  <Layout renderFooter={() => <Footer />}>{page}</Layout>
+)
 
 export default Home
