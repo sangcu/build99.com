@@ -6,9 +6,10 @@ const HowItWork: React.FC = () => {
   const steps = [
     {
       name: '01',
-      title: t('Connect your git, kubernetes cluster'),
+      title: t('Install yLambda on your own Kubernetes'),
       codes: [
         '> yLamda connect git',
+        '> yLamda connect k8s',
         'Installing yLambda stack...',
         'Done in 3m.',
       ],
