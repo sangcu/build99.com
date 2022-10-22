@@ -5,6 +5,7 @@ const AppDetail: React.FC = () => {
   const { t } = useTranslation()
 
   const features = [
+    t('Connect your Kubernetes'),
     t('Create the app'),
     t('Up and run in minutes'),
     t('We automating CI/CD and everying Ops'),

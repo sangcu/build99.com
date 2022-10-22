@@ -41,7 +41,7 @@ const Architecture: React.FC = () => {
         </h2>
         <p className="mt-2 text-gray-500 text-xl font-medium">
           {t(
-            'yLambda automatically install tools on your kubernetes cluster to ready for deployment and observiability',
+            'yLambda automatically installs tools on your Kubernetes cluster to be ready for deployment and observability',
           )}
         </p>
         <div className="mt-16 lg:grid lg:grid-cols-5 lg:gap-16">
