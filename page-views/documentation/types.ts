@@ -4,4 +4,5 @@ export interface INavItem {
   children?: INavItem[]
   level?: number
   currentSlug?: string
+  onItemClick?: (name: string) => void
 }

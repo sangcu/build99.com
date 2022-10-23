@@ -70,7 +70,10 @@ const DocumentationLayout: React.FC<{
                       </div>
                     </Transition.Child>
                     <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4 px-8">
-                      <Naviation currentSlug={slug} />
+                      <Naviation
+                        currentSlug={slug}
+                        onItemClick={() => setSidebarOpen(false)}
+                      />
                     </div>
                   </Dialog.Panel>
                 </Transition.Child>

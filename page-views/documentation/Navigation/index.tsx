@@ -9,6 +9,7 @@ const NavItem: React.FC<INavItem> = ({
   children,
   level = 0,
   currentSlug,
+  onItemClick,
 }) => {
   const current = currentSlug === slug
 
@@ -16,6 +17,7 @@ const NavItem: React.FC<INavItem> = ({
     <li className={classNames('pt-1 cursor-pointer')}>
       <Link href={`/documentation/${slug}`}>
         <a
+          onClick={() => onItemClick && onItemClick(name)}
           className={classNames(
             level === 0 && 'font-semibold',
             current ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600',
@@ -41,6 +43,7 @@ const NavItem: React.FC<INavItem> = ({
             level={level + 1}
             key={item.name}
             currentSlug={currentSlug}
+            onItemClick={onItemClick}
           />
         ))}
       </ul>
@@ -50,12 +53,18 @@ const NavItem: React.FC<INavItem> = ({
 
 const Naviation: React.FC<{
   currentSlug: string
-}> = ({ currentSlug }) => {
+  onItemClick?: (name: string) => void
+}> = ({ currentSlug, onItemClick }) => {
   return (
     <nav className="flex-1">
       <ul className="list-none space-y-2">
         {navigation.map((item) => (
-          <NavItem {...item} key={item.name} currentSlug={currentSlug} />
+          <NavItem
+            {...item}
+            key={item.name}
+            currentSlug={currentSlug}
+            onItemClick={onItemClick}
+          />
         ))}
       </ul>
     </nav>
