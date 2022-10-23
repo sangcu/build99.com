@@ -15,7 +15,7 @@ const NavItem: React.FC<INavItem> = ({
 
   return (
     <li className={classNames('pt-1 cursor-pointer')}>
-      <Link href={`/documentation/${slug}`}>
+      <Link href={`/docs/${slug}`}>
         <a
           onClick={() => onItemClick && onItemClick(name)}
           className={classNames(
