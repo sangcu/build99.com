@@ -1,12 +1,11 @@
 import path from 'path'
 import { INavItem } from './types'
-
 export const DOCUMENTS_DIRECTORY = path.join(
   process.cwd(),
   'page-views/docs/_contents',
 )
 
-export const DEFAULT_SLUG = 'introduction'
+export const DEFAULT_SLUG = '1_introduction'
 
 export const navigation: INavItem[] = [
   {
