@@ -10,7 +10,7 @@ export const DEFAULT_SLUG = '1_introduction'
 export const navigation: INavItem[] = [
   {
     name: 'Introduction',
-    slug: 'introduction',
+    slug: '1_introduction',
     children: [
       { name: 'Getting started', slug: 'getting-started' },
       {
