@@ -134,7 +134,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
               <div className="mt-6 px-5">
                 <button
                   onClick={onSignIn}
-                  className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-teal-600 hover:to-orange-700"
+                  className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-amber-600 hover:to-orange-700"
                 >
                   {t('Sign Up')}
                 </button>
