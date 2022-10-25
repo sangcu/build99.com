@@ -52,6 +52,7 @@ const Architecture: React.FC = () => {
                 src="/images/architecture.png"
                 layout="fill"
                 className="responsive-img"
+                priority
               />
             </div>
           </div>
@@ -67,6 +68,7 @@ const Architecture: React.FC = () => {
                     src={image.src}
                     layout="fill"
                     className="responsive-img"
+                    priority
                   />
                 </div>
               </div>

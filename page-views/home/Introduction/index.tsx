@@ -36,6 +36,7 @@ const Introduction: React.FC = () => {
               src="/images/system-overview.png"
               layout="fill"
               className="responsive-img"
+              priority
             />
           </div>
         </div>
