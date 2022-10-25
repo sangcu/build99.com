@@ -1,12 +1,14 @@
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import { DOCUMENTS_DIRECTORY } from '../constants'
+import getSlugListInfo from './getSlugListInfo'
 
 const getDocData = async (slug: string) => {
-  const fullPath = path.join(DOCUMENTS_DIRECTORY, `${slug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
+  const allSlugInfo = getSlugListInfo(DOCUMENTS_DIRECTORY)
+  const slugInfo = allSlugInfo.find((item) => item.slugName === `${slug}.md`)
+
+  const fileContents = fs.readFileSync(slugInfo?.pathName || '', 'utf8')
 
   const matterResult = matter(fileContents)
 

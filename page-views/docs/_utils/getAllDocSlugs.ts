@@ -1,13 +1,12 @@
-import fs from 'fs'
 import { DOCUMENTS_DIRECTORY } from '../constants'
+import getSlugListInfo from './getSlugListInfo'
 
 const getAllDocSlugs = () => {
-  const fileNames = fs.readdirSync(DOCUMENTS_DIRECTORY)
-
-  return fileNames.map((fileName) => {
+  const allSlugInfo = getSlugListInfo(DOCUMENTS_DIRECTORY)
+  return allSlugInfo.map((slug) => {
     return {
       params: {
-        slug: fileName.replace(/\.md$/, ''),
+        slug: slug.slugName.replace(/\.md$/, ''),
       },
     }
   })

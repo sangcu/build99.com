@@ -1,6 +1,6 @@
 export interface INavItem {
   name: string
-  slug: string
+  slug?: string | null
   children?: INavItem[]
   level?: number
   currentSlug?: string

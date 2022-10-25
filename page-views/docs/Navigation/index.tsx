@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 import Link from 'next/link'
-import { navigation } from '../constants'
 import { INavItem } from '../types'
 
 const NavItem: React.FC<INavItem> = ({
@@ -14,22 +13,37 @@ const NavItem: React.FC<INavItem> = ({
   const current = currentSlug === slug
 
   return (
-    <li className={classNames('pt-1 cursor-pointer')}>
-      <Link href={`/docs/${slug}`}>
-        <a
+    <li className={classNames('pt-1')}>
+      {slug ? (
+        <Link href={`/docs/${slug}`}>
+          <a
+            onClick={() => onItemClick && onItemClick(name)}
+            className={classNames(
+              level === 0 && 'font-semibold',
+              current
+                ? 'text-orange-600'
+                : 'text-gray-500 hover:text-orange-600',
+              'py-1 text-sm cursor-pointer',
+              level !== 0 && 'pl-6',
+              level !== 0 &&
+                'hover:border-l-2 hover:-ml-0.5 hover:border-orange-600',
+            )}
+          >
+            {name}
+          </a>
+        </Link>
+      ) : (
+        <div
           onClick={() => onItemClick && onItemClick(name)}
           className={classNames(
             level === 0 && 'font-semibold',
-            current ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600',
-            'py-1 text-sm',
+            'py-1 text-sm text-gray-500 cursor-default',
             level !== 0 && 'pl-6',
-            level !== 0 &&
-              'hover:border-l-2 hover:-ml-0.5 hover:border-orange-600',
           )}
         >
           {name}
-        </a>
-      </Link>
+        </div>
+      )}
 
       <ul
         className={classNames(
@@ -53,12 +67,13 @@ const NavItem: React.FC<INavItem> = ({
 
 const Naviation: React.FC<{
   currentSlug: string
+  navigations: INavItem[]
   onItemClick?: (name: string) => void
-}> = ({ currentSlug, onItemClick }) => {
+}> = ({ currentSlug, navigations, onItemClick }) => {
   return (
     <nav className="flex-1">
       <ul className="list-none space-y-2">
-        {navigation.map((item) => (
+        {navigations.map((item) => (
           <NavItem
             {...item}
             key={item.name}

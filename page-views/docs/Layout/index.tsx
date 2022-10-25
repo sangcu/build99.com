@@ -3,15 +3,17 @@ import { Fragment, useState } from 'react'
 import Bars3Icon from 'public/icons/bars-3.svg'
 import XMarkIcon from 'public/icons/x-mark.svg'
 import Naviation from '../Navigation'
-import getCurrentPageName from '../_utils/getCurrentPageName'
+import { INavItem } from '../types'
+import getNameFromSlug from '../_utils/getNameFromSlug'
 
 const DocumentationLayout: React.FC<{
   slug: string
+  navigations: INavItem[]
   children: JSX.Element
-}> = ({ slug, children }) => {
+}> = ({ slug, children, navigations }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
-  const currentPageName = getCurrentPageName(slug)
+  const currentPageName = getNameFromSlug(slug)
 
   return (
     <div className="bg-transparent">
@@ -72,6 +74,7 @@ const DocumentationLayout: React.FC<{
                     <div className="h-0 flex-1 overflow-y-auto pt-5 pb-4 px-8">
                       <Naviation
                         currentSlug={slug}
+                        navigations={navigations}
                         onItemClick={() => setSidebarOpen(false)}
                       />
                     </div>
@@ -88,7 +91,7 @@ const DocumentationLayout: React.FC<{
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="flex flex-grow flex-col overflow-y-auto border-r border-gray-200 bg-transparent pt-5">
               <div className="flex flex-grow flex-col">
-                <Naviation currentSlug={slug} />
+                <Naviation currentSlug={slug} navigations={navigations} />
               </div>
             </div>
           </div>
