@@ -8,8 +8,8 @@ const HowItWork: React.FC = () => {
       name: '01',
       title: t('Install yLambda on your own Kubernetes'),
       codes: [
-        '> yLamda connect git',
-        '> yLamda connect k8s',
+        '> ylambda connect git',
+        '> ylambda connect k8s',
         'Installing yLambda stack...',
         'Done in 3m.',
       ],

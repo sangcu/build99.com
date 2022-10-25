@@ -23,11 +23,11 @@ const Introduction: React.FC = () => {
             </div>
 
             <span className="lg:ml-2 text-white font-bold text-3xl md:text-4xl lg:text-5xl lg:self-end pb-1">
-              {t('Focus on writing code')}
+              {t('Focus on technical excellence.')}
             </span>
           </h1>
           <p className="mt-2 lg:mt-4 text-gray-300 text-md md:text-lg lg:text-xl font-medium">
-            {t('Simplify “Ops” to help developer focus on writing code.')}
+            {t('yLambda simplify the “Ops” to help developer focus “Dev”')}
           </p>
 
           <div className="mt-4 md:mt-6 lg:mt-8 unset-img">
