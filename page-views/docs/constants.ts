@@ -5,4 +5,4 @@ export const DOCUMENTS_DIRECTORY = path.join(
   'page-views/docs/_contents',
 )
 
-export const DEFAULT_SLUG = '1_introduction'
+export const DEFAULT_SLUG = '1_getting-started'
