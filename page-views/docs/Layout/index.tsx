@@ -105,7 +105,7 @@ const DocumentationLayout: React.FC<{
               </button>
               <h1 className="text-base font-medium text-gray-900">{name}</h1>
             </div>
-            <main className="flex-1 sm:pr-6 pr-4">{children}</main>
+            <main className="flex-1">{children}</main>
           </div>
         </div>
       </div>
