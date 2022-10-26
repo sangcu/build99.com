@@ -9,9 +9,10 @@ const Documentation: NextPage<{
     compiledSource: string
   }
   navigations: INavItem[]
-}> = ({ slug, mdxSource, navigations }) => {
+  name?: string
+}> = ({ slug, name, mdxSource, navigations }) => {
   return (
-    <DocumentationLayout slug={slug} navigations={navigations}>
+    <DocumentationLayout slug={slug} name={name} navigations={navigations}>
       <article className="py-2 md:py-6 px-4 sm:px-6 md:px-8 prose">
         <MDXRemote {...mdxSource} />
       </article>

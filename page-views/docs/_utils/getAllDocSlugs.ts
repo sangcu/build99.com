@@ -6,7 +6,7 @@ const getAllDocSlugs = () => {
   return allSlugInfo.map((slug) => {
     return {
       params: {
-        slug: slug.slugName.replace(/\.md$/, ''),
+        slug: slug.slugName,
       },
     }
   })

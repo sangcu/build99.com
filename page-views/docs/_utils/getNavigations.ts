@@ -1,34 +1,36 @@
 import path from 'path'
 import { INavItem } from '../types'
 import fs from 'fs'
-import getNameFromSlug from './getNameFromSlug'
+import getNameFromFileName from './getNameFromFileName'
+import getSlugFromFileName from './getSlugFromFileName'
 
 const getNavigations: (pathName: string) => INavItem[] = (pathName: string) =>
   fs
     .readdirSync(pathName)
-    .filter((item) => item !== 'index.md')
-    .reduce((result: INavItem[], item: string) => {
-      const slug = item.replace(/\.md$/, '')
+    .filter((fileName) => fileName !== 'index.md')
+    .reduce((result: INavItem[], fileName: string) => {
+      const name = getNameFromFileName(fileName)
+      const slug = getSlugFromFileName(fileName)
 
-      if (item.endsWith('.md')) {
+      if (fileName.endsWith('.md')) {
         return [
           ...result,
           {
-            name: getNameFromSlug(slug),
+            name,
             slug,
           },
         ]
       } else {
         const isContainIndexFile = fs.existsSync(
-          path.join(path.join(pathName || '', item), 'index.md'),
+          path.join(path.join(pathName || '', fileName), 'index.md'),
         )
 
         return [
           ...result,
           {
-            name: getNameFromSlug(slug),
+            name,
             slug: isContainIndexFile ? slug : null,
-            children: getNavigations(path.join(pathName, item)),
+            children: getNavigations(path.join(pathName, fileName)),
           },
         ]
       }

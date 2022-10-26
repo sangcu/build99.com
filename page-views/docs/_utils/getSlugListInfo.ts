@@ -1,8 +1,11 @@
 import path from 'path'
 import fs from 'fs'
+import getSlugFromFileName from './getSlugFromFileName'
+import getNameFromFileName from './getNameFromFileName'
 
 const getSlugListInfo: (pathName: string) => {
   slugName: string
+  name: string
   pathName: string
 }[] = (pathName: string) =>
   fs
@@ -12,36 +15,42 @@ const getSlugListInfo: (pathName: string) => {
       (
         result: {
           slugName: string
+          name: string
           pathName: string
         }[],
-        item: string,
+        fileName: string,
       ) => {
-        if (item.endsWith('.md')) {
+        const slugName = getSlugFromFileName(fileName)
+        const name = getNameFromFileName(fileName)
+
+        if (fileName.endsWith('.md')) {
           return [
             ...result,
             {
-              slugName: item,
-              pathName: path.join(pathName || '', item),
+              slugName,
+              name,
+              pathName: path.join(pathName || '', fileName),
             },
           ]
         } else {
           const isContainIndexFile = fs.existsSync(
-            path.join(path.join(pathName || '', item), 'index.md'),
+            path.join(path.join(pathName || '', fileName), 'index.md'),
           )
 
           return isContainIndexFile
             ? [
                 ...result,
                 {
-                  slugName: `${item}.md`,
+                  slugName,
+                  name,
                   pathName: path.join(
-                    path.join(pathName || '', item),
+                    path.join(pathName || '', fileName),
                     'index.md',
                   ),
                 },
-                ...getSlugListInfo(path.join(pathName, item)),
+                ...getSlugListInfo(path.join(pathName, fileName)),
               ]
-            : [...result, ...getSlugListInfo(path.join(pathName, item))]
+            : [...result, ...getSlugListInfo(path.join(pathName, fileName))]
         }
       },
       [],

@@ -4,16 +4,14 @@ import Bars3Icon from 'public/icons/bars-3.svg'
 import XMarkIcon from 'public/icons/x-mark.svg'
 import Naviation from '../Navigation'
 import { INavItem } from '../types'
-import getNameFromSlug from '../_utils/getNameFromSlug'
 
 const DocumentationLayout: React.FC<{
   slug: string
+  name?: string
   navigations: INavItem[]
   children: JSX.Element
-}> = ({ slug, children, navigations }) => {
+}> = ({ slug, name, children, navigations }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  const currentPageName = getNameFromSlug(slug)
 
   return (
     <div className="bg-transparent">
@@ -105,9 +103,7 @@ const DocumentationLayout: React.FC<{
                 <span className="sr-only">Open sidebar</span>
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
-              <h1 className="text-base font-medium text-gray-900">
-                {currentPageName}
-              </h1>
+              <h1 className="text-base font-medium text-gray-900">{name}</h1>
             </div>
             <main className="flex-1 sm:pr-6 pr-4">{children}</main>
           </div>
