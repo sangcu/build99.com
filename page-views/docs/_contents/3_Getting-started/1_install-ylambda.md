@@ -1,8 +1,19 @@
 ---
-title: "Home page"
-description: "This is home page"
+title: "Install yLambda stack"
+description: "Install ylambda stack into your kubernetes clusters"
 ---
 
-**Home Page 1.1**
+# Install ylambda CLI
 
-This is home page 1.1
+## Linux
+
+```
+curl -L https://raw.githubusercontent.com/ylambda-com/ylambda-cli/latest/install.sh | sh
+```
+
+## Window
+
+```
+curl -L https://raw.githubusercontent.com/ylambda-com/ylambda-cli/latest/install.ps1 | sh
+```  
+* Please set script policy to allow the powershell script the sript
