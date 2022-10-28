@@ -13,7 +13,7 @@ const Documentation: NextPage<{
 }> = ({ slug, name, mdxSource, navigations }) => {
   return (
     <DocumentationLayout slug={slug} name={name} navigations={navigations}>
-      <article className="pt-2 pb-8 md:pt-6 md:pb-6 px-4 sm:px-6 md:px-8 prose">
+      <article className="min-w-full pt-2 pb-8 md:pt-6 md:pb-6 px-4 sm:px-6 md:px-8 prose">
         <MDXRemote {...mdxSource} />
       </article>
     </DocumentationLayout>
