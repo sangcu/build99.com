@@ -3,6 +3,12 @@ title: "Install yLambda stack"
 description: "Install ylambda stack into your kubernetes clusters"
 ---
 
+# Pre-conditionshien    
+
+* Kubernetes cluster v1.23
+* ylambda CLI
+* ylambda will connect to your kubernetes cluster so the network connection and authentication must be granted
+
 # Install ylambda CLI
 
 ## Linux
@@ -16,4 +22,14 @@ curl -L https://raw.githubusercontent.com/ylambda-com/ylambda-cli/latest/install
 ```
 curl -L https://raw.githubusercontent.com/ylambda-com/ylambda-cli/latest/install.ps1 | sh
 ```  
-* Please set script policy to allow the powershell script the sript
+* Please set the script policy to allow the powershell runs script. [docs](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7.2)
+
+# Final check
+To ensure ylambda installed. Open new terminal and run the command:
+```
+$ ylambda info
+ylambda-cli version 0.14-alpha (latest version: 0.14-alpha)
+OS: Window
+```
+
+You should see the verion and the OS type.

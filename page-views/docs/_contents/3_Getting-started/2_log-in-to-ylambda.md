@@ -1,6 +1,6 @@
 ---
-title: "Home page"
-description: "This is home page"
+title: "Login into yLambda"
+description: "Login into ylambda "
 ---
 
 **Home Page 1.1**
