@@ -5,9 +5,9 @@ description: "A guide for ylambda administrator to connect ylambda to kubernetes
 
 # Connect Kubernetes
 
-Connect ylambda to kubernetes is one-time work and required administrator role be granted.
-Preconditions:
+Connect ylambda to kubernetes is one-time work and required administrator role be granted.  
 
+Preconditions:  
 * A kubernetes cluster with CoreDNS installed
 * `kubectl` could connect to the kubernetes api with administrator role granted.
 
