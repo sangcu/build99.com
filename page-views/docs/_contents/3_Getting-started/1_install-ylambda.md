@@ -33,3 +33,7 @@ OS: Window
 ```
 
 You should see the verion and the OS type.
+
+> If you're developer who only use yLambda as self-service to launch and deploy the applications, read [Application guides](application-guides).  
+
+> For platform engineer, please connect kubernetes and install yLambda stack in [Connect Kubernetes](connect-kubernetes).

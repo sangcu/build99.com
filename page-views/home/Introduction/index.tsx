@@ -21,13 +21,12 @@ const Introduction: React.FC = () => {
                 <rect x="0" y="0" width="8" height="8" />
               </svg>
             </div>
-
             <span className="lg:ml-2 text-white font-bold text-3xl md:text-4xl lg:text-5xl lg:self-end pb-1">
               {t('Focus on technical excellence.')}
             </span>
           </h1>
           <p className="mt-2 lg:mt-4 text-gray-300 text-md md:text-lg lg:text-xl font-medium">
-            {t('yLambda simplify the “Ops” to help developer focus “Dev”')}
+            {t('yLambda simplify the “Ops” workflow for developers to focus on “Dev”')}
           </p>
 
           <div className="mt-4 md:mt-6 lg:mt-8 unset-img">

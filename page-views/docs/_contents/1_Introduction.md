@@ -3,9 +3,9 @@ title: "Introduction to yLambda"
 description: "Why and what ylambda contribute to help your software engineering focus on writing high code quality."
 ---
 
-# A journey on simplifying ops for software engineers to focus on writing high-quality software.  
+# A journey on simplifying ops for developer to focus on writing high-quality software.
 
-> yLambda is a platform engineering that provides engineers a self-service to deploy, and observability the application.  
+> yLambda is a platform engineering that provides developers a self-service to deploy, and observability the application.  
 
 Developers who write the high quality code understand that it takes time to reiterate the code to get a good shape of structure, cohesive, modular and generalised.  
 
