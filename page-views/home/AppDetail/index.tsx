@@ -15,10 +15,10 @@ const AppDetail: React.FC = () => {
     <div className="relative bg-gray-50 pt-16 md:pt-18 lg:pt-24 sm:pt-24">
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">        
         <h2 className="mt-2 text-3xl md:text-4xl font-bold text-orange-600">
-          {t('yLambda simplify the boring by automating')}
+          {t('A workflow for Ideas |> Code |> Deploy.')}
         </h2>
         <p className="text-xl md:text-2xl font-semibold tracking-tight text-gray-900">
-          {t('Your best investment is architecture and shipping features')}
+          {t('Once connected with Kubernetes, from ideas to production only take minutes.')}
         </p>
         <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-8 space-y-4 lg:space-y-0">
           <div className="flex items-center">

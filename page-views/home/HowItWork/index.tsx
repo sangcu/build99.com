@@ -3,34 +3,40 @@ import { useTranslation } from 'next-i18next'
 const HowItWork: React.FC = () => {
   const { t } = useTranslation()
 
-  const steps = [
+  const steps = [    
     {
       name: '01',
-      title: t('Install yLambda on your own Kubernetes'),
+      title: (
+        <>
+          <p>{t('Create your app')}</p>          
+        </>
+      ),
       codes: [
-        '> ylambda connect git',
-        '> ylambda connect k8s',
-        'Installing yLambda stack...',
-        'Done in 3m.',
+        '> ylambda create hello-app --lang c#',
+        '`main` as current branch.',
+        '> git commit -m "create sample hello-app"',
+        '> git push'
       ],
     },
     {
       name: '02',
-      title: (
-        <>
-          <p>{t('Create your app')}</p>
-          <p>{t('Start to checkout code')}</p>
-        </>
-      ),
-      codes: ['> ylambda create hello-app --lang c#'],
+      title: t('Deploy your code and access by url'),
+      codes: [
+        '> ylambda deploy',
+        'deployed https://david.ylambda.com/hello-app/34f3c3',
+        'logs streaming: https://david.ylambda.com/logs/hello-app/34f3c3',
+      ],
     },
     {
       name: '03',
-      title: t('Deploy your code and access'),
+      title: t('Monitoring'),
       codes: [
-        '> ylambda deploy',
-        'deployed https://ylambda.com/yl/david/34f3c3/',
-        'logs streaming: https://ylambda.com/logs/yl/david/34f3c3/',
+        '> ylambda app hello-app health --time 2hr',
+        'rps      : 100',
+        'errors   : 0',
+        'p90      : 58ms',
+        'p95      : 83ms',
+        'p99      : 123ms',
       ],
     },
   ]
@@ -39,7 +45,7 @@ const HowItWork: React.FC = () => {
     <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-200 lg:relative lg:z-10 lg:pb-0">
       <div className="mx-auto max-w-7xl px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8 py-12 md:py-18 lg:py-24">
         <h2 className="text-white font-bold text-3xl">
-          {t('Get start in minutes')}
+          {t('Once yLambda installed, developer getting started in minutes.')}
         </h2>
         <div className="space-y-8">
           {steps.map((step) => (
