@@ -3,7 +3,7 @@ title: "Install yLambda stack"
 description: "Install ylambda stack into your kubernetes clusters"
 ---
 
-# Pre-conditionshien    
+# Pre-condition
 
 * Kubernetes cluster v1.23
 * ylambda CLI

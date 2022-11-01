@@ -11,16 +11,16 @@ To connect to Github, use command:
 
 ```bash
 $ ylambda connect git
-Please login into browser
+A browser window has been launched, please login into the browser
 ```
 
-A browser will launch to guide you connect to your github organization, you have to logged with the account which granted permission to create repository in the organization. Otherwise, the yLambda cannot connect to Github.
+A browser will launch to guide you connect to your github organization, you have to logged with the account which granted permission to create repository in the organization. Otherwise, yLambda cannot connect to Github.
 
 After successfull login, you will see the output in the terminal
 
 ```bash
 $ ylambda connect git
-Please login into browser......connected
+logged
 ```
 
 Now, let verify the integration

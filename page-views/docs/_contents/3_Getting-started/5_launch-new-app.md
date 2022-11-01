@@ -1,8 +1,36 @@
 ---
-title: "Home page"
-description: "This is home page"
+title: "Launch a new application"
+description: "Guide to using ylambda command line to deploy a new application"
 ---
 
-**Home Page 1.1**
+# Create an application
+An application in yLambda include:
+* A git repository
+* A CI/CD pipeline
+* A toml configuration file name `ylambda.toml`
 
-This is home page 1.1
+To create an application, run the command:  
+
+```bash
+$ ylambda app create simple-api --lang c#
+git repository........created
+ci/cd templates.......created
+ylambda.toml..........created
+```
+
+Now, you can commit changes to git repository as normal workflow:
+
+```bash
+$ git commit -m "initial create simple-api"
+$ git push
+```
+
+By default, any commit to `main` branch will be deploy to kubernetes
+
+You can check the build result of current branch with command:
+
+```bash
+$ ylambda app simple-api build
+succeeded..........15s
+coverage: 75%
+```

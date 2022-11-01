@@ -12,8 +12,10 @@ const HowItWork: React.FC = () => {
         </>
       ),
       codes: [
-        '> ylambda create hello-app --lang c#',
-        '`main` as current branch.',
+        '> ylambda app create hello-app --lang c#',
+        'git repository........created',
+        'ci/cd templates.......created',
+        'ylambda.toml..........created',
         '> git commit -m "create sample hello-app"',
         '> git push'
       ],
