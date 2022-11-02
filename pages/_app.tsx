@@ -4,6 +4,8 @@ import { appWithTranslation, useTranslation } from 'next-i18next'
 import { NextPage } from 'next'
 import { ReactElement } from 'react'
 import { NextSeo } from 'next-seo'
+import { GoogleAnalytics } from 'nextjs-google-analytics'
+
 import Layout from '../layouts/Layout'
 
 export type NextPageWithLayout = NextPage & {
@@ -40,6 +42,14 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <NextSeo title={t(title)} description={t(description)} />
       {getLayout(<Component {...pageProps} />)}
+      <GoogleAnalytics
+        trackPageViews
+        gaMeasurementId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}
+      />
+      <GoogleAnalytics
+        trackPageViews
+        gaMeasurementId={process.env.NEXT_PUBLIC_GA3_TRACKING_ID}
+      />
     </>
   )
 }
