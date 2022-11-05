@@ -1,10 +1,58 @@
 import { Modal } from 'components'
+import { CONTACT_PAGE_URL } from 'page-views/constants'
 import useSubscribe from 'hooks/useSubscribe'
 import SubscriptionError from 'molecules/SubscriptionError'
 import SubscriptionForm from 'molecules/SubscriptionForm'
 import SubscriptionSuccess from 'molecules/SubscriptionSuccess'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+
+const pageGroups = [
+  {
+    name: 'Company',
+    pageList: [
+      {
+        name: 'About Us',
+        url: '#',
+      },
+      {
+        name: 'Partners',
+        url: '#',
+      },
+    ],
+  },
+  {
+    name: 'Resources',
+    pageList: [
+      {
+        name: 'Docs',
+        url: '/docs',
+      },
+      {
+        name: 'Blog',
+        url: '#',
+      },
+    ],
+  },
+  {
+    name: 'Contact',
+    pageList: [
+      {
+        name: 'LinkedIn',
+        url: '#',
+      },
+      {
+        name: 'Github',
+        url: '#',
+      },
+      {
+        name: 'Contact Us',
+        url: CONTACT_PAGE_URL,
+        target: '_blank',
+      },
+    ],
+  },
+]
 
 const Footer: React.FC = () => {
   const { t } = useTranslation()
@@ -17,43 +65,6 @@ const Footer: React.FC = () => {
     reset,
   } = useSubscribe()
 
-  const pageGroups = [
-    {
-      name: t('Company'),
-      pageList: [
-        {
-          name: t('About Us'),
-          url: '#',
-        },
-        {
-          name: t('Partners'),
-          url: '#',
-        },
-      ],
-    },
-    {
-      name: t('Resources'),
-      pageList: [
-        {
-          name: t('Docs'),
-          url: '#',
-        },
-      ],
-    },
-    {
-      name: t('Contact'),
-      pageList: [
-        {
-          name: t('LinkedIn'),
-          url: '#',
-        },
-        {
-          name: t('Github'),
-          url: '#',
-        },
-      ],
-    },
-  ]
   return (
     <>
       <footer className="w-full bg-gray-50" aria-labelledby="footer-heading">
@@ -67,12 +78,17 @@ const Footer: React.FC = () => {
                 {pageGroups.map((group) => (
                   <div key={group.name} className="space-y-2">
                     <h3 className="text-base font-semibold text-gray-900 uppercase">
-                      {group.name}
+                      {t(group.name)}
                     </h3>
                     {group.pageList.map((page) => (
-                      <div key={page.name}>
+                      <div key={t(page.name)}>
                         <Link href={page.url}>
-                          <a className="text-base text-gray-500">{page.name}</a>
+                          <a
+                            target={page?.target}
+                            className="text-base text-gray-500"
+                          >
+                            {page.name}
+                          </a>
                         </Link>
                       </div>
                     ))}

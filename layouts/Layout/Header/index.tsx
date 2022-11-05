@@ -9,6 +9,7 @@ import XMarkIcon from 'public/icons/x-mark.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import { CONTACT_PAGE_URL } from 'page-views/constants'
 
 const navigation = [
   {
@@ -16,8 +17,14 @@ const navigation = [
     href: '/docs',
     isCurrent: (pathName: string) => pathName?.includes('docs'),
   },
+  { name: 'Blog', href: '#' },
   { name: 'Partners', href: '#' },
-  { name: 'About Us', href: '#' },
+  { name: 'About', href: '#' },
+  {
+    name: 'Contact',
+    href: CONTACT_PAGE_URL,
+    target: '_blank',
+  },
 ]
 
 interface HeaderProps {
@@ -28,7 +35,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
   const { t } = useTranslation()
   const router = useRouter()
-  console.log('path', router.pathname)
+
   return (
     <Popover
       as="header"
@@ -59,6 +66,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
               {navigation.map((item) => (
                 <Link href={item.href} key={item.name}>
                   <a
+                    target={item?.target}
                     className={classNames(
                       'text-base font-medium ',
                       item?.isCurrent && item?.isCurrent(router.pathname)

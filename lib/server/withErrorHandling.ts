@@ -1,12 +1,11 @@
 import pino from 'pino'
-import { GetServerSideProps } from 'next'
 
 const logger = pino()
 
-const withErrorHandling: (handler: GetServerSideProps) => GetServerSideProps = (
+const withErrorHandling: (handler: (context: any) => Promise<any>) => any = (
   handler,
 ) => {
-  return async (context) => {
+  return async (context: any) => {
     try {
       return await handler(context)
     } catch (error) {
