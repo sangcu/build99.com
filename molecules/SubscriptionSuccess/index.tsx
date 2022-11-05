@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next'
-import InProgressIcon from 'public/icons/in-progress.svg'
+import CheckIcon from 'public/icons/check.svg'
 
 interface SubscriptionSuccessProps {
   onClose: () => void
@@ -12,20 +12,16 @@ const SubscriptionSuccess: React.FC<SubscriptionSuccessProps> = ({
   return (
     <>
       <div>
-        <div className="mx-auto flex items-center justify-center rounded-full">
-          <InProgressIcon className="h-16 w-16" aria-hidden="true" />
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+          <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
         </div>
         <div className="mt-3 text-center sm:mt-5">
           <h3 className="text-2xl font-medium leading-6 text-gray-900">
-            Almost finished...
+            {t('Subscription Confirmed')}
           </h3>
           <div className="mt-4 text-md text-gray-500">
-            <p>{t('We need to confirm your email address.')}</p>
-            <p>
-              {t(
-                'To complete the subscription process, please click the link in the email we just sent you',
-              )}
-            </p>
+            <p>{t('Your subscription to our list has been confirmed.')}</p>
+            <p>{t('Thank you for subscribing!')}</p>
           </div>
         </div>
       </div>

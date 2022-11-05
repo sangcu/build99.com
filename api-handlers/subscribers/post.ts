@@ -15,7 +15,7 @@ const handlePut: HandlerType = async ({ req, res }) => {
       `${process.env.MAINCHIMP_URL}/lists/${process.env.MAILCHIMP_LIST_ID}/members`,
       {
         email_address: email,
-        status: 'pending',
+        status: 'subscribed',
       },
       {
         headers: {
