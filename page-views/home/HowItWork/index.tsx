@@ -33,7 +33,7 @@ const HowItWork: React.FC = () => {
       name: '03',
       title: t('Monitoring'),
       codes: [
-        '> ylambda app hello-app health --time 2hr',
+        '> ylambda app hello-app health --time 2h',
         'rps      : 100',
         'errors   : 0',
         'p90      : 58ms',
