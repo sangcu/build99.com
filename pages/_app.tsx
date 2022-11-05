@@ -2,9 +2,10 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { appWithTranslation, useTranslation } from 'next-i18next'
 import { NextPage } from 'next'
-import { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import { GoogleAnalytics } from 'nextjs-google-analytics'
+import { Hydrate, QueryClientProvider, QueryClient } from 'react-query'
 
 import Layout from '../layouts/Layout'
 
@@ -18,6 +19,8 @@ export type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const { t } = useTranslation()
+
+  const [queryClient] = useState(() => new QueryClient())
 
   if ((pageProps as any)?.error) {
     return (
@@ -39,18 +42,20 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   } = pageProps as any
 
   return (
-    <>
-      <NextSeo title={t(title)} description={t(description)} />
-      {getLayout(<Component {...pageProps} />)}
-      <GoogleAnalytics
-        trackPageViews
-        gaMeasurementId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}
-      />
-      <GoogleAnalytics
-        trackPageViews
-        gaMeasurementId={process.env.NEXT_PUBLIC_GA3_TRACKING_ID}
-      />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={(pageProps as any)?.dehydratedState}>
+        <NextSeo title={t(title)} description={t(description)} />
+        {getLayout(<Component {...pageProps} />)}
+        <GoogleAnalytics
+          trackPageViews
+          gaMeasurementId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}
+        />
+        <GoogleAnalytics
+          trackPageViews
+          gaMeasurementId={process.env.NEXT_PUBLIC_GA3_TRACKING_ID}
+        />
+      </Hydrate>
+    </QueryClientProvider>
   )
 }
 

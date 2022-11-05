@@ -1,10 +1,13 @@
 import { Modal } from 'components'
+import useSubscribe from 'hooks/useSubscribe'
+import SubscriptionError from 'molecules/SubscriptionError'
+import SubscriptionForm from 'molecules/SubscriptionForm'
+import SubscriptionSuccess from 'molecules/SubscriptionSuccess'
 import Head from 'next/head'
 
 import { useState } from 'react'
 import Header from './Header'
 import LayoutProps from './Layout.props'
-import SubscriptionForm from './SubscriptionForm'
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
@@ -12,8 +15,26 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
 }) => {
   const [openModal, setOpenModal] = useState(false)
 
-  const onSignIn = () => setOpenModal(true)
-  const onSignUp = () => setOpenModal(true)
+  const {
+    isLoading: isSubscribing,
+    isSuccess: isSubscribeSuccess,
+    error: subscribeError,
+    mutate: onSubscribe,
+    reset,
+  } = useSubscribe()
+
+  const onOpenModal = () => {
+    reset()
+    setOpenModal(true)
+  }
+
+  const onCloseModal = () => {
+    reset()
+    setOpenModal(false)
+  }
+
+  const onSignIn = () => onOpenModal()
+  const onSignUp = () => onOpenModal()
 
   return (
     <div className="bg-white">
@@ -25,8 +46,17 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         <main className="mt-[72px] md:mt-[74px]">{children}</main>
         {renderFooter && renderFooter()}
       </div>
-      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-        <SubscriptionForm />
+      <Modal isOpen={openModal} onClose={onCloseModal}>
+        {isSubscribeSuccess ? (
+          <SubscriptionSuccess onClose={onCloseModal} />
+        ) : subscribeError ? (
+          <SubscriptionError error={(subscribeError as any)?.response?.data} />
+        ) : (
+          <SubscriptionForm
+            isLoading={isSubscribing}
+            onSubscribe={onSubscribe}
+          />
+        )}
       </Modal>
     </div>
   )
