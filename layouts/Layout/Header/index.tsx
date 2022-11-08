@@ -60,7 +60,6 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
               {navigation.map((item) => (
                 <Link href={item.href} key={item.name}>
                   <a
-                    target={item?.target}
                     className={classNames(
                       'text-base font-medium ',
                       item?.isCurrent && item?.isCurrent(router.pathname)

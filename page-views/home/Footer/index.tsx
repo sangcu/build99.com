@@ -18,6 +18,7 @@ const pageGroups = [
       {
         name: 'About Us',
         url: '#',
+        target: undefined,
       },
     ],
   },
@@ -27,10 +28,12 @@ const pageGroups = [
       {
         name: 'Docs',
         url: '/docs',
+        target: undefined,
       },
       {
         name: 'Blog',
         url: '#',
+        target: undefined,
       },
     ],
   },
