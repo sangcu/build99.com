@@ -39,7 +39,7 @@ const Architecture: React.FC = () => {
         <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900">
           {t('Cloud Native approach. No vendor locked-in')}
         </h2>
-        <p className="mt-2 text-gray-500 text-xl font-medium">
+        <p className="mt-2 text-gray-500 text-xl font-medium md:px-8 lg:px-60">
           {t(
             'yLambda automatically installs tools on your Kubernetes cluster and provide a harmony interface for developers to build, deploy and observability.',
           )}

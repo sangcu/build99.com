@@ -9,7 +9,6 @@ import XMarkIcon from 'public/icons/x-mark.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-import { CONTACT_PAGE_URL } from 'page-views/constants'
 
 const navigation = [
   {
@@ -20,11 +19,6 @@ const navigation = [
   { name: 'Blog', href: '#' },
   { name: 'Partners', href: '#' },
   { name: 'About', href: '#' },
-  {
-    name: 'Contact',
-    href: CONTACT_PAGE_URL,
-    target: '_blank',
-  },
 ]
 
 interface HeaderProps {

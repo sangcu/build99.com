@@ -1,5 +1,9 @@
 import { Modal } from 'components'
-import { CONTACT_PAGE_URL } from 'page-views/constants'
+import {
+  CONTACT_PAGE_URL,
+  GITHUB_PAGE_URL,
+  LINKED_IN_PAGE_URL,
+} from 'page-views/constants'
 import useSubscribe from 'hooks/useSubscribe'
 import SubscriptionError from 'molecules/SubscriptionError'
 import SubscriptionForm from 'molecules/SubscriptionForm'
@@ -13,10 +17,6 @@ const pageGroups = [
     pageList: [
       {
         name: 'About Us',
-        url: '#',
-      },
-      {
-        name: 'Partners',
         url: '#',
       },
     ],
@@ -39,11 +39,13 @@ const pageGroups = [
     pageList: [
       {
         name: 'LinkedIn',
-        url: '#',
+        url: LINKED_IN_PAGE_URL,
+        target: '_blank',
       },
       {
         name: 'Github',
-        url: '#',
+        url: GITHUB_PAGE_URL,
+        target: '_blank',
       },
       {
         name: 'Contact Us',

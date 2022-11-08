@@ -3,12 +3,12 @@ import { useTranslation } from 'next-i18next'
 const HowItWork: React.FC = () => {
   const { t } = useTranslation()
 
-  const steps = [    
+  const steps = [
     {
       name: '01',
       title: (
         <>
-          <p>{t('Create your app')}</p>          
+          <p>{t('Create your app')}</p>
         </>
       ),
       codes: [
@@ -17,7 +17,7 @@ const HowItWork: React.FC = () => {
         'ci/cd templates.......created',
         'ylambda.toml..........created',
         '> git commit -m "create sample hello-app"',
-        '> git push'
+        '> git push',
       ],
     },
     {
@@ -63,15 +63,10 @@ const HowItWork: React.FC = () => {
                   {step.title}
                 </h3>
               </div>
-              <div className="mt-2 lg:mt-4 lg:mt-0 lg:col-span-3 text-white flex flex-col justify-center">
-                {step.codes.map((code) => (
-                  <code
-                    key={code}
-                    className="text-base md:text-lg lg:text-xl break-words"
-                  >
-                    {code}
-                  </code>
-                ))}
+              <div className="py-4 lg:py-6 lg:col-span-3 text-white flex flex-col justify-center prose min-w-full">
+                <pre>
+                  <code className="language-bash">{step.codes.join('\n')}</code>
+                </pre>
               </div>
             </div>
           ))}
