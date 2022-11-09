@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="w-full bg-gray-50" aria-labelledby="footer-heading">
+      <footer id="footer" className="w-full bg-gray-50">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>

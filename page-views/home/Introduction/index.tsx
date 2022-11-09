@@ -5,7 +5,10 @@ const Introduction: React.FC = () => {
   const { t } = useTranslation()
 
   return (
-    <div className="bg-gray-900 py-8 md:py-10 lg:py-12 lg:overflow-hidden">
+    <div
+      id="introduction"
+      className="bg-gray-900 py-8 md:py-10 lg:py-12 lg:overflow-hidden"
+    >
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="px-4 sm:px-6 lg:px-0">
           <h1 className="flex space-y-1 lg:space-y-2 lg:space-y-0 lg:flex-row flex-col">
@@ -26,7 +29,9 @@ const Introduction: React.FC = () => {
             </span>
           </h1>
           <p className="mt-2 lg:mt-4 text-gray-300 text-md md:text-lg lg:text-xl font-medium">
-            {t('yLambda simplify the “Ops” workflow for developers to focus on “Dev”')}
+            {t(
+              'yLambda simplify the “Ops” workflow for developers to focus on “Dev”',
+            )}
           </p>
 
           <div className="mt-4 md:mt-6 lg:mt-8 unset-img">

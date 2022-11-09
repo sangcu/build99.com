@@ -1,3 +1,4 @@
+import { event } from 'lib/client/GA'
 import { Modal } from 'components'
 import useSubscribe from 'hooks/useSubscribe'
 import SubscriptionError from 'molecules/SubscriptionError'
@@ -8,6 +9,7 @@ import Head from 'next/head'
 import { useState } from 'react'
 import Header from './Header'
 import LayoutProps from './Layout.props'
+import { GA } from 'page-views/constants'
 
 const Layout: React.FunctionComponent<LayoutProps> = ({
   children,
@@ -29,12 +31,29 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   }
 
   const onCloseModal = () => {
+    event(GA.ACTIONS.Subscription_Modal_Close, {
+      category: GA.CATEGORIES.Subscription,
+      label: GA.LABELS.Subscription_Modal,
+    })
     reset()
     setOpenModal(false)
   }
 
-  const onSignIn = () => onOpenModal()
-  const onSignUp = () => onOpenModal()
+  const onSignIn = () => {
+    event(GA.ACTIONS.Sign_In_Click, {
+      category: GA.CATEGORIES.Subscription,
+      label: GA.LABELS.Sign_In_Button,
+    })
+    onOpenModal()
+  }
+  const onSignUp = () => {
+    event(GA.ACTIONS.Sign_In_Click, {
+      category: GA.CATEGORIES.Subscription,
+      label: GA.LABELS.Sign_In_Button,
+    })
+
+    onOpenModal()
+  }
 
   return (
     <div className="bg-white">
@@ -54,6 +73,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
         ) : (
           <SubscriptionForm
             isLoading={isSubscribing}
+            elementId="subscription-form-modal"
             onSubscribe={onSubscribe}
           />
         )}

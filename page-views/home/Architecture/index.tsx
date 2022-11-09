@@ -34,7 +34,10 @@ const Architecture: React.FC = () => {
   ]
 
   return (
-    <div className="relative bg-white pt-16 md:pt-18 lg:pt-24 py-12 md:py-16 lg:py-24">
+    <div
+      id="architecture-overview"
+      className="relative bg-white pt-16 md:pt-18 lg:pt-24 py-12 md:py-16 lg:py-24"
+    >
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900">
           {t('Cloud Native approach. No vendor locked-in')}

@@ -44,7 +44,10 @@ const HowItWork: React.FC = () => {
   ]
 
   return (
-    <div className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-200 lg:relative lg:z-10 lg:pb-0">
+    <div
+      id="how-it-work"
+      className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-200 lg:relative lg:z-10 lg:pb-0"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8 py-12 md:py-18 lg:py-24">
         <h2 className="text-white font-bold text-3xl">
           {t('Once yLambda installed, developer getting started in minutes.')}

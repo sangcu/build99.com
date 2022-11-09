@@ -19,7 +19,10 @@ const AppDetail: React.FC = () => {
   ]
 
   return (
-    <div className="relative bg-gray-50 pt-16 md:pt-18 lg:pt-24 sm:pt-24">
+    <div
+      id="workflow-overview"
+      className="relative bg-gray-50 pt-16 md:pt-18 lg:pt-24 sm:pt-24"
+    >
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
           {t('A workflow for')}

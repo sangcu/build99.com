@@ -1,13 +1,17 @@
+import { event } from 'lib/client/GA'
 import classNames from 'classnames'
 import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
+import { GA } from 'page-views/constants'
 
 interface SubscriptionFormProps {
+  elementId?: string
   isLoading: boolean
   onSubscribe: (email: string) => void
 }
 
 const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
+  elementId,
   isLoading,
   onSubscribe,
 }) => {
@@ -22,7 +26,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   const onSubmit = (data: any) => onSubscribe(data?.email)
 
   return (
-    <div>
+    <div id={elementId}>
       <div className="text-gray-900 font-semibold text-2xl">
         {t('Get notified when we’re launching.')}
       </div>
@@ -46,6 +50,18 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
                   message: 'please input valid email',
                 },
               })}
+              onFocus={() =>
+                event(GA.ACTIONS.Email_Input_Focused, {
+                  category: GA.CATEGORIES.Subscription,
+                  label: GA.LABELS.Email_Input,
+                })
+              }
+              onChange={() =>
+                event(GA.ACTIONS.Email_Input_Changed, {
+                  category: GA.CATEGORIES.Subscription,
+                  label: GA.LABELS.Email_Input,
+                })
+              }
               className={classNames(
                 'px-3 py-3 shadow-sm block w-full sm:text-sm rounded-md border placeholder-gray-400',
                 {
@@ -67,6 +83,12 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         <button
           type="submit"
           className="!w-[128px] !h-12 flex-none inline-flex justify-center items-center  rounded-md border border-transparent bg-orange-500 px-6 py-2 text-base font-medium text-white hover:bg-orange-600"
+          onClick={() =>
+            event(GA.ACTIONS.Subscribe_Button_Click, {
+              category: GA.CATEGORIES.Subscription,
+              label: GA.LABELS.Subscribe_Button,
+            })
+          }
         >
           {isLoading ? (
             <div className="py-0.5">

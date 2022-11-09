@@ -53,10 +53,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           trackPageViews
           gaMeasurementId={process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID}
         />
-        <GoogleAnalytics
-          trackPageViews
-          gaMeasurementId={process.env.NEXT_PUBLIC_GA3_TRACKING_ID}
-        />
       </Hydrate>
     </QueryClientProvider>
   )
