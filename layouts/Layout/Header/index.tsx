@@ -16,8 +16,11 @@ const navigation = [
     href: '/docs',
     isCurrent: (pathName: string) => pathName?.includes('docs'),
   },
-  { name: 'Blog', href: '#' },
-  { name: 'Partners', href: '#' },
+  {
+    name: 'Blog',
+    href: '/blog',
+    isCurrent: (pathName: string) => pathName?.includes('blog'),
+  },
   { name: 'About', href: '#' },
 ]
 

@@ -32,7 +32,7 @@ const pageGroups = [
       },
       {
         name: 'Blog',
-        url: '#',
+        url: '/blog',
         target: undefined,
       },
     ],

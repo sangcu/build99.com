@@ -6,8 +6,9 @@ import { ReactElement, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import { GoogleAnalytics } from 'nextjs-google-analytics'
 import { Hydrate, QueryClientProvider, QueryClient } from 'react-query'
-
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import Layout from '../layouts/Layout'
+import dayjs from 'dayjs'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement<any, any> | null
@@ -16,6 +17,8 @@ export type NextPageWithLayout = NextPage & {
 export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
+
+dayjs.extend(localizedFormat)
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const { t } = useTranslation()
