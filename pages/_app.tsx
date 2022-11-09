@@ -9,6 +9,7 @@ import { Hydrate, QueryClientProvider, QueryClient } from 'react-query'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import Layout from '../layouts/Layout'
 import dayjs from 'dayjs'
+import Script from 'next/script'
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactElement<any, any> | null
@@ -47,6 +48,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={(pageProps as any)?.dehydratedState}>
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-TF9QTDZ');
+      `}
+        </Script>
         <NextSeo title={t(title)} description={t(description)} />
         {getLayout(<Component {...pageProps} />)}
         <GoogleAnalytics
