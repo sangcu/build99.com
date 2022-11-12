@@ -30,7 +30,7 @@ const Introduction: React.FC = () => {
           </h1>
           <p className="mt-2 lg:mt-4 text-gray-300 text-md md:text-lg lg:text-xl font-medium">
             {t(
-              'yLambda simplify the “Ops” workflow for developers to focus on “Dev”',
+              'yLambda simplifies the “Ops” workflow for developers to focus on “Dev”',
             )}
           </p>
 
