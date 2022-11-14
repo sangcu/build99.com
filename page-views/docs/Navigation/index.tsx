@@ -15,23 +15,20 @@ const NavItem: React.FC<INavItem> = ({
   return (
     <li className={classNames('pt-1')}>
       {slug ? (
-        <Link href={`/docs/${slug}`}>
-          <a
-            onClick={() => onItemClick && onItemClick(name)}
-            className={classNames(
-              level === 0 && 'font-semibold',
-              current
-                ? 'text-orange-600'
-                : 'text-gray-500 hover:text-orange-600',
-              'py-1 text-sm cursor-pointer',
-              level !== 0 && 'pl-6',
-              level !== 0 &&
-                'hover:border-l-2 hover:-ml-0.5 hover:border-orange-600',
-            )}
-          >
-            {name}
-          </a>
-        </Link>
+        <div
+          className={classNames(
+            level === 0 && 'font-semibold',
+            current ? 'text-orange-600' : 'text-gray-500 hover:text-orange-600',
+            'py-1 text-sm cursor-pointer',
+            level !== 0 && 'pl-6',
+            level !== 0 &&
+              'hover:border-l-2 hover:-ml-0.5 hover:border-orange-600',
+          )}
+        >
+          <Link href={`/docs/${slug}`}>
+            <a onClick={() => onItemClick && onItemClick(name)}>{name}</a>
+          </Link>
+        </div>
       ) : (
         <div
           onClick={() => onItemClick && onItemClick(name)}
