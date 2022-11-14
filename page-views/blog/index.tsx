@@ -26,7 +26,7 @@ const BlogList: NextPage<{
           </div>
           {!allPostsData || allPostsData.length === 0 ? (
             <div className="mt-6 pt-10 text-center text-gray-500">
-              {t('There is no posts now. we will upddate soon!')}
+              {t('There is no posts now. we will update soon!!!')}
             </div>
           ) : (
             <div className="mt-6 grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
