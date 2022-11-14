@@ -81,7 +81,7 @@ const AppDetail: React.FC = () => {
             'Once connected with Kubernetes, from ideas to production only take minutes.',
           )}
         </p>
-        <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-24 space-y-8 md:space-y-12 lg:space-y-0">
+        <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-6 space-y-8 md:space-y-12 lg:space-y-0">
           <div className="flex items-center">
             <ul className="list-none text-left text-lg md:text-xl lg:text-2xl md:text-2xl space-y-4 lg:space-y-8 font-medium text-gray-900">
               {features.map((feature) => (
