@@ -28,7 +28,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   return (
     <div id={elementId}>
       <div className="text-gray-900 font-semibold text-2xl">
-        {t('Get notified when we’re launching.')}
+        {t('Get notified when we’re public launch.')}
       </div>
       <p className="text-base text-gray-500">
         {t('Be the first to have experience on the app.')}
