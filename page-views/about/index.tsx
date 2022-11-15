@@ -49,7 +49,7 @@ const About: NextPageWithLayout = () => {
             </div>
           </div>
           <div className="border-t border-gray-200 pt-16">
-            <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto max-w-xl text-center">
               <div className="flex items-center justify-center">
                 <span className="flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-r from-orange-400 to-orange-600">
                   <SparklesIcon
