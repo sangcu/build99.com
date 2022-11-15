@@ -21,7 +21,7 @@ const BlogList: NextPage<{
               {t('Recent posts')}
             </h2>
             <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-              {t('All the latest yLamda news, straight from the team.')}
+              {t('All the latest yLambda news, straight from the team.')}
             </p>
           </div>
           {!allPostsData || allPostsData.length === 0 ? (
