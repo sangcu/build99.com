@@ -58,12 +58,12 @@ const About: NextPageWithLayout = () => {
                   />
                 </span>
               </div>
-              <p className="mt-4 text-xl text-gray-600">
+              <p className="mt-4 text-lg text-gray-700">
                 {t(
                   "We are software engineers who focus on iterating to build high-quality software and believe that simple products take significant time and effort, and it's a continuous discovery process.",
                 )}
               </p>
-              <p className="mt-4 text-xl text-gray-600">
+              <p className="mt-4 text-lg text-gray-700">
                 {t(
                   "yLambda is one of our products to simplify Ops. It's like Vercel but for cross-platform based on Kubernetes.",
                 )}
