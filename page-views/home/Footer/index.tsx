@@ -17,7 +17,7 @@ const pageGroups = [
     pageList: [
       {
         name: 'About Us',
-        url: '#',
+        url: '/about',
         target: undefined,
       },
     ],
