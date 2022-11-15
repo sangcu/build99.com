@@ -3,7 +3,7 @@ import { NextPageWithLayout } from 'pages/_app'
 import { ReactElement } from 'react'
 import Link from 'next/link'
 
-import { CONTACT_PAGE_URL } from 'page-views/constants'\
+import { CONTACT_PAGE_URL } from 'page-views/constants'
 
 import Layout from 'layouts/Layout'
 import Footer from 'page-views/home/Footer'
