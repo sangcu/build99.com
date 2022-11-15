@@ -1,6 +1,6 @@
 ---
-title: "Home page"
-description: "This is home page"
+title: "Developer Guides, Manuals"
+description: "application guide, developer manual, developer references"
 ---
 
 **Home Page 1.1**

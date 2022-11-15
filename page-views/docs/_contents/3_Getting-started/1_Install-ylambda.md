@@ -1,6 +1,6 @@
 ---
-title: "Install yLambda stack"
-description: "Install ylambda stack into your kubernetes clusters"
+title: "Install yLambda"
+description: "Install ylambda, setup kubernetes cluster, embracing devops"
 ---
 
 # Pre-condition

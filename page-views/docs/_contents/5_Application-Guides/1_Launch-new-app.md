@@ -1,6 +1,6 @@
 ---
-title: "Launch a new application"
-description: "Guide to using ylambda command line to deploy a new application"
+title: "Launch a application"
+description: "Create, build and deploy app"
 ---
 
 # Create an application

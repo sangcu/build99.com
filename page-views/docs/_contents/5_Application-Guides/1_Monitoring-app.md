@@ -1,13 +1,13 @@
 ---
-title: "Monitoring application with yLambda"
-description: "Helping developer monitoring issues and tracing logs for application"
+title: "Monitor Application"
+description: "Developer monitoring application and self-service"
 ---
 
 # Monitoring
 
 With ylambda CLI installed, developer can quickly monitor application by using command:
 
-```bash
+```console
 $ ylambda app simple-api health --time 2h
 rps : 100
 errors : 4
@@ -18,13 +18,13 @@ p99 : 123ms
 
 Developer could see the details of errors by using the command
 
-```bash
+```console
 $ ylambda * --kind error
 ```
 
 the `*` meaning that it will use the last configure from your terminal, in this case, app is `simple-api`, action is `health` and time is `2h`, with the errors in suffix of the command, it will automatically sent the command `ylambda app simple-api health --time 2h --kind error`. The logs in response to the command:
 
-```bash
+```console
 $ ylambda * --kind error
 command: ylambda app simple-api health --time 2h --kind error
 [05/11/22 21:11:43]

@@ -26,10 +26,10 @@ Build...............done
 Create manifest.....done
 Deploying...........done
 Health..............200 OK
-Deployed: https://transferx.dev.ylambda.com/api/0.1.feat-2b486ace
+Deployed: https://transferx.development.ylambda.com/api/0.1.feat-2b486ace
 ```
 
-There are ground rules need to understand when deploy an feature branch into development environment:
+There are ground rules when deploy an feature branch into development environment:
 
 * Using the same infrastructure with main branch in the `development`environment. That mean, example, if you connecting to a message broker and consumed from the queue, then the other deployment instance could not received that messages anymore
 * Deploy an branch is not a main branch only short-live and either will terminated automatically in 24 hours or when the branch has been deleted (merged into main or manual deleted)
