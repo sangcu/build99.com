@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
         <div className="mx-auto max-w-7xl px-4 pt-12 sm:max-w-7xl sm:px-6 lg:px-8 lg:pt-16">
           <div className="lg:grid lg:grid-cols-2 lg:gap-24">
             <div className="">
-              <div className="md:grid md:grid-cols-3">
+              <div className="md:grid md:grid-cols-3 space-y-6 md:space-y-0">
                 {pageGroups.map((group) => (
                   <div key={group.name} className="space-y-2">
                     <h3 className="text-base font-semibold text-gray-900 uppercase">

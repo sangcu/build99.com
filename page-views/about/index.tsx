@@ -37,7 +37,7 @@ const About: NextPageWithLayout = () => {
         <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="pb-16 xl:flex xl:items-center xl:justify-between">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl space-x-2">
+              <h1 className="text-4xl flex flex-col lg:flex-row font-bold tracking-tight sm:text-5xl lg:space-x-2 space-y-1 lg:space-y-0">
                 <span className="text-gray-900">{t('Simplicity in')}</span>
                 <span className="text-orange-600">
                   {t('Software Development.')}
