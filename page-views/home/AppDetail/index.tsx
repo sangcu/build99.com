@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next'
+import Image from 'next/image'
 import ChevronDoubleRightIcon from 'public/icons/chevron-double-right.svg'
 import CheckIcon from 'public/icons/check.svg'
 
@@ -80,9 +81,9 @@ const AppDetail: React.FC = () => {
             'Once connected with Kubernetes, from ideas to production only take minutes.',
           )}
         </p>
-        <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-8 space-y-4 lg:space-y-0">
+        <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-6 space-y-8 md:space-y-12 lg:space-y-0">
           <div className="flex items-center">
-            <ul className="list-none text-left text-2xl md:text-3xl space-y-4 lg:space-y-8 font-medium text-gray-900">
+            <ul className="list-none text-left text-lg md:text-xl lg:text-2xl md:text-2xl space-y-4 lg:space-y-8 font-medium text-gray-900">
               {features.map((feature) => (
                 <li className="flex items-center space-x-2" key={feature}>
                   <div>
@@ -94,7 +95,15 @@ const AppDetail: React.FC = () => {
             </ul>
           </div>
           <div className="lg:col-span-2">
-            <div className="w-full bg-gray-300 h-[550px] rounded-tl-3xl rounded-tr-3xl lg:rounded-tr-none shadow-2xl"></div>
+            <div className="unset-img shadow-2xl">
+              <Image
+                alt="Application Demo"
+                src="/images/application-demo.png"
+                layout="fill"
+                className="responsive-img"
+                priority
+              />
+            </div>
           </div>
         </div>
       </div>

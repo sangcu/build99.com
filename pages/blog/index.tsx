@@ -12,8 +12,8 @@ export const getStaticProps: GetStaticProps = async () => {
       dehydratedState: dehydrate(queryClient),
       allPostsData,
       title:
-        'yLamda blog posts - all the latest yLamda news, straight from the team.',
-      description: 'All the latest yLamda news, straight from the team.',
+        'yLambda blog posts - all the latest yLambda news, straight from the team.',
+      description: 'All the latest yLambda news, straight from the team.',
     },
   }
 }

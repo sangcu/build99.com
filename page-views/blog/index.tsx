@@ -21,12 +21,12 @@ const BlogList: NextPage<{
               {t('Recent posts')}
             </h2>
             <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-              {t('All the latest yLamda news, straight from the team.')}
+              {t('All the latest yLambda news, straight from the team.')}
             </p>
           </div>
           {!allPostsData || allPostsData.length === 0 ? (
             <div className="mt-6 pt-10 text-center text-gray-500">
-              {t('There is no post now. we will upddate soon')}
+              {t('There is no posts now. we will update soon!!!')}
             </div>
           ) : (
             <div className="mt-6 grid gap-16 pt-10 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">

@@ -9,11 +9,12 @@ import XMarkIcon from 'public/icons/x-mark.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
+import { DEFAULT_SLUG as DEFAULT_DOCS_SLUG } from 'page-views/docs/constants'
 
 const navigation = [
   {
     name: 'Docs',
-    href: '/docs',
+    href: `/docs/${DEFAULT_DOCS_SLUG}`,
     isCurrent: (pathName: string) => pathName?.includes('docs'),
   },
   {
