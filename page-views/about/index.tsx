@@ -98,8 +98,11 @@ const About: NextPageWithLayout = () => {
             <span className="block text-orange-900">
               {t('We’d love to hear from you!')}
             </span>
-            <span className="block text-white">
+            <span className="block text-white hidden lg:block">
               {t('Send us a message using the link opposite')}
+            </span>
+            <span className="block text-white block lg:hidden">
+              {t('Send us a message using the link below')}
             </span>
           </h2>
           <div className="flex lg:mt-0 lg:flex-shrink-0">
