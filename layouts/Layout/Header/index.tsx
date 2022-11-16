@@ -111,56 +111,59 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
           focus
           className="absolute inset-x-0 top-0 origin-top transform p-2 transition md:hidden z-10"
         >
-          <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-            <div className="flex items-center justify-between px-5 pt-4">
-              <Link href="/">
-                <LogoIcon />
-              </Link>
-              <div className="-mr-2">
-                <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600">
-                  <span className="sr-only">Close menu</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </Popover.Button>
+          {({ close }) => (
+            <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+              <div className="flex items-center justify-between px-5 pt-4">
+                <Link href="/">
+                  <LogoIcon />
+                </Link>
+                <div className="-mr-2">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600">
+                    <span className="sr-only">Close menu</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </Popover.Button>
+                </div>
               </div>
-            </div>
-            <div className="pt-5 pb-6">
-              <div className="space-y-1 px-2">
-                {navigation.map((item) => (
-                  <Link href={item.href} key={item.name}>
-                    <a
-                      className={classNames(
-                        'block rounded-md px-3 py-2 text-base ',
-                        item?.isCurrent && item?.isCurrent(router.pathname)
-                          ? 'text-orange-600 hover:bg-gray-50 font-semibold'
-                          : 'font-medium text-gray-900 hover:bg-gray-50',
-                      )}
-                    >
-                      {item.name}
-                    </a>
-                  </Link>
-                ))}
-              </div>
-              <div className="mt-6 px-5">
-                <button
-                  onClick={onSignIn}
-                  className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-amber-600 hover:to-orange-700"
-                >
-                  {t('Sign Up')}
-                </button>
-              </div>
-              <div className="mt-6 px-5">
-                <p className="text-center text-base font-medium text-gray-500">
-                  {t('Already have account?')}{' '}
+              <div className="pt-5 pb-6">
+                <div className="space-y-1 px-2">
+                  {navigation.map((item) => (
+                    <Link href={item.href} key={item.name}>
+                      <a
+                        onClick={() => close()}
+                        className={classNames(
+                          'block rounded-md px-3 py-2 text-base ',
+                          item?.isCurrent && item?.isCurrent(router.pathname)
+                            ? 'text-orange-600 hover:bg-gray-50 font-semibold'
+                            : 'font-medium text-gray-900 hover:bg-gray-50',
+                        )}
+                      >
+                        {item.name}
+                      </a>
+                    </Link>
+                  ))}
+                </div>
+                <div className="mt-6 px-5">
                   <button
-                    onClick={onSignUp}
-                    className="text-gray-900 hover:underline"
+                    onClick={onSignIn}
+                    className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-amber-600 hover:to-orange-700"
                   >
-                    {t('Login')}
+                    {t('Sign Up')}
                   </button>
-                </p>
+                </div>
+                <div className="mt-6 px-5">
+                  <p className="text-center text-base font-medium text-gray-500">
+                    {t('Already have account?')}{' '}
+                    <button
+                      onClick={onSignUp}
+                      className="text-gray-900 hover:underline"
+                    >
+                      {t('Login')}
+                    </button>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </Popover.Panel>
       </Transition>
     </Popover>

@@ -38,7 +38,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
       </p>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mt-4 flex justify-between space-x-4"
+        className="mt-4 md:flex md:justify-between md:space-x-4 space-y-2 md:space-y-0 text-right md:text-left"
       >
         <div className="w-full">
           <div>
