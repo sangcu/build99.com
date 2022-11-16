@@ -5,7 +5,7 @@ import HowItWork from './HowItWork'
 import { NextPageWithLayout } from 'pages/_app'
 import Layout from 'layouts/Layout'
 import { ReactElement } from 'react'
-import Footer from './Footer'
+import Footer from 'molecules/Footer'
 
 const Home: NextPageWithLayout = () => {
   return (

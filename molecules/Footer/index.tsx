@@ -10,6 +10,7 @@ import SubscriptionForm from 'molecules/SubscriptionForm'
 import SubscriptionSuccess from 'molecules/SubscriptionSuccess'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { DEFAULT_SLUG as DEFAULT_DOCS_SLUG } from 'page-views/docs/constants'
 
 const pageGroups = [
   {
@@ -27,7 +28,7 @@ const pageGroups = [
     pageList: [
       {
         name: 'Docs',
-        url: '/docs',
+        url: `/docs/${DEFAULT_DOCS_SLUG}`,
         target: undefined,
       },
       {

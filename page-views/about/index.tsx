@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { CONTACT_PAGE_URL } from 'page-views/constants'
 
 import Layout from 'layouts/Layout'
-import Footer from 'page-views/home/Footer'
+import Footer from 'molecules/Footer'
 
 import CheckIcon from 'public/icons/check.svg'
 import ArrowTopRightOnSquareIcon from 'public/icons/arrow-top-right-on-square.svg'
@@ -99,7 +99,7 @@ const About: NextPageWithLayout = () => {
               {t('We’d love to hear from you!')}
             </span>
             <span className="block text-white">
-              {t('Send us a message using the form opposite, or email us')}
+              {t('Send us a message using the link opposite')}
             </span>
           </h2>
           <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
