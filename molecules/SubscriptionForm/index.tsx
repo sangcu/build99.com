@@ -82,7 +82,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         </div>
         <button
           type="submit"
-          className="!w-[128px] !h-12 flex-none inline-flex justify-center items-center  rounded-md border border-transparent bg-orange-500 px-6 py-2 text-base font-medium text-white hover:bg-orange-600"
+          className="!w-[128px] !h-12 flex-none inline-flex justify-center items-center rounded-md border border-transparent bg-orange-600 px-6 py-2 text-base font-medium text-white hover:bg-orange-700"
           onClick={() =>
             event(GA.ACTIONS.Subscribe_Button_Click, {
               category: GA.CATEGORIES.Subscription,

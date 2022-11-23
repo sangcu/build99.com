@@ -90,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
             </button>
             <button
               onClick={onSignUp}
-              className="inline-flex items-center rounded-md border border-transparent bg-orange-500 px-4 py-2 text-base font-medium text-white hover:bg-orange-600"
+              className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white hover:bg-orange-700"
             >
               {t('Sign Up')}
             </button>
