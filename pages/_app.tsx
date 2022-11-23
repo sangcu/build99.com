@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const {
     title = 'yLambda | Opsless - Help developers focus on technical excellence',
-    description = 'Simplify “Ops” workflow to help developer focus on design code.',
+    description = 'yLambda simplifies the “Ops” workflow so that developers only focus on “Dev”',
   } = pageProps as any
 
   return (
