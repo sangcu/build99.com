@@ -6,9 +6,15 @@ import getNavigations from 'page-views/docs/_utils/getNavigations'
 import { dehydrate, QueryClient } from 'react-query'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllDocSlugs()
+  const allSlugInfo = getAllDocSlugs()
   return {
-    paths,
+    paths: allSlugInfo.map((slug) => {
+      return {
+        params: {
+          slug: slug.slugName,
+        },
+      }
+    }),
     fallback: false,
   }
 }
