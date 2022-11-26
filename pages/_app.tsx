@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const {
     title = 'yLambda | Opsless - Help developers focus on technical excellence',
-    description = 'Simplify “Ops” workflow to help developer focus on design code.',
+    description = 'yLambda simplifies the “Ops” workflow so that developers only focus on “Dev”',
   } = pageProps as any
 
   return (
@@ -57,7 +57,29 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         })(window,document,'script','dataLayer','GTM-TF9QTDZ');
       `}
         </Script>
-        <NextSeo title={t(title)} description={t(description)} />
+        <NextSeo
+          title={t(title)}
+          description={t(description)}
+          openGraph={{
+            title: t(title),
+            description: t(description),
+            images: [
+              {
+                url: '/images/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'yLamda Image',
+                type: 'image/jpeg',
+              },
+            ],
+            site_name: 'yLambda',
+          }}
+          twitter={{
+            handle: '@handle',
+            site: '@site',
+            cardType: 'summary_large_image',
+          }}
+        />
         {getLayout(<Component {...pageProps} />)}
         <GoogleAnalytics
           trackPageViews

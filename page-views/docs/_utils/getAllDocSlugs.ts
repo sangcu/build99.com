@@ -1,15 +1,6 @@
 import { DOCUMENTS_DIRECTORY } from '../constants'
 import getSlugListInfo from './getSlugListInfo'
 
-const getAllDocSlugs = () => {
-  const allSlugInfo = getSlugListInfo(DOCUMENTS_DIRECTORY)
-  return allSlugInfo.map((slug) => {
-    return {
-      params: {
-        slug: slug.slugName,
-      },
-    }
-  })
-}
+const getAllDocSlugs = () => getSlugListInfo(DOCUMENTS_DIRECTORY)
 
 export default getAllDocSlugs
