@@ -30,7 +30,7 @@ Staging (current)
 All variable will be show in plain text except for secrets which will be also a environment variable but the value will be redacted.
 
 ```console
-$ ylambda var ls
+$ ylambda vars ls
 [Staging]
 REACT_APP_PORT=80
 REACT_APP_CLIENTID=cefbb0c2697344108ed190314fa6ddec
@@ -41,7 +41,7 @@ REACT_APP_CLIENTSECRET=<REDACTED>
 To add environment variable, use this command
 
 ```console
-$ ylambda env add FEATURES_AUTHS_ENABLE=false
+$ ylambda vars add FEATURES_AUTHS_ENABLE=false
 [Staging] FEATURES_AUTHS_ENABLE.......added
 ```
 
@@ -51,7 +51,7 @@ $ ylambda env add FEATURES_AUTHS_ENABLE=false
 To remove environment variable, use this command
 
 ```console
-$ ylambda env remove FEATURES_AUTHS_ENABLE=false
+$ ylambda vars remove FEATURES_AUTHS_ENABLE=false
 [Staging] FEATURES_AUTHS_ENABLE.......removed
 ```
 
