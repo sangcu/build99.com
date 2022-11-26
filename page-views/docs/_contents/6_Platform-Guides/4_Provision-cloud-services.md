@@ -24,7 +24,8 @@ NATS
 Redis
 ```
 
-To enable PostgreSQL, just enable it
+To enable PostgreSQL  
+
 ```console
 $ ylambda services PostgreSQL enable
 [Development] PostgreSQL............enabled
