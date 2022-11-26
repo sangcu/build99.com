@@ -3,26 +3,32 @@ title: "Working with database"
 description: "Setup database and connect to database from application"
 ---
 
-This document assuming that database has been added into environment. If you want to add database into this environment please see detail at [Provision cloud services](provision-cloud-services)
+This document assumes that the database server has been added to the environment. If you want to add a database server to this environment please see the detail at [Provision](provision-cloud-services) cloud services](provision-cloud-services)
 
-# Using database in application
-
-Once database has been added the environment, you can working with database by using command
+# Create a database
+Once the database server has been added to the environment, you can create a database
 
 ```console
-$ ylambda databases
+$ ylambda databases PostgreSQL create transfer_v1
+[Staging] Database(transfer_v2)...............created
+```
+In this example, the database server is `PostgreSQL` and the database name to create is `transfer_v2`. To view a list of databases available, use this command  
+
+```console
+$ ylambda databases ls
 [Staging]
 [1] PostgreSQL - transfer_v1
 [2] PostgreSQL - transfer_v2
 [3] MSSQL - dynamic_crm_dev
 [4] MySQL - analytic_db
 ```
+# Using databases in application
 
-In common scenarios, you want to use credential from your application. 
+In common scenarios, you want to use credentials from your application. 
 
 Ex: using database username and password to connect to database from application.
 
-To do that, first we need to see all the configuration availaible for a database
+To do that, first, we need to see all the configurations available for a database
 
 ```console
 $ ylambda databases transfer_v1
@@ -35,7 +41,7 @@ password
 
 In this example, There are variables: `hostname`, `dbname`, `username`, `password`.
 
-If you want to use it in your application, example: `hostname`, then use this command
+If you want to use it in your application, for example: `hostname``, then use this command
 
 ```console
 $ ylambda vars ref databases.transfer_v1.hostname DB_HOST
@@ -43,7 +49,7 @@ $ ylambda vars ref databases.transfer_v1.hostname DB_HOST
 ```
 
 # Download a backup of the database
-There is common use case where developer want to download a backup of database in a particular environment so that they can replicate in his local environment. yLambda support this feature by using command
+There is a common use case where the developer want to download a backup of the database in a particular environment so that they can replicate it in his local environment. yLambda support this feature by using the command
 
 ```console
 $ ylambda databases transfer_v1 download
@@ -51,10 +57,11 @@ $ ylambda databases transfer_v1 download
 File name: transfer_v1(2).dump
 ```
 
-Above command will run the backup for the `transfer_v1` database and then download to local machine and save to `transfer_v1(2).dump`. You can restore this file
+The above command will run the backup for the `transfer_v1` database and then download and save it to file `transfer_v1(2).dump`. You can restore this file in the next step.
 
-# Restore database from a backup file
-It's possible to restore a database from a local file to a database on server. Given we want to restore file `transfer_latest.dump` to database `transfer_v1` in Development environment, just make sure you're in staging environment by using command
+# Restore a database from a backup file  
+
+It's possible to restore a database from a local file to a database on the server. Given we want to restore file `transfer_latest.dump` to database `transfer_v1` in the `Development` environment, just make sure you're in the staging environment by using the command
 
 ```console
 $ ylambda env ls
@@ -62,7 +69,7 @@ Development (current)
 Staging
 ```
 
-In this example, you're in Development environment. Let run the command to restore
+In this example, you're in `Development` environment. Let's run the command to restore
 
 ```console
 $ ylambda databases transfer_v1 restore transfer_latest.dump
