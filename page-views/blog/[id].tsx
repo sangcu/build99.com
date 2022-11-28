@@ -9,7 +9,7 @@ const PostDetail: NextPage<{
     <div className="bg-transparent pt-16 pb-20">
       <div className="relative overflow-hidden">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
-          <h1 className="text-3xl font-extrabold text-center">
+          <h1 className="text-6xl font-extrabold text-center">
             {postData.title}
           </h1>
           <div className="mt-2 text-gray-400 text-base font-light text-center">

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "doc": "yarn run next-remote-watch .\\page-views\\docs\\_contents",
+    "doc": "yarn run next-remote-watch .\\page-views",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
