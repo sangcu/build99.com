@@ -11,7 +11,6 @@ const BlogList: NextPage<{
   }[]
 }> = ({ allPostsData }) => {
   const { t } = useTranslation()
-
   return (
     <div className="bg-transparent pt-16 pb-20">
       <div className="relative overflow-hidden">
@@ -21,7 +20,9 @@ const BlogList: NextPage<{
               {t('Recent posts')}
             </h2>
             <p className="mt-3 text-xl text-gray-500 sm:mt-4">
-              {t('Latest updates on building in public, straight from the team.')}
+              {t(
+                'Latest updates on building in public, straight from the team.',
+              )}
             </p>
           </div>
           {!allPostsData || allPostsData.length === 0 ? (
