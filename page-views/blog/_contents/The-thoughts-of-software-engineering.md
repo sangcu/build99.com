@@ -7,10 +7,10 @@ introduction: "Why do we build yLambda? what is the first idea which forming our
 
 > Work in Progress
 
-# Our work history
+## Our work history
 
-# What is the future of software development look like?
+## What is the future of software development look like?
 
-# The term Platform Engineering
+## The term Platform Engineering
 
-# The initial thoughs
+## The initial thoughs
