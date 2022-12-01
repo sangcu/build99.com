@@ -12,25 +12,25 @@ const getSortedPostsData: () => {
   introduction: string
 }[] = () => {
   const fileNames = fs.readdirSync(POSTS_DIRECTORY)
-  const allPostsData = fileNames
-    .filter((fileName) => fileName !== 'sample.md')
-    .map((fileName) => {
-      const id = fileName.replace(/\.md$/, '')
+  const allPostsData = fileNames.map((fileName) => {
+    const id = fileName
+      .slice(fileName.indexOf('_') + 1, fileName.length)
+      .replace(/\.md$/, '')
 
-      const fullPath = path.join(POSTS_DIRECTORY, fileName)
-      const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const fullPath = path.join(POSTS_DIRECTORY, fileName)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-      const matterResult = matter(fileContents)
+    const matterResult = matter(fileContents)
 
-      return {
-        id,
-        ...(matterResult.data as {
-          date: string
-          title: string
-          introduction: string
-        }),
-      }
-    })
+    return {
+      id,
+      ...(matterResult.data as {
+        date: string
+        title: string
+        introduction: string
+      }),
+    }
+  })
   return orderBy(allPostsData, 'date', 'desc')
 }
 
