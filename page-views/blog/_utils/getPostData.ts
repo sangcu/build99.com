@@ -14,7 +14,10 @@ const getPostData: (id: string) => Promise<{
     compiledSource: string
   }
 }> = async (id: string) => {
-  const fullPath = path.join(POSTS_DIRECTORY, `${id}.md`)
+  const fileNames = fs.readdirSync(POSTS_DIRECTORY)
+  const fileName = fileNames.find((fileName) => fileName.includes(id))
+
+  const fullPath = path.join(POSTS_DIRECTORY, fileName as string)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const matterResult = matter(fileContents)

@@ -30,12 +30,16 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
       <div className="text-gray-900 font-semibold text-2xl">
         {t('Get notified when we’re public launch.')}
       </div>
-      <p className="text-base text-gray-500">
-        {t('Be the first to have experience on the app.')}
-      </p>
-      <p className="text-base text-gray-500">
-        {t('No spam and unsubscribe at any time.')}
-      </p>
+      <div className="mt-2">
+        <p className="text-base text-gray-500">
+          {t(
+            "We're are in private alpha development and will public our work soon.",
+          )}
+        </p>
+        <p className="text-base text-gray-500">
+          {t('No spam and unsubscribe at any time.')}
+        </p>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-4 md:flex md:justify-between md:space-x-4 space-y-2 md:space-y-0 text-right md:text-left"

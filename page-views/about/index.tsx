@@ -8,7 +8,6 @@ import { CONTACT_PAGE_URL } from 'page-views/constants'
 import Layout from 'layouts/Layout'
 import Footer from 'molecules/Footer'
 
-import CheckIcon from 'public/icons/check.svg'
 import ArrowTopRightOnSquareIcon from 'public/icons/arrow-top-right-on-square.svg'
 import SparklesIcon from 'public/icons/sparkles.svg'
 
@@ -71,24 +70,16 @@ const About: NextPageWithLayout = () => {
             </div>
           </div>
           <div className="pt-12">
-            <dl className="mt-12 space-y-10 sm:grid sm:grid-cols-1 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+            <ul className="mt-12 space-y-10 sm:grid sm:grid-cols-1 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
               {cultures.map((culture) => (
-                <div key={culture.name} className="relative">
-                  <dt>
-                    <CheckIcon
-                      className="absolute h-6 w-6 text-green-500"
-                      aria-hidden="true"
-                    />
-                    <p className="ml-9 text-lg font-medium leading-6 text-gray-900">
-                      {t(culture.name)}
-                    </p>
-                  </dt>
-                  <dd className="mt-2 ml-9 flex text-base text-gray-500 lg:py-0 lg:pb-4">
-                    {t(culture.description)}
-                  </dd>
-                </div>
+                <li
+                  key={culture.name}
+                  className="border-l-[6px] border-orange-600 pl-6 ml-9 flex text-base text-gray-500 lg:py-0 lg:py-4 h-full flex items-center"
+                >
+                  {t(culture.description)}
+                </li>
               ))}
-            </dl>
+            </ul>
           </div>
         </div>
       </div>
