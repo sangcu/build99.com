@@ -1,5 +1,5 @@
 ---
-title: "Small bet"
+title: "[CLI, Rust] - Working directory in Rust"
 description: "Get the current working dir in Rust"
 date: "2023-01-15"
 introduction: "Detect current working folder when run ylambda cli in any folder"
