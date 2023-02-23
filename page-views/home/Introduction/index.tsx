@@ -13,7 +13,7 @@ const Introduction: React.FC = () => {
         <div className="px-4 sm:px-6 lg:px-0">
           <h1 className="flex space-y-1 lg:space-y-2 lg:space-y-0 lg:flex-row flex-col">
             <span className="text-orange-500 font-bold text-4xl md:text-5xl lg:text-6xl">
-              {t('Leading is about helping other people.')}
+              {t('Leadership is about helping others.')}
             </span>
             <div className="hidden lg:block pb-2 self-end">
               <svg
@@ -25,7 +25,7 @@ const Introduction: React.FC = () => {
               </svg>
             </div>
             <span className="lg:ml-2 text-white font-bold text-3xl md:text-4xl lg:text-5xl lg:self-end pb-1">
-              {t('A toolkit for leader to growth there team.')}
+              {t('A toolkit for leader to build and growth their team.')}
             </span>
           </h1>
           <p className="mt-8 !h-12 flex-none inline-flex justify-center items-center rounded-md border border-transparent bg-orange-600 px-6 py-2 text-base font-medium text-white hover:bg-orange-700" >
