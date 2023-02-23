@@ -16,11 +16,6 @@ const navigation = [
     isCurrent: (pathName: string) => pathName?.includes('pricing'),
   },
   {
-    name: 'Privacy policy',
-    href: '/privacy',
-    isCurrent: (pathName: string) => pathName?.includes('privacy'),
-  },
-  {
     name: 'Blog',
     href: '/blog',
     isCurrent: (pathName: string) => pathName?.includes('blog'),

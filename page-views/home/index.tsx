@@ -1,7 +1,4 @@
 import Introduction from './Introduction'
-import AppDetail from './AppDetail'
-import Architecture from './Architecture'
-import HowItWork from './HowItWork'
 import { NextPageWithLayout } from 'pages/_app'
 import Layout from 'layouts/Layout'
 import { ReactElement } from 'react'

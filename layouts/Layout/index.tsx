@@ -4,7 +4,6 @@ import useSubscribe from 'hooks/useSubscribe'
 import SubscriptionError from 'molecules/SubscriptionError'
 import SubscriptionForm from 'molecules/SubscriptionForm'
 import SubscriptionSuccess from 'molecules/SubscriptionSuccess'
-import Head from 'next/head'
 
 import { useState } from 'react'
 import Header from './Header'

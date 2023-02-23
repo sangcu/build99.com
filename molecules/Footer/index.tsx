@@ -21,6 +21,11 @@ const pageGroups = [
         url: '/about',
         target: undefined,
       },
+      {
+        name: 'Privacy policy',
+        url: '/pricacy-policy',
+        target: undefined,
+      },
     ],
   },
   {

@@ -2,12 +2,18 @@ import { CheckIcon } from '@heroicons/react/20/solid'
 
 const tiers = [
   {
-    name: 'Freelancer',
+    name: 'Individual Leader',
     id: 'tier-freelancer',
     href: '#',
-    priceMonthly: '$0',
+    priceMonthly: 'Free',
     description: 'The essentials to help individual grow their small team.',
-    features: ['1 team', 'Up to 5 members', 'Basic analytics'],
+    features: [
+      '1 team',
+      'Up to 5 members',
+      'Survey, Feedback 360 Automations',
+      'Basic analytics',
+    ],
+    isFree: true,
     mostPopular: false,
   },
   {
@@ -17,7 +23,8 @@ const tiers = [
     priceMonthly: '$32',
     description: 'A plan that scales with your rapidly growing business.',
     features: [
-      '6 teams with no limit team members',
+      '6 teams',
+      'Up to 100 members',
       'Advanced analytics',
       'Survey, Feedback 360 Automations',
       '24-hour support response time',
@@ -28,8 +35,8 @@ const tiers = [
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    priceMonthly: '$248',
-    description: 'Unlimit for your company.',
+    priceMonthly: '$64',
+    description: 'Unlimited for your company.',
     features: [
       'Unlimited teams',
       'Unlimited members',
@@ -74,17 +81,12 @@ export default function PricingView() {
                   <h3
                     id={tier.id}
                     className={classNames(
-                      tier.mostPopular ? 'text-orange-600' : 'text-gray-900',
+                      'text-gray-900',
                       'text-lg font-semibold leading-8',
                     )}
                   >
                     {tier.name}
                   </h3>
-                  {tier.mostPopular ? (
-                    <p className="rounded-full bg-orange-600/10 py-1 px-2.5 text-xs font-semibold leading-5 text-orange-600">
-                      Most popular
-                    </p>
-                  ) : null}
                 </div>
                 <p className="mt-4 text-sm leading-6 text-gray-600">
                   {tier.description}
@@ -93,9 +95,11 @@ export default function PricingView() {
                   <span className="text-4xl font-bold tracking-tight text-gray-900">
                     {tier.priceMonthly}
                   </span>
-                  <span className="text-sm font-semibold leading-6 text-gray-600">
-                    /month
-                  </span>
+                  {tier.isFree ? null : (
+                    <span className="text-sm font-semibold leading-6 text-gray-600">
+                      /month
+                    </span>
+                  )}
                 </p>
                 <ul
                   role="list"
@@ -112,18 +116,20 @@ export default function PricingView() {
                   ))}
                 </ul>
               </div>
-              <a
-                href={tier.href}
-                aria-describedby={tier.id}
-                className={classNames(
-                  tier.mostPopular
-                    ? 'bg-orange-600 text-white shadow-sm hover:bg-orange-500'
-                    : 'text-orange-600 ring-1 ring-inset ring-orange-200 hover:ring-orange-300',
-                  'mt-8 block rounded-md py-2 px-3 text-center text-sm leading-6 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600',
-                )}
-              >
-                Buy plan
-              </a>
+              {tier.isFree ? null : (
+                <a
+                  href={tier.href}
+                  aria-describedby={tier.id}
+                  className={classNames(
+                    tier.mostPopular
+                      ? 'bg-orange-600 text-white shadow-sm hover:bg-orange-500'
+                      : 'text-orange-600 ring-1 ring-inset ring-orange-200 hover:ring-orange-300',
+                    'mt-8 block rounded-md py-2 px-3 text-center text-sm leading-6 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600',
+                  )}
+                >
+                  Buy
+                </a>
+              )}
             </div>
           ))}
         </div>
