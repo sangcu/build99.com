@@ -1,5 +1,5 @@
 ---
-title: "The opinions of software engineering"
+title: "Leadership in software company"
 description: "The principles and design concept that shape yLambda as a platform engineering"
 date: "2022-11-26"
 introduction: "Why do we build yLambda? what is the first idea which makes our decisions?"

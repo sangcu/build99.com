@@ -59,7 +59,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
     <div className="bg-white">
       <div className="relative overflow-hidden">
         <Header onSignIn={onSignIn} onSignUp={onSignUp} />
-        <main className="mt-[72px] md:mt-[74px]">{children}</main>
+        <main className="mt-[72px] md:mt-[56px]">{children}</main>
         {renderFooter && renderFooter()}
       </div>
       <Modal isOpen={openModal} onClose={onCloseModal}>
