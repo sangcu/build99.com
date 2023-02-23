@@ -11,9 +11,9 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Introduction />
-      <AppDetail />
+      {/* <AppDetail />
       <Architecture />
-      <HowItWork />
+      <HowItWork /> */}
     </>
   )
 }
