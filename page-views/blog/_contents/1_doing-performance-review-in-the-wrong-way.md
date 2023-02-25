@@ -21,5 +21,5 @@ Without any empirical evidence and historical data, as a human being, we only re
 
 Our vision of yLeader (a product of yLambda company) is to build automation tools for leaders to connect them with their team members effortlessly. By defining a goal for each team member and mechanism to collect activities, feedback, achievements during review period to help leaders coaching their members better, closer.
 
-Helping your people succeed is the top priority as a leader. Enjoy free access the tool at [https://leader.ylambda.com](https://leader.ylambda.com)
+As a leader, your reputation and your ability to help your people succeed is correlation. Enjoy free access the tool at [https://leader.ylambda.com](https://leader.ylambda.com)
 
