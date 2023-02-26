@@ -20,11 +20,11 @@ const navigation = [
     href: '/blog',
     isCurrent: (pathName: string) => pathName?.includes('blog'),
   },
-  {
-    name: 'About Us',
-    href: '/about',
-    isCurrent: (pathName: string) => pathName?.includes('about'),
-  },
+  // {
+  //   name: 'About Us',
+  //   href: '/about',
+  //   isCurrent: (pathName: string) => pathName?.includes('about'),
+  // },
 ]
 
 interface HeaderProps {
