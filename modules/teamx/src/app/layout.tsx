@@ -44,7 +44,7 @@ export default function RootLayout({
                               yLeader
                             </div>
                             <div className="text-orange-50 text-xs">
-                              Grow up your team members
+                              Helping people succeed.
                             </div>
                           </div>
                         </div>
