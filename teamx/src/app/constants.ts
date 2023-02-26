@@ -1,6 +1,7 @@
 export const navigation = [
   { name: 'Import', href: '#', current: true },
   { name: 'Export', href: '#', current: false },
+  { name: 'Editor', href: '/lexical-playground', current: false },
 ]
 
 export const userNavigation = [
