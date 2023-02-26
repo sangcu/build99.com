@@ -10,11 +10,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 const navigation = [
-  {
-    name: 'Pricing',
-    href: '/pricing',
-    isCurrent: (pathName: string) => pathName?.includes('pricing'),
-  },
+  // {
+  //   name: 'Pricing',
+  //   href: '/pricing',
+  //   isCurrent: (pathName: string) => pathName?.includes('pricing'),
+  // },
   {
     name: 'Blog',
     href: '/blog',
@@ -79,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
               ))}
             </div>
           </div>
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          {/* <div className="hidden md:flex md:items-center md:space-x-6">
             <button
               onClick={onSignIn}
               className="text-base font-medium text-white hover:text-gray-300"
@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
             >
               {t('Sign Up')}
             </button>
-          </div>
+          </div> */}
         </nav>
       </div>
 
@@ -140,15 +140,15 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                     </Link>
                   ))}
                 </div>
-                <div className="mt-6 px-5">
+                {/* <div className="mt-6 px-5">
                   <button
                     onClick={onSignIn}
                     className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-amber-600 hover:to-orange-700"
                   >
                     {t('Sign Up')}
                   </button>
-                </div>
-                <div className="mt-6 px-5">
+                </div> */}
+                {/* <div className="mt-6 px-5">
                   <p className="text-center text-base font-medium text-gray-500">
                     {t('Already have account?')}{' '}
                     <button
@@ -158,7 +158,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                       {t('Login')}
                     </button>
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           )}
