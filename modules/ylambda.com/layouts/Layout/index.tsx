@@ -55,7 +55,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
   }
 
   return (
-    <div className="bg-white h-screen bg-gray-900">
+    <div className="bg-white">
       <div className="relative overflow-hidden">
         <Header onSignIn={onSignIn} onSignUp={onSignUp} />
         <main className="mt-[72px] md:mt-[56px]">{children}</main>

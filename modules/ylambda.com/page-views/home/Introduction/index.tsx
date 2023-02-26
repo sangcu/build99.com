@@ -7,7 +7,7 @@ const Introduction: React.FC = () => {
   return (
     <div
       id="introduction"
-      className="bg-gray-900 py-8 md:py-10 lg:py-12 lg:overflow-hidden"
+      className="h-screen bg-gray-900 py-8 md:py-10 lg:py-12 lg:overflow-hidden"
     >
       <div className="mx-auto max-w-7xl lg:px-8">
         <div className="px-4 sm:px-6 lg:px-0">
