@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { people, userNavigation } from "./constants";
 
@@ -21,11 +22,10 @@ export default function Home() {
           <div className="mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Our team
+                Brilliant Swag
               </h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Solving high performance thoughput.
               </p>
             </div>
             <ul
@@ -34,7 +34,9 @@ export default function Home() {
             >
               {people.map((person) => (
                 <li key={person.name}>
-                  <img
+                  <Image
+                    width={240}
+                    height={240}
                     className="mx-auto h-24 w-24 rounded-full"
                     src={person.imageUrl}
                     alt=""
@@ -47,6 +49,16 @@ export default function Home() {
                   </p>
                 </li>
               ))}
+              <li>
+                <Link href={'/create-new-member'}>
+                <div className="flex flex-col align-center text-center">
+                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 48 48" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M34 40h10v-4a6 6 0 00-10.712-3.714M34 40H14m20 0v-4a9.971 9.971 0 00-.712-3.714M14 40H4v-4a6 6 0 0110.713-3.714M14 40v-4c0-1.313.253-2.566.713-3.714m0 0A10.003 10.003 0 0124 26c4.21 0 7.813 2.602 9.288 6.286M30 14a6 6 0 11-12 0 6 6 0 0112 0zm12 6a4 4 0 11-8 0 4 4 0 018 0zm-28 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  </svg>
+                  <h2 className="mt-2 text-base font-semibold leading-6 text-gray-900">Add team members</h2>
+                </div>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
