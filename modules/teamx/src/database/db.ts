@@ -18,5 +18,5 @@ export class TeamxDb extends Dexie {
     });
   }
 }
-
-export default new TeamxDb();
+const db = new TeamxDb();
+export default db;

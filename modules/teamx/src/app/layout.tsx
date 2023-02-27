@@ -20,7 +20,6 @@ export const navigation = [
   { name: 'Editor', href: '/lexical-playground', current: false },
 ]
 
-
 const userNavigation = [
   { name: "Who's next", href: '#' },
   { name: 'Create vote', href: '#' },
