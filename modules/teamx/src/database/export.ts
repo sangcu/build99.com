@@ -9,5 +9,4 @@ export default async function DbExport() {
     a.href = URL.createObjectURL(blob);
     a.download = "yleader-data.json";
     a.click();
-    URL.revokeObjectURL(a.href);
 }
