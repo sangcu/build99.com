@@ -17,7 +17,9 @@ export default function Home() {
     jobTitle: yup.string().required("Please input job title"),
   });
 
-  const { onMutate } = useAddTeamMember();
+  const { mutate: addTeamMember, isLoading } = useAddTeamMember(() =>
+    router.push("/")
+  );
 
   const {
     control,
@@ -29,18 +31,16 @@ export default function Home() {
 
   const onSubmit = async (values: any) => {
     const { name, jobTitle, notes, profileImage } = values;
-    await onMutate({
+    await addTeamMember({
       name,
       job_title: jobTitle,
       profile_photo: profileImage,
       notes,
     });
-
-    router.push("/");
   };
 
   return (
-    <div className="mt-8 flex items-center justify-center w-full">
+    <div className="mt-8 flex items-center justify-center w-full px-4 lg:px-0">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-6">
           <div>
@@ -81,7 +81,9 @@ export default function Home() {
             <Link href="/">
               <Button variant="white">Cancel</Button>
             </Link>
-            <Button type="submit">Submit</Button>
+            <Button loading={isLoading} type="submit">
+              Submit
+            </Button>
           </div>
         </div>
       </form>
