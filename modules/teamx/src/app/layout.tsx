@@ -9,7 +9,7 @@ import LogoIcon from 'public/logo.svg'
 import DbExport from '@/database/export'
 import { MouseEvent } from 'react'
 
-export const navigation = [
+const navigation = [
   { name: 'Import', href: '/import', current: true },
   {
     name: 'Export', href: '#', current: false, onClick: async (event: MouseEvent) => {
