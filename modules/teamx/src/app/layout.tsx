@@ -6,7 +6,19 @@ import { Bars3CenterLeftIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import classNames from 'classnames'
 import Link from 'next/link'
 import LogoIcon from 'public/logo.svg'
-import { navigation } from './constants'
+import DbExport from '@/database/export'
+import { MouseEvent } from 'react'
+
+export const navigation = [
+  { name: 'Import', href: '/import', current: true },
+  {
+    name: 'Export', href: '#', current: false, onClick: async (event: MouseEvent) => {
+      event.preventDefault()
+      await DbExport()
+    }
+  },
+  { name: 'Editor', href: '/lexical-playground', current: false },
+]
 
 
 const userNavigation = [
@@ -75,6 +87,7 @@ export default function RootLayout({
                             <a
                               key={item.name}
                               href={item.href}
+                              onClick={item.onClick}
                               className="rounded-md px-3 py-2 text-sm font-medium text-orange-200 hover:text-white"
                               aria-current={item.current ? 'page' : undefined}
                             >
