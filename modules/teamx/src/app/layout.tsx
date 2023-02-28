@@ -110,6 +110,7 @@ export default function RootLayout({
                         <Disclosure.Button
                           key={item.name}
                           as="a"
+                          onClick={item.onClick}
                           href={item.href}
                           className={classNames(
                             item.current

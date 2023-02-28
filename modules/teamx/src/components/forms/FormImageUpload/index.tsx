@@ -22,22 +22,27 @@ const FormInput = ({
   ...rest
 }: FormInputProps) => {
   return (
-    <Controller
-      control={control}
-      render={({ field: { onChange, onBlur, value } }) => (
-        <ImageUpload
-          {...rest}
-          value={value as string}
-          onBlur={onBlur}
-          onChanged={onChange}
-          isError={!!error}
-          errorMessage={error?.message}
-        />
-      )}
-      name={name}
-      defaultValue={defaultValue}
-      {...controllerProps}
-    />
+    <div className="flex items-end">
+      <Controller
+        control={control}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <ImageUpload
+            {...rest}
+            value={value as string}
+            onBlur={onBlur}
+            onChanged={onChange}
+            isError={!!error}
+            errorMessage={error?.message}
+          />
+        )}
+        name={name}
+        defaultValue={defaultValue}
+        {...controllerProps}
+      />
+      <div className="px-4">
+        Or <strong>Ctrl + V</strong> to paste the photo.
+      </div>
+    </div>
   );
 };
 
