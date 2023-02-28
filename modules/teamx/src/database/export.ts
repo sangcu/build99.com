@@ -1,10 +1,4 @@
-import db, { Member } from '@/database/db'
-
-export interface IExportModel{
-    members: Member[],
-    teamName?: string,
-    teamNote?: string
-}
+import db, { IExportModel, Member } from '@/database/db'
 
 export default async function DbExport() {
     const members = await db.members.toArray();

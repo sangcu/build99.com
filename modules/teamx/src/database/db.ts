@@ -1,5 +1,13 @@
 import Dexie, { Table } from 'dexie';
 
+
+export interface IExportModel{
+  members: Member[],
+  teamName?: string,
+  teamNote?: string
+}
+
+
 export interface Member {
   id?: number;
   name: string;
