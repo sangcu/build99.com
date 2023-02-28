@@ -5,7 +5,7 @@ export default async function DbImport(override: boolean, data: IExportModel) {
         await db.members.clear();    
     }
     
-    data.members?.forEach(async (el: Member) => {
-        await db.members.add(el);
-    });
+    for(const item of data.members){
+        await db.members.add(item);
+    };
 }

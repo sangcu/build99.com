@@ -4,7 +4,6 @@ import { Button } from "@/components/atoms";
 import FileUpload from "@/components/atoms/FileUpload";
 import { Member } from "@/database/db";
 import DbImport from "@/database/import";
-import { DexieError } from "dexie";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
@@ -13,9 +12,10 @@ export default function ImportData() {
     const [isLoading, setIsLoading] = useState(false)
     const [isOverride, setIsOverride] = useState(false)
     const [members, setMembers] = useState<Member[]>([])
-    const [errorMessage, setErrorMessage] = useState('');
+    const [uploadErrorMessage, setUploadErrorMessage] = useState('');
+    const [importErrorMessage, setImportErrorMessage] = useState('');
     const onFileChanged = (content: string) => {
-        setErrorMessage('')
+        setUploadErrorMessage('')
         if (!content) {
             return
         }
@@ -33,11 +33,11 @@ export default function ImportData() {
             if (data.members?.length > 0) {
                 setMembers(data.members)
             } else {
-                setErrorMessage('Not found any team member in your file.')
+                setUploadErrorMessage('Not found any team member in your file.')
             }
 
         } catch (e) {
-            setErrorMessage("Cannot read data from your file.");
+            setUploadErrorMessage("Cannot read data from your file.");
         }
     }
 
@@ -47,11 +47,18 @@ export default function ImportData() {
 
     const onConfirm = async () => {
         if (members?.length == 0) {
+            router.push("/")
             return
         }
-        setIsLoading(true)
-        await DbImport(isOverride, { members: members })
-        router.push("/")
+
+        try {
+            setIsLoading(true)
+            await DbImport(isOverride, { members: members })
+            router.push("/")
+        } catch (e: any) {
+            setIsLoading(false)
+            setImportErrorMessage(e.message)
+        }
     }
 
     return (
@@ -63,7 +70,7 @@ export default function ImportData() {
                 <div>
                     <FileUpload onChanged={onFileChanged} />
                 </div>
-                <span className="leading-10 text-red-600">{errorMessage ? errorMessage : <></>}</span>
+                <span className="leading-10 text-red-600">{uploadErrorMessage ? uploadErrorMessage : <></>}</span>
                 <div>
                     {members?.length > 0 ? <>
                         <span>Total Members: </span><span>{members.length}</span>
@@ -90,6 +97,9 @@ export default function ImportData() {
                         </span>
                     </div>
                 </div>
+                {importErrorMessage ? <>
+                    <span className="leading-10 text-red-600">{importErrorMessage}</span>
+                </> : null}
                 <div>
                     {members?.length > 0 ? <>
                         <Button loading={isLoading} onClick={onConfirm} className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">Confirm</Button>
