@@ -27,9 +27,13 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
   const inputFileRef = useRef<any>(null);
 
   const handlePasted = async (evt: ClipboardEvent) => {
-    const item = evt?.clipboardData?.items[0];
-    if (!item || !["image/png", "image/jpeg"].includes(item.type)) return;
-    const file = item.getAsFile();
+
+    if (evt?.clipboardData?.files?.length == 0) {
+      return;
+    }
+
+    const file = evt?.clipboardData?.files[0];
+    if (!file || !file.type?.startsWith('image/')) return;
 
     if (!file) return;
 
