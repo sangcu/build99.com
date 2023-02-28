@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Button from "../Button";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import toBase64 from "@/utils/toBase64";
@@ -26,6 +26,23 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
 }) => {
   const inputFileRef = useRef<any>(null);
 
+  const handlePasted = async (evt: ClipboardEvent) => {
+    const item = evt?.clipboardData?.items[0];
+    if (!item || !["image/png", "image/jpeg"].includes(item.type)) return;
+    const file = item.getAsFile();
+
+    if (!file) return;
+
+    const base64Value = await toBase64(file as File);
+    onChanged && onChanged(base64Value as string);
+  };
+
+  useEffect(() => {
+    document.addEventListener("paste", handlePasted);
+
+    return () => document.removeEventListener("paste", handlePasted);
+  }, []);
+
   const onFileChanged = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -46,31 +63,38 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
           {label}
         </label>
       )}
-      <div className="space-y-2 w-36">
+      <div className="space-y-4">
         <input
           className="hidden"
           ref={inputFileRef}
           onChange={onFileChanged}
           type="file"
-          accept="image/png, image/gif, image/jpeg"
+          accept="image/png, image/jpeg"
         ></input>
         {value && (
-          <Image
-            width={240}
-            height={240}
-            className="mx-auto h-24 w-24 rounded-full"
-            src={value as string}
-            alt=""
-          />
+          <div className="w-36">
+            <Image
+              width={240}
+              height={240}
+              className="mx-auto h-24 w-24 rounded-full"
+              src={value as string}
+              alt=""
+            />
+          </div>
         )}
-        <Button
-          className="!w-36 w-full whitespace-nowrap focus:ring-transparent !text-xs"
-          variant="white"
-          onClick={() => inputFileRef?.current?.click()}
-        >
-          <ArrowUpTrayIcon className="block h-4 w-4" aria-hidden="true" />
-          <span className="ml-2">Upload Image</span>
-        </Button>
+        <div className="block lg:flex space-y-2 items-center space-x-2">
+          <Button
+            className="!w-36 w-full whitespace-nowrap focus:ring-transparent !text-xs"
+            variant="white"
+            onClick={() => inputFileRef?.current?.click()}
+          >
+            <ArrowUpTrayIcon className="block h-4 w-4" aria-hidden="true" />
+            <span className="ml-2">Upload Image</span>
+          </Button>
+          <div className="text-sm">
+            or <span className="font-bold">Ctrl + V</span> to paste the photo.
+          </div>
+        </div>
       </div>
       {isError && errorMessage && (
         <p className="mt-2 text-xs text-error">{errorMessage}</p>

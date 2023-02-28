@@ -39,9 +39,6 @@ const FormInput = ({
         defaultValue={defaultValue}
         {...controllerProps}
       />
-      <div className="px-4">
-        Or <strong>Ctrl + V</strong> to paste the photo.
-      </div>
     </div>
   );
 };
