@@ -10,7 +10,7 @@ const AppDetail: React.FC = () => {
     t('Goal Alignment'),
     t('Leadership Guidelines'),
     t('Automate feedback cycles'),
-    t('Health monitor'),
+    t('Employee Health'),
   ]
 
   const workFlowSteps = [
