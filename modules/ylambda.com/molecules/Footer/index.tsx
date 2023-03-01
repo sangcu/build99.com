@@ -16,11 +16,11 @@ const pageGroups = [
   {
     name: 'Company',
     pageList: [
-      {
-        name: 'About Us',
-        url: '/about',
-        target: undefined,
-      },
+      // {
+      //   name: 'About Us',
+      //   url: '/about',
+      //   target: undefined,
+      // },
       {
         name: 'Privacy policy',
         url: '/pricacy-policy',
@@ -31,11 +31,11 @@ const pageGroups = [
   {
     name: 'Resources',
     pageList: [
-      {
-        name: 'Docs',
-        url: `/docs/${DEFAULT_DOCS_SLUG}`,
-        target: undefined,
-      },
+      // {
+      //   name: 'Docs',
+      //   url: `/docs/${DEFAULT_DOCS_SLUG}`,
+      //   target: undefined,
+      // },
       {
         name: 'Blog',
         url: '/blog',
@@ -51,11 +51,11 @@ const pageGroups = [
         url: LINKED_IN_PAGE_URL,
         target: '_blank',
       },
-      {
-        name: 'Github',
-        url: GITHUB_PAGE_URL,
-        target: '_blank',
-      },
+      // {
+      //   name: 'Github',
+      //   url: GITHUB_PAGE_URL,
+      //   target: '_blank',
+      // },
       {
         name: 'Contact Us',
         url: CONTACT_PAGE_URL,
@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
           </div>
           <div className="mt-12 border-t border-gray-200 py-8">
             <p className="text-base text-gray-400 xl:text-center">
-              &copy; 2022 yLambda. All rights reserved.
+              &copy; 2023 yLambda. All rights reserved.
             </p>
           </div>
         </div>

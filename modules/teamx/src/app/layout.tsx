@@ -26,8 +26,8 @@ const navigation = [
 
 const userNavigation = [
   { name: "Who's next", href: "#" },
-  { name: "Create vote", href: "#" },
-  { name: "360 Feedbacks", href: "#" },
+  { name: "Create votes", href: "#" },
+  { name: "360 Reviews", href: "#" },
 ];
 
 export default function RootLayout({

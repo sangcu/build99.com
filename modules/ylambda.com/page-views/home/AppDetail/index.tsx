@@ -7,16 +7,16 @@ const AppDetail: React.FC = () => {
   const { t } = useTranslation()
 
   const features = [
-    t('Connect your Kubernetes'),
-    t('Create the app'),
-    t('Up and run in minutes'),
-    t('We automating CI/CD and everying Ops'),
+    t('Goal Alignment'),
+    t('Leadership Guidelines'),
+    t('Automate feedback cycles'),
+    t('Health monitor'),
   ]
 
   const workFlowSteps = [
-    { name: t('Ideas') },
-    { name: t('Code') },
-    { name: t('Deploy') },
+    { name: t('Set Goals') },
+    { name: t('Assessment') },
+    { name: t('360 Reviews') },
   ]
 
   return (
@@ -26,7 +26,7 @@ const AppDetail: React.FC = () => {
     >
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="mt-2 text-3xl md:text-4xl font-bold text-gray-900">
-          {t('A workflow for')}
+          {t('Saving time for tech leader by automation')}
         </h2>
 
         <nav className="w-full md:w-[80%] lg:w-[60%] mx-auto mt-6 mb-4">
@@ -78,7 +78,7 @@ const AppDetail: React.FC = () => {
         </nav>
         <p className="text-xl md:text-xl font-medium tracking-tight text-gray-900">
           {t(
-            'Once connected with Kubernetes, from ideas to production only take minutes.',
+            'Employee data is restricted and store in your local machine only.',
           )}
         </p>
         <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-6 space-y-8 md:space-y-12 lg:space-y-0">
@@ -96,13 +96,13 @@ const AppDetail: React.FC = () => {
           </div>
           <div className="lg:col-span-2">
             <div className="unset-img shadow-2xl">
-              <Image
+              {/* <Image
                 alt="Application Demo"
                 src="/images/application-demo.png"
                 layout="fill"
                 className="responsive-img"
                 priority
-              />
+              /> */}
             </div>
           </div>
         </div>

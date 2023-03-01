@@ -79,20 +79,20 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
               ))}
             </div>
           </div>
-          {/* <div className="hidden md:flex md:items-center md:space-x-6">
-            <button
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            {/* <button
               onClick={onSignIn}
               className="text-base font-medium text-white hover:text-gray-300"
             >
               {t('Log in')}
-            </button>
+            </button> */}
             <button
               onClick={onSignUp}
               className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white hover:bg-orange-700"
             >
               {t('Sign Up')}
             </button>
-          </div> */}
+          </div>
         </nav>
       </div>
 

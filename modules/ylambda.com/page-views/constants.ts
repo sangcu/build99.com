@@ -3,7 +3,7 @@ export const CONTACT_PAGE_URL =
 
 export const GITHUB_PAGE_URL = 'https://github.com/ylambda-com'
 
-export const LINKED_IN_PAGE_URL = 'https://www.linkedin.com/company/ylambda/'
+export const LINKED_IN_PAGE_URL = 'www.linkedin.com/in/ylambda'
 
 export const GA = {
   ACTIONS: {

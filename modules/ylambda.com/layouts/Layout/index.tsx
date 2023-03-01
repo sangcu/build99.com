@@ -59,9 +59,9 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
       <div className="relative overflow-hidden">
         <Header onSignIn={onSignIn} onSignUp={onSignUp} />
         <main className="mt-[72px] md:mt-[56px]">{children}</main>
-        {/* {renderFooter && renderFooter()} */}
+        {renderFooter && renderFooter()}
       </div>
-      {/* <Modal isOpen={openModal} onClose={onCloseModal}>
+      <Modal isOpen={openModal} onClose={onCloseModal}>
         {isSubscribeSuccess ? (
           <SubscriptionSuccess onClose={onCloseModal} />
         ) : subscribeError ? (
@@ -73,7 +73,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({
             onSubscribe={onSubscribe}
           />
         )}
-      </Modal> */}
+      </Modal>
     </div>
   )
 }

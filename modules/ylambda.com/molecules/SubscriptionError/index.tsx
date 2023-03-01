@@ -19,7 +19,9 @@ const SubscriptionError: React.FC<SubscriptionErrorProps> = ({ error }) => {
       </div>
       <div className="mt-3 text-center sm:mt-5">
         <h3 className="text-2xl font-medium leading-6 text-red-700">
-          {t('An error happened!!!')}
+          {t(
+            'Oh...sh, we are not expected this happen. Issue has been tracked and we will look ASAP.',
+          )}
         </h3>
         <div className="mt-4 text-md text-red-500">
           <p>{errorMessage}</p>

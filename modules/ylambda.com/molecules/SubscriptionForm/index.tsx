@@ -28,14 +28,14 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   return (
     <div id={elementId}>
       <div className="text-gray-900 font-semibold text-2xl">
-        {t('Get notified when we’re public launch.')}
+        {t('Get latest news from us.')}
       </div>
       <div className="mt-2">
-        <p className="text-base text-gray-500">
+        {/* <p className="text-base text-gray-500">
           {t(
             "We're are in private alpha development and will public our work soon.",
           )}
-        </p>
+        </p> */}
         <p className="text-base text-gray-500">
           {t('No spam and unsubscribe at any time.')}
         </p>
@@ -75,7 +75,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
                     !errors?.email,
                 },
               )}
-              placeholder="you@example.com"
+              placeholder="you@ylambda.com"
             />
           </div>
           {errors?.email && errors?.email?.message && (

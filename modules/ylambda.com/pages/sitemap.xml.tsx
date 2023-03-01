@@ -10,10 +10,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const allPostsData = getSortedPostsData()
 
   const postUrls = allPostsData.map((post) => `/blog/${post?.id}`)
-  const allDocSlugs = getAllDocSlugs()
-  const docUrls = allDocSlugs.map((docSlug) => `/docs/${docSlug?.slugName}`)
+  // const allDocSlugs = getAllDocSlugs()
+  // const docUrls = allDocSlugs.map((docSlug) => `/docs/${docSlug?.slugName}`)
 
-  const sitemap = generateSiteMap(['/', ...postUrls, ...docUrls, '/about'])
+  const sitemap = generateSiteMap(['/', ...postUrls, '/about'])
 
   res.setHeader('Content-Type', 'text/xml')
 
