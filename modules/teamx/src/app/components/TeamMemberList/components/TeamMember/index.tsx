@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Image from "next/image";
 
 export interface TeamMemberProps {
@@ -5,15 +6,22 @@ export interface TeamMemberProps {
   name: string;
   job_title: string;
   profile_photo: string;
+  isSelected: boolean;
 }
 
 const TeamMember: React.FC<TeamMemberProps> = ({
   name,
   job_title,
   profile_photo,
+  isSelected,
 }) => {
   return (
-    <div>
+    <div
+      className={classNames(
+        "border border-4 px-2 py-4",
+        isSelected ? "border-orange-500" : "border-transparent"
+      )}
+    >
       {profile_photo ? (
         <Image
           width={240}

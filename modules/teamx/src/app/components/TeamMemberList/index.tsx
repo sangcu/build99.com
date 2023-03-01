@@ -21,16 +21,13 @@ const TeamMemberList: React.FC<{
   return (
     <ul
       role="list"
-      className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-y-16 gap-x-8 text-center sm:grid-cols-3 lg:grid-cols-4 lg:mx-0 lg:max-w-none"
+      className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center sm:grid-cols-3 lg:grid-cols-4 lg:mx-0 lg:max-w-none"
     >
       {memberList?.map((member) => (
         <li key={member?.id}>
           <TeamMember {...member} />
         </li>
       ))}
-      <li>
-        <AddNewButton />
-      </li>
     </ul>
   );
 };

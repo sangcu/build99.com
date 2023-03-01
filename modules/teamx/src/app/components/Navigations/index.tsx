@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-const userNavigation = [
-  { name: "Who's next", href: '#' },
-  { name: 'Create vote', href: '#' },
-  { name: '360 Feedbacks', href: '#' },
-]
+interface NavigationProps {
+  navigations: {
+    name: string;
+    onClick: () => void;
+  }[];
+}
 
-const Navigations = () => {
+const Navigations: React.FC<NavigationProps> = ({ navigations }) => {
   return (
     <div className="z-[100] hidden lg:block bg-gray-50 pr-4 sm:pr-6 lg:flex-shrink-0 lg:border-l lg:border-gray-200 lg:pr-8 xl:pr-0">
       <div className="pl-6 lg:w-80">
@@ -21,11 +22,12 @@ const Navigations = () => {
           </Link>
         </div>
         <div className="border-t pt-4 pb-2 space-y-2">
-          {userNavigation?.map((naviation) => (
+          {navigations?.map((naviation) => (
             <div key={naviation.name}>
               <button
                 key={naviation?.name}
                 type="button"
+                onClick={naviation.onClick}
                 className="rounded-md text-base text-right font-medium text-gray-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
               >
                 {naviation.name}
