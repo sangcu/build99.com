@@ -9,16 +9,16 @@ import XMarkIcon from 'public/icons/x-mark.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-const navigation = [
-  // {
-  //   name: 'Pricing',
-  //   href: '/pricing',
-  //   isCurrent: (pathName: string) => pathName?.includes('pricing'),
-  // },
+const navigation = [  
   {
     name: 'Blog',
     href: '/blog',
     isCurrent: (pathName: string) => pathName?.includes('blog'),
+  },
+  {
+    name: 'Pricing',
+    href: '/pricing',
+    isCurrent: (pathName: string) => pathName?.includes('pricing'),
   },
   // {
   //   name: 'About Us',
