@@ -35,7 +35,7 @@ const tiers = [
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    priceMonthly: '$64',
+    priceMonthly: '$135',
     description: 'Unlimited for your company.',
     features: [
       'Unlimited teams',
