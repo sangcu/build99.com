@@ -13,7 +13,7 @@ const Introduction: React.FC = () => {
         <div className="px-4 sm:px-6 lg:px-0">
           <h1 className="flex space-y-1 lg:space-y-2 lg:space-y-0 lg:flex-row flex-col">
             <span className="text-orange-500 font-bold text-4xl md:text-5xl lg:text-6xl">
-              {t('Be a better tech leader.')}
+              {t('Be a better tech lead.')}
             </span>
             <span className="lg:ml-2 text-white font-bold text-3xl md:text-4xl lg:text-5xl lg:self-end pb-1">
               {t('with automation toolkit.')}
