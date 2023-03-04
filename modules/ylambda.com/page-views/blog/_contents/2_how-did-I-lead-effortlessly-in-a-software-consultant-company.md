@@ -1,7 +1,7 @@
 ---
 title: "How did I lead effortlessly in a software consultant company?"
 description: "An automation tools to help technical leader better in leading their people succeed"
-date: "2023-02-25"
+date: "2023-02-29"
 introduction: "Leading is time consuming, to be better play this role we will need to invest time and efforts for it. An automation tools for leader is critical for succeed leading."
 ---
 
