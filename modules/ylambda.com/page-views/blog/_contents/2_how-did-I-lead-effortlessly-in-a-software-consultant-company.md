@@ -1,6 +1,6 @@
 ---
 title: "How did I lead effortlessly in a software consultant company?"
-description: "An automation tools to help technical leader better in leading their people succeed"
+description: "An automation tools to help tech lead better in leading their people succeed"
 date: "2023-02-29"
 introduction: "Leading is time consuming, to be better play this role we will need to invest time and efforts for it. An automation tools for leader is critical for succeed leading."
 ---
@@ -50,4 +50,4 @@ In people development, we should do the same, the more feedback loop we have bet
 Keeping the feedback loop shorter could be manual work like scheduling meetings with your member or using chat tools, however it’s not working well in remote environments where most of the work and communication is asynchronous. We need to use a tool to help to minimize the efforts for review/feedback and it should automatically.
 
 ## Conclusion
-People development is super hard and time consuming. As a leader we have to spend a lot of effort on this topic to help our members, and automation tools could help us on this topic and make life better for us.
+People development is incredibly hard work. As a leader we have to spend a lot of effort on this topic to help our members, and automation tools could help us on this topic and make life better for us.
