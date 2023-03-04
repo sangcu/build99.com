@@ -1,6 +1,15 @@
-const Loading: React.FC = () => {
+import classNames from "classnames";
+
+const Loading: React.FC<{ containerClassName?: string }> = ({
+  containerClassName,
+}) => {
   return (
-    <div className="mt-20 w-full flex justify-center">
+    <div
+      className={classNames(
+        "w-full flex justify-center",
+        containerClassName
+      )}
+    >
       <svg
         className="animate-spin h-6 w-6 text-gray-400"
         fill="none"

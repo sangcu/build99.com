@@ -12,7 +12,7 @@ const TeamMemberList: React.FC<{
         <div className="text-gray-600 text-lg">
           There is no team members. Create the first one
         </div>
-        <Link href="/create-new-member">
+        <Link href="dashboard/create-new-member">
           <Button className="!w-36 mt-2">Create</Button>
         </Link>
       </div>

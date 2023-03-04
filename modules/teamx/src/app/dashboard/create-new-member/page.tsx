@@ -10,7 +10,7 @@ import FormImageUpload from "@/components/forms/FormImageUpload";
 import { useRouter } from "next/navigation";
 import useAddTeamMember from "@/hooks/useAddTeamMember";
 
-export default function Home() {
+export default function CreateNewMember() {
   const router = useRouter();
   const schema = yup.object().shape({
     name: yup.string().required("Please input the team member name"),
@@ -18,7 +18,7 @@ export default function Home() {
   });
 
   const { mutate: addTeamMember, isLoading } = useAddTeamMember(() =>
-    router.push("/")
+    router.push("/dashboard")
   );
 
   const {

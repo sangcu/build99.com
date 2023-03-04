@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="w-screen h-screen">
+    <main className="w-screen lg:h-screen">
       <div className="mx-auto w-full max-w-7xl flex-grow lg:flex">
         {children}
       </div>

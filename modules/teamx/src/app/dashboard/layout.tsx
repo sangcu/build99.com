@@ -2,53 +2,32 @@
 
 import { Disclosure } from "@headlessui/react";
 import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import classNames from "classnames";
 import Link from "next/link";
 import LogoIcon from "public/logo.svg";
-import DbExport from "@/database/export";
-import { MouseEvent, useEffect, useState } from "react";
-import db from "@/database/db";
-
-const navigation = [
-  { name: "Import", href: "/import", current: true },
-  {
-    name: "Export",
-    href: "#",
-    current: false,
-    onClick: async (event: MouseEvent) => {
-      event.preventDefault();
-      await DbExport();
-    },
-  },
-  { name: "Editor", href: "/lexical-playground", current: false },
-];
-
-const userNavigation = [
-  { name: "Who's next", href: "#" },
-  { name: "Create votes", href: "#" },
-  { name: "360 Reviews", href: "#" },
-];
+import { Button } from "@/components/atoms";
+import useExportTeamProfile from "@/hooks/useExportTeamProfile";
+import { useRouter } from "next/navigation";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [isDbExist, setDbExist] = useState<boolean | undefined>(undefined);
-  console.log("isDbExist", isDbExist);
-  useEffect(() => {
-    const checkDbExist = async () => {
-      const result = await db.teams.toArray();
-      setDbExist(result?.length > 0);
-    };
+  const router = useRouter();
+  const navigations = [
+    { name: "Who's next", onClick: () => {} },
+    { name: "Create vote", onClick: () => {} },
+    { name: "360 Feedbacks", onClick: () => {} },
+  ];
 
-    checkDbExist();
-  }, []);
+  const { mutate: exportProfile, isLoading: isExporting } =
+    useExportTeamProfile();
+
   return (
     <div className="relative flex min-h-full flex-col">
       {/* Navbar */}
       <Disclosure as="header" className="z-[100] flex-shrink-0 bg-orange-600">
-        {({ open }) => (
+        {({ open, close }) => (
           <>
             <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
@@ -85,18 +64,24 @@ export default function RootLayout({
                 {/* Links section */}
                 <div className="hidden lg:block lg:w-80">
                   <div className="flex items-center justify-end">
-                    <div className="flex">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          onClick={item.onClick}
-                          className="rounded-md px-3 py-2 text-sm font-medium text-orange-200 hover:text-white"
-                          aria-current={item.current ? "page" : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                    <div className="flex space-x-2">
+                      <Button
+                        variant="white"
+                        className="!w-20 !border-0 !hover:bg-gray-100"
+                        onClick={() =>
+                          router?.push("/dashboard/import-profile")
+                        }
+                      >
+                        Import
+                      </Button>
+                      <Button
+                        variant="white"
+                        className="!w-20 !border-0 !hover:bg-gray-100"
+                        loading={isExporting}
+                        onClick={exportProfile}
+                      >
+                        Export
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -105,38 +90,39 @@ export default function RootLayout({
 
             <Disclosure.Panel className="lg:hidden">
               <div className="space-y-1 px-2 pt-2 pb-3">
-                {navigation.map((item) => (
+                <Link href="/dashboard/import-profile">
                   <Disclosure.Button
-                    key={item.name}
                     as="a"
-                    onClick={item.onClick}
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "text-white bg-orange-700"
-                        : "text-orange-200 hover:text-orange-100 hover:bg-orange-600",
-                      "block px-3 py-2 rounded-md text-base font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
+                    className="text-orange-200 hover:text-orange-100 hover:bg-orange-600 block px-3 py-2 rounded-md text-base font-medium"
                   >
-                    {item.name}
+                    Import
                   </Disclosure.Button>
-                ))}
+                </Link>
+                <Disclosure.Button
+                  as="a"
+                  onClick={exportProfile}
+                  className="text-orange-200 hover:text-orange-100 hover:bg-orange-600 block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Export
+                </Disclosure.Button>
               </div>
 
               <div className="border-t border-orange-800 pt-4 pb-3 px-2">
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-md border border-transparent bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 w-full"
+                <Button
+                  onClick={() => {
+                    router.push("/dashboard/create-new-member");
+                    close();
+                  }}
+                  className="!bg-orange-100 !border-transparent !text-orange-700 !hover:bg-orange-200 !w-full"
                 >
                   Create New Member
-                </button>
+                </Button>
                 <div className="space-y-1">
-                  {userNavigation.map((item) => (
+                  {navigations.map((item) => (
                     <Disclosure.Button
                       key={item.name}
                       as="a"
-                      href={item.href}
+                      onClick={item?.onClick}
                       className="block rounded-md px-3 py-2 text-base font-medium text-orange-200 hover:bg-orange-600 hover:text-orange-100"
                     >
                       {item.name}

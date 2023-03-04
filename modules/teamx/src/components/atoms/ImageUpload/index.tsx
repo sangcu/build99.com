@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import toBase64 from "@/utils/toBase64";
+import FileUpload from "../FileUpload";
 
 export interface ImageUploadProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -27,13 +28,12 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
   const inputFileRef = useRef<any>(null);
 
   const handlePasted = async (evt: ClipboardEvent) => {
-
     if (evt?.clipboardData?.files?.length == 0) {
       return;
     }
 
     const file = evt?.clipboardData?.files[0];
-    if (!file || !file.type?.startsWith('image/')) return;
+    if (!file || !file.type?.startsWith("image/")) return;
 
     if (!file) return;
 
@@ -46,14 +46,6 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
 
     return () => document.removeEventListener("paste", handlePasted);
   }, []);
-
-  const onFileChanged = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
-    const value = await toBase64(file);
-    onChanged && onChanged(value as string);
-  };
 
   return (
     <div className={containerClassName}>
@@ -68,13 +60,11 @@ const ImageUpload: React.FunctionComponent<ImageUploadProps> = ({
         </label>
       )}
       <div className="space-y-4">
-        <input
-          className="hidden"
-          ref={inputFileRef}
-          onChange={onFileChanged}
-          type="file"
-          accept="image/png, image/jpeg"
-        ></input>
+        <FileUpload
+          inputFileRef={inputFileRef}
+          onChanged={onChanged}
+          acceptTypes="image/png, image/jpeg"
+        />
         {value && (
           <div className="w-36">
             <Image

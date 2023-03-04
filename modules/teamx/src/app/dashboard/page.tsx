@@ -11,6 +11,13 @@ export default function Home() {
   const { isSelected, randomize } = useRandomSelect(
     memberList?.filter((id) => !!id)?.map((member) => member.id as number) || []
   );
+
+  const navigations = [
+    { name: "Who's next", onClick: randomize },
+    { name: "Create vote", onClick: () => {} },
+    { name: "360 Feedbacks", onClick: () => {} },
+  ];
+
   return (
     <>
       <div
@@ -25,7 +32,7 @@ export default function Home() {
         <div className="pt-4 w-full">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
             <TeamHeader />
-            {isLoading && <Loading />}
+            {isLoading && <Loading containerClassName="mt-20" />}
 
             {isError && (
               <div className="mt-12 text-center text-red-600 text-lg font-semibold">
@@ -45,13 +52,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Navigations
-        navigations={[
-          { name: "Who's next", onClick: randomize },
-          { name: "Create vote", onClick: () => {} },
-          { name: "360 Feedbacks", onClick: () => {} },
-        ]}
-      />
+      <Navigations navigations={navigations} />
     </>
   );
 }

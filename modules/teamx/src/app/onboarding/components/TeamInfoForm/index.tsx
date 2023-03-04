@@ -44,7 +44,7 @@ const TeamInfoForm: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center lg:p-8">
+    <div className="p-4 flex items-center justify-center lg:p-8">
       <div className="lg:w-96">
         <div className="text-center">
           <h2 className="text-2xl font-medium leading-6 text-gray-900">

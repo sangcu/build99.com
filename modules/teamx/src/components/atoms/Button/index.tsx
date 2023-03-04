@@ -14,7 +14,7 @@ const variantClasses = {
   primary:
     'border-transparent text-white bg-orange-500 hover:bg-orange-600 focus:ring-orange-500',
   white:
-    'border-gray-300 text-gray-700 bg-white hover:bg-gray-100 hover:bg-opacity-20 focus:ring-transparent',
+    'border-gray-300 text-gray-700 bg-white hover:bg-gray-100 focus:ring-transparent',
   red: 'border-transparent text-white bg-error hover:bg-red-600 focus:ring-transparent',
 }
 
