@@ -12,8 +12,7 @@ export default function Home() {
       </h1>
       <div className="mt-2 w-full flex justify-center items-center">
         <p className="w-120 text-center text-lg text-gray-500">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          We're software engineers like you and we built this to help us to be a better tech lead.
         </p>
       </div>
       {isImportProfile ? (

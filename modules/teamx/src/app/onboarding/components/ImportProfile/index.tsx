@@ -20,7 +20,7 @@ const ImportProfile: React.FC<ImportProfileProps> = ({ onCancel }) => {
     <div>
       <div className="mt-8">
         <h2 className="text-center text-2xl font-medium leading-6 text-gray-900">
-          Do you already have yLeader profile?
+          Import your data if you have used in other machine?
         </h2>
       </div>
       <div className="mt-8">
@@ -40,7 +40,7 @@ const ImportProfile: React.FC<ImportProfileProps> = ({ onCancel }) => {
           variant="white"
           disable={isLoading}
         >
-          {"No, I don't have yLamba profile"}
+          {"No, Let me create new team."}
         </Button>
       </div>
     </div>
