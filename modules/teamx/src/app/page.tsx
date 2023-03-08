@@ -13,7 +13,7 @@ export default function Home() {
     const checkDbExist = async () => {
       try {
         const result = await db.teams.toArray();
-        if (result?.length > 0) return router.push("/dashboard");
+        if (result?.length > 0) return router.push("/dashboard/teams");
         return router.push("/onboarding");
       } catch (ex) {
         return router.push("/onboarding");

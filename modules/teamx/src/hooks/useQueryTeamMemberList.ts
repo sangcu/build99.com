@@ -7,8 +7,8 @@ const queryTeamMemberList = async () => {
   return db.members.toArray();
 };
 
-const useQueryTeamMembers = () => {
+const useQueryTeamMemberList = () => {
   return useQuery([QUERY_TEAM_MEMBER_LIST], queryTeamMemberList);
 };
 
-export default useQueryTeamMembers;
+export default useQueryTeamMemberList;

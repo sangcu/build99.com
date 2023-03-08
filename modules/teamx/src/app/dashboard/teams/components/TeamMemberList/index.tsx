@@ -12,7 +12,7 @@ const TeamMemberList: React.FC<{
         <div className="text-gray-600 text-lg">
           There is no team members. Create the first one
         </div>
-        <Link href="dashboard/create-new-member">
+        <Link href="dashboard/teams/create-new-member">
           <Button className="!w-36 mt-2">Create</Button>
         </Link>
       </div>
@@ -21,11 +21,13 @@ const TeamMemberList: React.FC<{
   return (
     <ul
       role="list"
-      className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center sm:grid-cols-3 lg:grid-cols-4 lg:mx-0 lg:max-w-none"
+      className="mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center sm:grid-cols-3 lg:mx-0 lg:max-w-none"
     >
       {memberList?.map((member) => (
-        <li key={member?.id}>
-          <TeamMember {...member} />
+        <li key={member?.id} className="!cursor-pointer">
+          <Link href={`dashboard/teams/member-detail/${member.id}/profile`}>
+            <TeamMember {...member} />
+          </Link>
         </li>
       ))}
     </ul>

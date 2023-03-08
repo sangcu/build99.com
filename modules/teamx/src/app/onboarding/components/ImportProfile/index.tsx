@@ -14,7 +14,7 @@ const ImportProfile: React.FC<ImportProfileProps> = ({ onCancel }) => {
     isLoading,
     isError,
     error,
-  } = useImportTeamProfile(() => router.push("/dashboard"));
+  } = useImportTeamProfile(() => router.push("/dashboard/teams"));
 
   return (
     <div>

@@ -18,7 +18,7 @@ export default function CreateNewMember() {
   });
 
   const { mutate: addTeamMember, isLoading } = useAddTeamMember(() =>
-    router.push("/dashboard")
+    router.push("/dashboard/teams")
   );
 
   const {
