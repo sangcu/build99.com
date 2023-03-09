@@ -12,7 +12,7 @@ export default function CreateNewMember() {
     isLoading,
     isError,
     error,
-  } = useImportTeamProfile(() => router.push("/dashboard/teams"));
+  } = useImportTeamProfile(() => router.push("/dashboard/team-members"));
 
   const [isOverride, setIsOverride] = useState(false);
 

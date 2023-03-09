@@ -13,7 +13,7 @@ const TeamInfoForm: React.FC = () => {
   const [isAddingDefaultValue, setAddingDefaultValue] = useState(false);
   const { mutate: onAddTeamMember, isLoading } = useAddTeamInfo(() => {
     setAddingDefaultValue(false);
-    router.push("/dashboard/teams");
+    router.push("/dashboard/team-members");
   });
   const router = useRouter();
 

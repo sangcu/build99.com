@@ -32,9 +32,9 @@ export default function RootLayout({
     },
     {
       name: "Teams",
-      href: "/dashboard/teams",
+      href: "/dashboard/team-members",
       icon: UserGroupIcon,
-      current: pathName?.startsWith("/dashboard/teams"),
+      current: pathName?.startsWith("/dashboard/team-members"),
     },
     {
       name: "Templates",

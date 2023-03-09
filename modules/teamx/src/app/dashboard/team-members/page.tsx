@@ -38,11 +38,11 @@ export default function TeamList() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring">
+                    <Disclosure.Button className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring">
                       <div className="flex-1 pr-8">
                         <Button
                           onClick={() =>
-                            router.push("/dashboard/teams/create-new-member")
+                            router.push("/dashboard/team-members/add-new")
                           }
                           className="!w-full !bg-orange-600"
                         >
