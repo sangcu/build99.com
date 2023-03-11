@@ -6,6 +6,7 @@ import {
   AddNewGoalModal,
   DeleteGoalConfirmModal,
   GoalCard,
+  Header,
 } from "./components";
 
 import useManageGoal from "./hooks/useManageGoal";
@@ -19,6 +20,7 @@ const GoalList: React.FC = () => {
     isAdding,
     showAddingModal,
     showDeleteModal: selectedGoalIdToDelete,
+    selectedGoal,
     onUpdateGoalField,
     onStartAdding,
     onStartDelete: setSelectedGoalIdToDelete,
@@ -26,6 +28,8 @@ const GoalList: React.FC = () => {
     onCancelDelete,
     onConfirmAddNew,
     onCancelAddNew,
+    onSelectGoal,
+    onBack,
   } = useManageGoal();
 
   if (isLoading)
@@ -39,24 +43,23 @@ const GoalList: React.FC = () => {
   return (
     <>
       {!goalList || goalList.length == 0 ? (
-        <div className="mt-16 w-full text-center">
-          <h1 className="text-lg text-gray-900">
-            There is no goals. please add new goal.
-          </h1>
-          <Button className="mt-4" onClick={() => onStartAdding()}>
+        <div className="mt-16 w-full flex flex-col items-center">
+          <h1 className="text-lg text-gray-900">There is no goals!</h1>
+          <Button
+            className="hidden lg:block mt-4"
+            onClick={() => onStartAdding()}
+          >
             Add New Goal
           </Button>
         </div>
       ) : (
-        <div className="pl-16 pr-8 mt-8">
-          <div className="flex justify-between w-full">
-            <h1 className="text-3xl font-semibold">Team Goals</h1>
-            <Button className="" onClick={() => onStartAdding()}>
-              Add New Goal
-            </Button>
-          </div>
-
-          <div className="-ml-12 mt-6">
+        <div className="pl-4 pr-4 lg:pl-16 lg:pr-8 mt-8">
+          <Header
+            selectedGoal={selectedGoal}
+            onBack={onBack}
+            onAddNew={onStartAdding}
+          />
+          <div className="lg:-ml-12 mt-6">
             {orderBy(goalList, "title").map((goal, index) => (
               <GoalCard
                 key={goal.title}
@@ -71,6 +74,7 @@ const GoalList: React.FC = () => {
                 updateGoalAssignTo={onUpdateGoalField("assignTo")}
                 onDelete={setSelectedGoalIdToDelete}
                 onAdd={onStartAdding}
+                onSelect={() => onSelectGoal(goal)}
               />
             ))}
           </div>

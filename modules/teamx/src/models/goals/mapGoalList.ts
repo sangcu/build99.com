@@ -1,10 +1,13 @@
 import toModel from "./toModel";
 import { Goal, GoalConnectionDto, GoalDto } from "./types";
 
-const mapGoalList: (goalData?: {
-  goalList: GoalDto[];
-  goalConnections: GoalConnectionDto[];
-}) => Goal[] | undefined = (goalData) => {
+const mapGoalList: (
+  goalData?: {
+    goalList: GoalDto[];
+    goalConnections: GoalConnectionDto[];
+  },
+  selectedGoalId?: number
+) => Goal[] | undefined = (goalData, selectedGoalId) => {
   if (!goalData) return undefined;
 
   const { goalList, goalConnections } = goalData;
@@ -25,11 +28,15 @@ const mapGoalList: (goalData?: {
   };
 
   return goalList
-    .filter(
-      (goal: GoalDto) =>
-        !goalConnections
-          .map((connection) => connection.child_id)
-          .includes(goal.id as number)
+    .filter((goal: GoalDto) =>
+      selectedGoalId
+        ? goalConnections
+            .filter((connection) => connection.parent_id === selectedGoalId)
+            .map((connection) => connection.child_id)
+            .includes(goal.id as number)
+        : !goalConnections
+            .map((connection) => connection.child_id)
+            .includes(goal.id as number)
     )
     .map((goal: GoalDto) => {
       return {

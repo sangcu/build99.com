@@ -6,6 +6,7 @@ import {
   ChevronRightIcon,
   PlusIcon,
   TrashIcon,
+  ArrowLongRightIcon,
 } from "@heroicons/react/24/solid";
 import classNames from "classnames";
 import { orderBy } from "lodash";
@@ -18,6 +19,7 @@ interface GoalCardrops extends Goal {
   updateGoalAssignTo: (goalId: number, assignTo: number[]) => void;
   onDelete: (goalId: number) => void;
   onAdd: (goalId: number) => void;
+  onSelect: () => void;
 }
 
 const GoalCard: React.FC<GoalCardrops> = ({
@@ -31,6 +33,7 @@ const GoalCard: React.FC<GoalCardrops> = ({
   updateGoalAssignTo,
   onDelete,
   onAdd,
+  onSelect,
   containerClassNames,
   headerClassNames,
 }) => {
@@ -38,10 +41,16 @@ const GoalCard: React.FC<GoalCardrops> = ({
 
   const goalStatus = getGoalStatus(progress);
 
-  const statusColorClassName = {
+  const statusBackgroundColorClassName = {
     [STATUS.OK]: "!bg-green-500",
     [STATUS.WARNING]: "!bg-amber-500",
     [STATUS.BEHIND]: "!bg-red-500",
+  }[goalStatus];
+
+  const statusTextColorClassName = {
+    [STATUS.OK]: "!text-green-500",
+    [STATUS.WARNING]: "!text-amber-500",
+    [STATUS.BEHIND]: "!text-red-500",
   }[goalStatus];
 
   return (
@@ -56,8 +65,8 @@ const GoalCard: React.FC<GoalCardrops> = ({
           >
             <Disclosure.Button
               className={classNames(
-                "w-12 flex items-center justify-center",
-                (!subGoals || subGoals.length === 0) && "hidden"
+                "w-12 hidden lg:flex items-center justify-center",
+                (!subGoals || subGoals.length === 0) && "lg:hidden"
               )}
             >
               <ChevronRightIcon
@@ -69,15 +78,16 @@ const GoalCard: React.FC<GoalCardrops> = ({
             <div
               className={classNames(
                 "flex-1 bg-white shadow sm:rounded-lg flex h-14 items-center",
-                (!subGoals || subGoals.length === 0) && "ml-12"
+                (!subGoals || subGoals.length === 0) && "lg:ml-12"
               )}
             >
               <InlineEditableInput
                 value={title}
                 onChanged={(value) => updateGoalTitle(id, value as string)}
-                className="flex-1 mx-4"
+                className="hidden lg:block flex-1 mx-4"
               />
-              <div className="mr-4">
+              <div className="block lg:hidden flex-1 mx-4">{title}</div>
+              <div className="hidden lg:block mr-4">
                 <TeamMemberSelect
                   selectedTeamMemberIds={assignTo || []}
                   onChanged={(value) => {
@@ -87,21 +97,40 @@ const GoalCard: React.FC<GoalCardrops> = ({
                 />
               </div>
               <div
-                className="px-3 py-1.5 rounded-md border-gray-300 border hover:bg-gray-100 cursor-pointer mr-3 flex items-center"
+                className="hidden lg:block px-3 py-1.5 rounded-md border-gray-300 border hover:bg-gray-100 cursor-pointer mr-3 flex items-center"
                 onClick={() => onAdd(id)}
               >
                 <PlusIcon className="h-5 w-5 text-gray-500" />
               </div>
               <div
-                className="px-3 py-1.5 rounded-md border-gray-300 border hover:bg-gray-100 cursor-pointer mr-3 flex items-center"
+                className="hidden lg:block px-3 py-1.5 rounded-md border-gray-300 border hover:bg-gray-100 cursor-pointer mr-3 flex items-center"
                 onClick={() => onDelete(id)}
               >
                 <TrashIcon className="h-5 w-5 text-gray-500" />
               </div>
               <div
                 className={classNames(
-                  "h-full w-20 sm:rounded-r-lg text-white text-sm flex items-center justify-center font-semibold",
-                  statusColorClassName
+                  "block lg:hidden text-sm font-semibold px-4",
+                  statusTextColorClassName
+                )}
+              >
+                {progress} %
+              </div>
+              {subGoals && subGoals.length > 0 ? (
+                <div
+                  className="w-12 lg:hidden flex justify-center"
+                  onClick={onSelect}
+                >
+                  <ArrowLongRightIcon className="h-5 w-5 text-gray-500" />
+                </div>
+              ) : (
+                <div className="lg:hidden block h-full w-12"></div>
+              )}
+
+              <div
+                className={classNames(
+                  "h-full w-20 sm:rounded-r-lg text-white text-sm hidden lg:flex items-center justify-center font-semibold",
+                  statusBackgroundColorClassName
                 )}
               >
                 <InlineEditableInput
@@ -109,7 +138,7 @@ const GoalCard: React.FC<GoalCardrops> = ({
                   onChanged={(value) => updateGoalProgress(id, Number(value))}
                   className={classNames(
                     "text-center !w-8 !h-8 mr-1 bg-green-500 !border-white flex items-center justify-center",
-                    statusColorClassName
+                    statusBackgroundColorClassName
                   )}
                 />
                 <span className="">%</span>

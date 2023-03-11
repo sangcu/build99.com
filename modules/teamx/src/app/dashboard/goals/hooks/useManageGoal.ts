@@ -5,10 +5,11 @@ import useAddNewGoal from "./useAddNewGoal";
 import useDeleteGoal from "./useDeleteGoal";
 import useUpdateGoal from "./useUpdateGoal";
 
-import { mapGoalList, toDto, toModel } from "@/models/goals";
+import { getParentGoal, mapGoalList, toDto, toModel } from "@/models/goals";
 import { Goal } from "@/models/goals/types";
 
 const useManageGoal = () => {
+  const [selectedGoal, setSelectedGoal] = useState<Goal | undefined>(undefined);
   const [selectedGoalIdToDelete, setSelectedGoalIdToDelete] = useState<
     number | undefined
   >();
@@ -18,6 +19,13 @@ const useManageGoal = () => {
   >();
 
   const [showAddingModal, setShowAddingModal] = useState(false);
+
+  const onSelectParent = () => {
+    if (!selectedGoal || !goalData) return;
+
+    const parentGoal = getParentGoal(goalData, selectedGoal.id);
+    setSelectedGoal(parentGoal);
+  };
 
   const onStartAdding = (goalId?: number) => {
     setShowAddingModal(true);
@@ -69,7 +77,7 @@ const useManageGoal = () => {
     setSelectedGoalIdToAdd(undefined);
   };
 
-  const goalList = mapGoalList(goalData);
+  const goalList = mapGoalList(goalData, selectedGoal?.id);
 
   return {
     goalList,
@@ -77,6 +85,7 @@ const useManageGoal = () => {
     isError,
     isDeleting,
     isAdding,
+    selectedGoal,
     showAddingModal,
     showDeleteModal: selectedGoalIdToDelete,
     onUpdateGoalField,
@@ -86,6 +95,8 @@ const useManageGoal = () => {
     onCancelDelete,
     onConfirmAddNew,
     onCancelAddNew,
+    onSelectGoal: setSelectedGoal,
+    onBack: onSelectParent,
   };
 };
 

@@ -3,3 +3,4 @@ export { default as toDto } from "./toDto";
 export { default as toModel } from "./toModel";
 export { default as getGoalStatus } from "./getGoalStatus";
 export { default as getAllSubGoalIds } from "./getAllSubGoalIds";
+export { default as getParentGoal } from "./getParentGoal";
