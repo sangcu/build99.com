@@ -1,10 +1,10 @@
 import classNames from "classnames";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { KeyboardEvent, useState } from "react";
 
 interface InlineEditableInputProps {
   value?: string;
   className?: string;
-  onChanged: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChanged: (value?: string) => void;
 }
 
 const InlineEditableInput: React.FC<InlineEditableInputProps> = ({
@@ -12,11 +12,20 @@ const InlineEditableInput: React.FC<InlineEditableInputProps> = ({
   className,
   onChanged,
 }) => {
+  const [editValue, setEditValue] = useState(value);
   const [isEditable, setEditable] = useState(false);
-  const onBlur = () => setEditable(false);
+
+  const onSubmit = () => {
+    if (editValue) {
+      onChanged(editValue);
+      setEditable(false);
+    }
+  };
+
+  const onBlur = () => onSubmit();
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      setEditable(false);
+      onSubmit();
     }
   };
 
@@ -27,8 +36,8 @@ const InlineEditableInput: React.FC<InlineEditableInputProps> = ({
         "w-full border-b-2 border-gray-300 focus:outline-none",
         className
       )}
-      defaultValue={value}
-      onChange={onChanged}
+      value={editValue}
+      onChange={(event) => setEditValue(event.target.value)}
       onBlur={onBlur}
       onKeyDown={onKeyDown}
     />

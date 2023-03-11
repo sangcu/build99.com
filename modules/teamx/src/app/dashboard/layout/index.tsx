@@ -3,7 +3,7 @@
 import {
   HomeIcon,
   UserGroupIcon,
-  DocumentPlusIcon,
+  ArrowUpRightIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import Header from "./components/Header";
@@ -31,25 +31,25 @@ export default function RootLayout({
       current: pathName === "/dashboard",
     },
     {
-      name: "Teams",
+      name: "Members",
       href: "/dashboard/team-members",
       icon: UserGroupIcon,
       current: pathName?.startsWith("/dashboard/team-members"),
     },
     {
-      name: "Templates",
-      href: "/dashboard/templates",
-      icon: DocumentPlusIcon,
-      current: pathName?.startsWith("/dashboard/templates"),
+      name: "Goals",
+      href: "/dashboard/goals",
+      icon: ArrowUpRightIcon,
+      current: pathName?.startsWith("/dashboard/goals"),
     },
   ];
 
   return (
-    <div className="relative flex min-h-full flex-col">
+    <div className="relative flex min-h-full flex-col bg-gray-50">
       <Header navigation={navigation} />
-      <main className="mx-auto w-full max-w-7xl flex-grow lg:flex">
+      <main className="mx-auto w-full max-w-7xl flex-grow lg:flex content-area">
         <SideBar navigation={navigation} />
-        <div className="bg-white lg:min-w-0 lg:flex-1">{children}</div>
+        <div className="lg:min-w-0 lg:flex-1">{children}</div>
       </main>
     </div>
   );

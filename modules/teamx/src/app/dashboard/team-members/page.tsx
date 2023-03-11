@@ -5,7 +5,6 @@ import { Navigations, TeamMemberList, TeamHeader } from "./components";
 import useQueryTeamMemberList from "@/hooks/useQueryTeamMemberList";
 import useRandomSelect from "@/hooks/useRandomSelect";
 import { Disclosure } from "@headlessui/react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function TeamList() {
@@ -23,7 +22,7 @@ export default function TeamList() {
 
   return (
     <div className="lg:flex">
-      <div className="z-min-w-0 flex-1 bg-white xl:flex content-area">
+      <div className="z-min-w-0 flex-1 xl:flex bg-white content-area">
         <div className="pt-4 w-full">
           <div className="mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
             <TeamHeader />

@@ -2,7 +2,6 @@
 import { Loading } from "@/components/atoms";
 import TabHeader from "@/components/atoms/TabHeader";
 import useQueryTeamMemberDetail from "@/hooks/useQueryTeamMemberDetail";
-import classNames from "classnames";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -28,11 +27,11 @@ export default function RootLayout({
         pathName.includes("profile"),
     },
     {
-      name: "Goals",
-      href: `/dashboard/team-members/${id}/goals`,
+      name: "1-1 Meetings",
+      href: `/dashboard/team-members/${id}/1-1`,
       current:
         pathName?.startsWith("/dashboard/team-members/") &&
-        pathName.includes("goals"),
+        pathName.includes("1-1"),
     },
   ];
 
@@ -51,9 +50,9 @@ export default function RootLayout({
     );
 
   return (
-    <main className="py-10 w-full">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
-        <div className="flex items-center space-x-5">
+    <main className="w-full">
+      <div className="bg-white pt-10 mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+        <div className="flex items-center space-x-5 pb-6 sm:pb-2 2xl:pb-5">
           <div className="flex-shrink-0">
             <div className="relative">
               {profile_photo ? (
@@ -81,13 +80,13 @@ export default function RootLayout({
           </div>
         </div>
       </div>
-      <div className="mt-6 sm:mt-2 2xl:mt-5">
+      <div>
         <div className="border-b border-gray-200">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 bg-white">
             <TabHeader tabs={tabList} />
           </div>
         </div>
-        <div className="border-t border-gray-200 px-4 py-5 sm:px-6 lg:px-8">
+        <div className="border-t border-gray-200 py-5">
           {children}
         </div>
       </div>

@@ -8,9 +8,8 @@ interface SideBarProps {
 
 const SideBar: React.FC<SideBarProps> = ({ navigation }) => {
   return (
-    <div className="hidden min-w-0 bg-white lg:flex">
-      {/* Account profile */}
-      <div className="ml-8 bg-white xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
+    <div className="hidden min-w-0 lg:flex">
+      <div className="ml-8 xl:w-64 xl:flex-shrink-0 xl:border-r xl:border-gray-200">
         <nav className="mt-6 pr-4">
           <div className="space-y-1">
             {navigation.map((item) => (

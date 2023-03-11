@@ -1,8 +1,6 @@
 import { InlineEditableInput } from "@/components/atoms";
 import useQueryTeamInfo from "@/hooks/useQueryTeamInfo";
 import useUpdateTeamInfo from "@/hooks/useUpdateTeamInfo";
-import { debounce } from "lodash";
-import { ChangeEvent, useMemo } from "react";
 
 const TeamHeader: React.FC = () => {
   const { data: teamInfo } = useQueryTeamInfo();
@@ -10,35 +8,24 @@ const TeamHeader: React.FC = () => {
   const { name: teamName, note: teamNote } = teamInfo || {};
 
   const onChanged =
-    (field: string) => (event: ChangeEvent<HTMLInputElement>) => {
+    (field: string) => (value?: string) => {
       teamInfo &&
         updateTeamInfo({
           ...teamInfo,
-          [field]: event.target.value as string,
+          [field]: value,
         });
     };
-
-  const debouncedChangeTeamNameHandler = useMemo(
-    () => debounce(onChanged("name"), 300),
-    [teamInfo]
-  );
-
-  const debouncedChangeTeamNoteHandler = useMemo(
-    () => debounce(onChanged("note"), 300),
-    [teamInfo]
-  );
-
 
   return (
     <div className="">
       <InlineEditableInput
         value={teamName}
-        onChanged={debouncedChangeTeamNameHandler}
+        onChanged={onChanged("name")}
         className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
       />
       <InlineEditableInput
         value={teamNote}
-        onChanged={debouncedChangeTeamNoteHandler}
+        onChanged={onChanged("note")}
         className="mt-2 text-lg leading-8 text-gray-600"
       />
     </div>

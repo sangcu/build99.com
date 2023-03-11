@@ -20,15 +20,31 @@ export interface Team {
   note: string;
 }
 
+export interface Goal {
+  id?: number;
+  title: string;
+  assign_to: string;
+  progress: number;
+}
+
+export interface GoalConnection {
+  parent_id: number;
+  child_id: number;
+}
+
 export class TeamxDb extends Dexie {
   members!: Table<Member>;
   teams!: Table<Team>;
+  goals!: Table<Goal>;
+  goal_connections!: Table<GoalConnection>;
 
   constructor() {
     super("teamx");
     this.version(1).stores({
-      members: "++id, name", // Primary key and indexed props
+      members: "++id, name",
       teams: "++id, name",
+      goals: "++id, title",
+      goal_connections: "[parent_id+child_id], parent_id, child_id",
     });
   }
 }
