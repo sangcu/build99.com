@@ -2,13 +2,18 @@
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Button, Loading } from "@/components/atoms";
 import { Navigations, TeamMemberList, TeamHeader } from "./components";
-import useQueryTeamMemberList from "@/hooks/useQueryTeamMemberList";
-import useRandomSelect from "@/hooks/useRandomSelect";
 import { Disclosure } from "@headlessui/react";
 import { useRouter } from "next/navigation";
 
+import { toModelList } from "@/models/team-members";
+
+import useQueryTeamMemberList from "./hooks/useQueryTeamMemberList";
+import useRandomSelect from "./hooks/useRandomSelect";
+
 export default function TeamList() {
-  const { data: memberList, isLoading, isError } = useQueryTeamMemberList();
+  const { data: memberDtoList, isLoading, isError } = useQueryTeamMemberList();
+  const memberList = toModelList(memberDtoList || []);
+
   const { isSelected, randomize } = useRandomSelect(
     memberList?.filter((id) => !!id)?.map((member) => member.id as number) || []
   );
@@ -37,7 +42,10 @@ export default function TeamList() {
               <Disclosure>
                 {({ open }) => (
                   <>
-                    <Disclosure.Button className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring">
+                    <Disclosure.Button
+                      as="div"
+                      className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring"
+                    >
                       <div className="flex-1 pr-8">
                         <Button
                           onClick={() =>
@@ -74,12 +82,10 @@ export default function TeamList() {
             </div>
             {memberList && (
               <TeamMemberList
-                memberList={
-                  memberList?.map((member) => ({
-                    ...member,
-                    isSelected: isSelected(member?.id),
-                  })) || []
-                }
+                memberList={memberList.map((member) => ({
+                  ...member,
+                  isSelected: isSelected(member?.id),
+                }))}
               />
             )}
           </div>

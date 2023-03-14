@@ -1,5 +1,4 @@
 import TeamMember, { TeamMemberProps } from "./components/TeamMember";
-import AddNewButton from "./components/AddNewButton";
 import { Button } from "@/components/atoms";
 import Link from "next/link";
 

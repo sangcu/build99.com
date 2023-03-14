@@ -5,9 +5,10 @@ import { Button } from "@/components/atoms";
 
 import FormInput from "@/components/forms/FormInput";
 import Link from "next/link";
-import useAddTeamInfo from "@/hooks/useAddTeamInfo";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+import useAddTeamInfo from "@/app/dashboard/team-members/hooks/useAddTeamInfo";
 
 const TeamInfoForm: React.FC = () => {
   const [isAddingDefaultValue, setAddingDefaultValue] = useState(false);

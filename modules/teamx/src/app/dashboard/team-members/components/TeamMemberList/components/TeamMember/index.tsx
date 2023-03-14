@@ -1,19 +1,16 @@
+import { TeamMember } from "@/models/team-members/types";
 import classNames from "classnames";
 import Image from "next/image";
 
-export interface TeamMemberProps {
-  id?: number;
-  name: string;
-  job_title: string;
-  profile_photo: string;
+export interface TeamMemberProps extends TeamMember {
   isSelected: boolean;
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({
-  name,
-  job_title,
-  profile_photo,
+const TeamMemberComp: React.FC<TeamMemberProps> = ({
   isSelected,
+  name,
+  jobTitle,
+  profilePhoto,
 }) => {
   return (
     <div
@@ -22,12 +19,12 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         isSelected ? "border-orange-500" : "border-transparent"
       )}
     >
-      {profile_photo ? (
+      {profilePhoto ? (
         <Image
           width={240}
           height={240}
           className="mx-auto h-24 w-24 rounded-full"
-          src={profile_photo}
+          src={profilePhoto}
           alt=""
         />
       ) : (
@@ -39,9 +36,9 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
         {name}
       </h3>
-      <p className="text-sm leading-6 text-gray-600">{job_title}</p>
+      <p className="text-sm leading-6 text-gray-600">{jobTitle}</p>
     </div>
   );
 };
 
-export default TeamMember;
+export default TeamMemberComp;

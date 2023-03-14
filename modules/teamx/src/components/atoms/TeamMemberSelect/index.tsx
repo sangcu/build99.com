@@ -1,7 +1,6 @@
-import useQueryTeamMemberList from "@/hooks/useQueryTeamMemberList";
-
 import ListView from "./components/ListView";
 import DropDownView from "./components/DropDownView";
+import useQueryTeamMemberList from "@/app/dashboard/team-members/hooks/useQueryTeamMemberList";
 
 export interface TeamMemberSelectProps {
   label?: string;

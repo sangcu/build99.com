@@ -1,9 +1,10 @@
 "use client";
 import { Loading } from "@/components/atoms";
 import TabHeader from "@/components/atoms/TabHeader";
-import useQueryTeamMemberDetail from "@/hooks/useQueryTeamMemberDetail";
+import toModel from "@/models/team-members/toModel";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import useQueryTeamMemberDetail from "../hooks/useQueryTeamMemberDetail";
 
 export default function RootLayout({
   children,
@@ -16,7 +17,8 @@ export default function RootLayout({
   const pathName = usePathname();
   const { isLoading, data, isError } = useQueryTeamMemberDetail(id);
 
-  const { profile_photo, name, job_title } = data || {};
+  const memberDetail = data ? toModel(data) : undefined;
+  const { name, profilePhoto } = memberDetail || {};
 
   const tabList = [
     {
@@ -55,12 +57,12 @@ export default function RootLayout({
         <div className="flex items-center space-x-5 pb-6 sm:pb-2 2xl:pb-5">
           <div className="flex-shrink-0">
             <div className="relative">
-              {profile_photo ? (
+              {profilePhoto ? (
                 <Image
                   width={64}
                   height={64}
                   className="mx-auto h-16 w-16 rounded-full"
-                  src={profile_photo}
+                  src={profilePhoto}
                   alt=""
                 />
               ) : (
@@ -76,7 +78,7 @@ export default function RootLayout({
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{name}</h1>
-            <p className="text-sm font-medium text-gray-500">{job_title}</p>
+            <p className="text-sm font-medium text-gray-500">{profilePhoto}</p>
           </div>
         </div>
       </div>
@@ -86,9 +88,7 @@ export default function RootLayout({
             <TabHeader tabs={tabList} />
           </div>
         </div>
-        <div className="border-t border-gray-200 py-5">
-          {children}
-        </div>
+        <div className="border-t border-gray-200 py-5">{children}</div>
       </div>
     </main>
   );

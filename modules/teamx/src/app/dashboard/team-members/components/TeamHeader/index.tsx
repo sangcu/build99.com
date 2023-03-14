@@ -1,6 +1,6 @@
 import { InlineEditableInput } from "@/components/atoms";
-import useQueryTeamInfo from "@/hooks/useQueryTeamInfo";
-import useUpdateTeamInfo from "@/hooks/useUpdateTeamInfo";
+import useQueryTeamInfo from "@/app/dashboard/team-members/hooks/useQueryTeamInfo";
+import useUpdateTeamInfo from "../../hooks/useUpdateTeamInfo";
 
 const TeamHeader: React.FC = () => {
   const { data: teamInfo } = useQueryTeamInfo();

@@ -8,7 +8,9 @@ import { useForm } from "react-hook-form";
 import FormInput from "@/components/forms/FormInput";
 import FormImageUpload from "@/components/forms/FormImageUpload";
 import { useRouter } from "next/navigation";
-import useAddTeamMember from "@/hooks/useAddTeamMember";
+import useAddTeamMember from "@/app/dashboard/team-members/hooks/useAddTeamMember";
+import { TeamMember } from "@/models/team-members/types";
+import toDto from "@/models/team-members/toDto";
 
 export default function CreateNewMember() {
   const router = useRouter();
@@ -25,18 +27,12 @@ export default function CreateNewMember() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<TeamMember>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async (values: any) => {
-    const { name, jobTitle, notes, profileImage } = values;
-    await addTeamMember({
-      name,
-      job_title: jobTitle,
-      profile_photo: profileImage,
-      notes,
-    });
+  const onSubmit = async (values: TeamMember) => {
+    await addTeamMember(toDto(values));
   };
 
   return (
@@ -53,10 +49,10 @@ export default function CreateNewMember() {
             </p>
           </div>
           <FormImageUpload
-            name="profileImage"
+            name="profilePhoto"
             label="Profile photo"
             control={control}
-            error={errors.profileImage}
+            error={errors.profilePhoto}
           />
           <FormInput
             label="Name"
@@ -75,7 +71,7 @@ export default function CreateNewMember() {
             name="notes"
             isMultipleLine
             control={control}
-            error={errors.note}
+            error={errors.notes}
           />
           <div className="flex justify-end space-x-2">
             <Link href="/">
