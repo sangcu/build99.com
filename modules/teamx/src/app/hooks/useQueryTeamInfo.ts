@@ -11,7 +11,6 @@ const queryTeamDetail = async () => {
       description: string;
     }[]
   > = await axios.get("/api/teams");
-  console.log("response.data", response.data);
   return response.data?.[0];
 };
 

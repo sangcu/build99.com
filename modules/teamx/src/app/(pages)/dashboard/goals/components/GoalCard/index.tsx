@@ -91,7 +91,6 @@ const GoalCard: React.FC<GoalCardrops> = ({
                 <TeamMemberSelect
                   selectedTeamMemberIds={assignTo || []}
                   onChanged={(value) => {
-                    console.log("value", value);
                     updateGoalAssignTo(id, value);
                   }}
                 />

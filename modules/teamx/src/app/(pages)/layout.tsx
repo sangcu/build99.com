@@ -26,7 +26,7 @@ const ContainerComp: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
   const { status } = useSession();
-  console.log("status", status);
+
   if (status === "unauthenticated") {
     signIn();
     return null;

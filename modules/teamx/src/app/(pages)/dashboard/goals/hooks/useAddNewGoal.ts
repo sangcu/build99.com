@@ -11,9 +11,6 @@ const addNewGoal: (params: {
 
   const newId = await db.goals.add(newGoal);
 
-  console.log('parentId', parentId)
-  console.log('newId', newId)
-
   if (parentId) {
     await db.goal_connections.add({
       parent_id: parentId,

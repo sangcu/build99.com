@@ -16,7 +16,6 @@ const getParentGoal = (
     (connection) => connection.child_id === goalId
   );
 
-  console.log("selectedConection", selectedConection);
   const parentGoal = goalList.find(
     (goal) => goal.id === selectedConection?.parent_id
   );

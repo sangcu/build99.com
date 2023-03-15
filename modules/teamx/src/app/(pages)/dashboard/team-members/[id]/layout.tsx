@@ -22,8 +22,6 @@ export default function RootLayout({
     id
   );
 
-  console.log("teamInfo", teamInfo);
-
   const memberDetail = data ? toModel(data) : undefined;
   const { name, profilePhoto, jobTitle } = memberDetail || {};
 
