@@ -1,8 +1,8 @@
 import { Bars3CenterLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import { NavigationItem } from "@/app/(pages)/dashboard/layout";
 import classNames from "classnames";
+import { NavigationItem } from "../../../..";
 
 export const MobileMenuButton: React.FC<{
   open: boolean;

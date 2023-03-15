@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { signIn, useSession } from "next-auth/react";
 import "./globals.css";
@@ -25,19 +25,19 @@ export default function RootLayout({
 const ContainerComp: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { status } = useSession();
+  // const { status } = useSession();
 
-  if (status === "unauthenticated") {
-    signIn();
-    return null;
-  }
+  // if (status === "unauthenticated") {
+  //   signIn();
+  //   return null;
+  // }
 
-  if (status === "loading")
-    return (
-      <div className="h-screen w-screen flex items-center justify-center">
-        <Loading containerClassName="mt-20" />
-      </div>
-    );
+  // if (status === "loading")
+  //   return (
+  //     <div className="h-screen w-screen flex items-center justify-center">
+  //       <Loading containerClassName="mt-20" />
+  //     </div>
+  //   );
 
   return <>{children}</>;
 };
