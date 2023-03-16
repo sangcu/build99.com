@@ -1,11 +1,11 @@
 import classNames from "classnames";
+import { Route } from "next";
 import Link from "next/link";
-import { UrlObject } from "url";
 
 interface TabHeaderProps {
   tabs: {
     name: string;
-    href: UrlObject;
+    href: Route<string>;
     current?: boolean;
   }[];
 }

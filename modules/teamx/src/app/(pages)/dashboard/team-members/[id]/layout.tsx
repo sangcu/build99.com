@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import useQueryTeamMemberDetail from "../hooks/useQueryTeamMemberDetail";
 import useQueryTeamInfo from "@/app/hooks/useQueryTeamInfo";
+import { Route } from "next";
 
 export default function RootLayout({
   children,
@@ -28,14 +29,14 @@ export default function RootLayout({
   const tabList = [
     {
       name: "Profile",
-      href: new URL(`/dashboard/team-members/${id}/profile`),
+      href: `/dashboard/team-members/${id}/profile` as Route<string>,
       current:
         pathName?.startsWith("/dashboard/team-members/") &&
         pathName.includes("profile"),
     },
     {
       name: "1-1 Meetings",
-      href: new URL(`/dashboard/team-members/${id}/1-1`),
+      href: `/dashboard/team-members/${id}/1-1` as Route<string>,
       current:
         pathName?.startsWith("/dashboard/team-members/") &&
         pathName.includes("1-1"),

@@ -8,11 +8,11 @@ import {
 import { usePathname } from "next/navigation";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
-import { UrlObject } from "url";
+import type { Route } from 'next';
 
 export interface NavigationItem {
   name: string;
-  href: UrlObject;
+  href: Route<string>;
   icon: any;
   current?: boolean;
 }
@@ -23,19 +23,19 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const navigation: NavigationItem[] = [
     {
       name: "Dashboard",
-      href: new URL("/dashboard"),
+      href: "/dashboard",
       icon: HomeIcon,
       current: pathName === "/dashboard",
     },
     {
       name: "Members",
-      href: new URL("/dashboard/team-members"),
+      href: "/dashboard/team-members",
       icon: UserGroupIcon,
       current: pathName?.startsWith("/dashboard/team-members"),
     },
     {
       name: "Goals",
-      href: new URL("/dashboard/goals"),
+      href: "/dashboard/goals",
       icon: ArrowUpRightIcon,
       current: pathName?.startsWith("/dashboard/goals"),
     },
