@@ -2,17 +2,18 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    typedRoutes: true,
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-    return config
+      use: ["@svgr/webpack"],
+    });
+    return config;
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ["images.unsplash.com"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

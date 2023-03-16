@@ -1,10 +1,11 @@
 import classNames from "classnames";
 import Link from "next/link";
+import { UrlObject } from "url";
 
 interface TabHeaderProps {
   tabs: {
     name: string;
-    href: string;
+    href: UrlObject;
     current?: boolean;
   }[];
 }

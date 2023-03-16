@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const AddNewButton: React.FC = () => {
   return (
-    <Link href={"dashboard/team-members/add-new"}>
+    <Link href={"/dashboard/team-members/add-new"}>
       <div className="flex flex-col align-center text-center">
         <svg
           className="mx-auto h-12 w-12 text-gray-400"

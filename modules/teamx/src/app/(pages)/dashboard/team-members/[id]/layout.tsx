@@ -28,14 +28,14 @@ export default function RootLayout({
   const tabList = [
     {
       name: "Profile",
-      href: `/dashboard/team-members/${id}/profile`,
+      href: new URL(`/dashboard/team-members/${id}/profile`),
       current:
         pathName?.startsWith("/dashboard/team-members/") &&
         pathName.includes("profile"),
     },
     {
       name: "1-1 Meetings",
-      href: `/dashboard/team-members/${id}/1-1`,
+      href: new URL(`/dashboard/team-members/${id}/1-1`),
       current:
         pathName?.startsWith("/dashboard/team-members/") &&
         pathName.includes("1-1"),
