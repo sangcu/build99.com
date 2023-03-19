@@ -42,10 +42,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="relative flex min-h-full flex-col bg-gray-50">
+    <div className="relative flex min-h-full flex-col bg-gray-100">
       <Header navigation={navigation} />
       <main className="mx-auto w-full max-w-7xl flex-grow lg:flex content-area">
-        <SideBar navigation={navigation} />
         <div className="lg:min-w-0 lg:flex-1">{children}</div>
       </main>
     </div>

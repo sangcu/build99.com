@@ -21,13 +21,15 @@ const TeamMemberList: React.FC<{
   return (
     <ul
       role="list"
-      className="mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center sm:grid-cols-3 lg:mx-0 lg:max-w-none"
+      className="mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center sm:grid-cols-4 lg:mx-0 lg:max-w-none"
     >
       {memberList?.map((member) => (
         <li key={member?.id} className="!cursor-pointer">
-          <Link href={`/dashboard/team-members/${member.id}/profile`}>
-            <TeamMember {...member} />
-          </Link>
+          {member.id && (
+            <Link href={`/dashboard/team-members/${member.id}`}>
+              <TeamMember {...member} />
+            </Link>
+          )}
         </li>
       ))}
     </ul>

@@ -10,102 +10,93 @@ import { toModelList } from "@/app/(ui)/models/team-members";
 import useQueryTeamMemberList from "./hooks/useQueryTeamMemberList";
 import useRandomSelect from "./hooks/useRandomSelect";
 import useQueryTeamInfo from "@/app/(ui)/hooks/useQueryTeamInfo";
-
+import Link from "next/link";
 export default function TeamList() {
-  const { data } = useQueryTeamInfo();
+  const {
+    data,
+    isLoading: isLoadingTeamInfo,
+    isError: isFetchingTeamInfoError,
+  } = useQueryTeamInfo();
 
   const {
     data: memberDtoList,
     isLoading,
     isError,
   } = useQueryTeamMemberList(data?.id);
-
   const memberList = memberDtoList ? toModelList(memberDtoList) : undefined;
 
-  const { isSelected, randomize } = useRandomSelect(
+  const { isSelected } = useRandomSelect(
     memberList?.filter((id) => !!id)?.map((member) => member.id as number) || []
   );
   const router = useRouter();
 
-  const navigations = [
-    { name: "Who's next", onClick: randomize },
-    { name: "Create vote", onClick: () => {} },
-    { name: "360 Feedbacks", onClick: () => {} },
-  ];
+  if (isLoading || isLoadingTeamInfo)
+    return <Loading containerClassName="my-20" />;
+
+  if (isError || isFetchingTeamInfoError)
+    return (
+      <div className="mt-12 text-center text-red-600 text-lg font-semibold">
+        Something went wrong on loading team members
+      </div>
+    );
 
   return (
-    <div className="lg:flex">
-      <div className="z-min-w-0 flex-1 xl:flex bg-white content-area">
-        <div className="pt-4 w-full">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
-            <TeamHeader />
-            {isLoading && <Loading containerClassName="mt-20" />}
+    <div className="mt-8 mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
+      <TeamHeader />
 
-            {isError && (
-              <div className="mt-12 text-center text-red-600 text-lg font-semibold">
-                Something went wrong on loading team members
-              </div>
-            )}
-            {!isLoading && !isError && (
-              <>
-                <div className="mt-4 lg:mt-8">
-                  <Disclosure>
-                    {({ open }) => (
-                      <>
-                        <Disclosure.Button
-                          as="div"
-                          className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring"
-                        >
-                          <div className="flex-1 pr-8">
-                            <Button
-                              onClick={() =>
-                                router.push("/dashboard/team-members/add-new")
-                              }
-                              className="!w-full !bg-orange-600"
-                            >
-                              Create New Member
-                            </Button>
-                          </div>
-                          <ChevronUpIcon
-                            className={`${
-                              open ? "rotate-180 transform" : ""
-                            } h-7 w-7 text-gray-500`}
-                          />
-                        </Disclosure.Button>
-                        <Disclosure.Panel className="mt-4 px-4 pt-4 pb-2 text-sm text-gray-500 bg-gray-100 rounded-md space-y-2">
-                          {navigations?.map((naviation) => (
-                            <div key={naviation.name}>
-                              <button
-                                key={naviation?.name}
-                                type="button"
-                                onClick={naviation.onClick}
-                                className="rounded-md text-base text-right font-medium text-gray-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-                              >
-                                {naviation.name}
-                              </button>
-                            </div>
-                          ))}
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                </div>
-                {memberList && (
-                  <TeamMemberList
-                    memberList={memberList.map((member) => ({
-                      ...member,
-                      isSelected: isSelected(member?.id),
-                    }))}
-                  />
-                )}
-              </>
-            )}
+      <div className="mt-4 grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
+        <div className="p-6 bg-white overflow-hidden rounded-lg shadow col-span-2">
+          <div className="lg:flex items-center">
+              <div className="flex-1 text-2xl font-semibold">Members</div>
+            <div>
+              <Link href="/dashboard/team-members/add-new">
+                <Button>Create New Member</Button>
+              </Link>
+            </div>
           </div>
+          {!isLoading && !isError && (
+            <>
+              <div className="mt-4 lg:mt-8">
+                <Disclosure>
+                  {({ open }) => (
+                    <>
+                      <Disclosure.Button
+                        as="div"
+                        className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring"
+                      >
+                        <div className="flex-1 pr-8">
+                          <Button
+                            onClick={() =>
+                              router.push("/dashboard/team-members/add-new")
+                            }
+                            className="!w-full !bg-orange-600"
+                          >
+                            Create New Member
+                          </Button>
+                        </div>
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-7 w-7 text-gray-500`}
+                        />
+                      </Disclosure.Button>
+                    </>
+                  )}
+                </Disclosure>
+              </div>
+              {memberList && (
+                <TeamMemberList
+                  memberList={memberList.map((member) => ({
+                    ...member,
+                    isSelected: isSelected(member?.id),
+                  }))}
+                />
+              )}
+            </>
+          )}
         </div>
-      </div>
-      <div className="pr-4 sm:pr-6 lg:flex-shrink-0 lg:border-l lg:border-gray-200 lg:pr-8 xl:pr-0">
-        <div className="hidden lg:block pr-4 sm:pr-6 lg:flex-shrink-0 lg:border-l lg:border-gray-200 lg:pr-8 xl:pr-0">
-          <Navigations navigations={navigations} />
+        <div className="p-6 bg-white overflow-hidden rounded-lg shadow h-80 flex items-center justify-center">
+          <div className="text-gray-400">will display overview chart here</div>
         </div>
       </div>
     </div>

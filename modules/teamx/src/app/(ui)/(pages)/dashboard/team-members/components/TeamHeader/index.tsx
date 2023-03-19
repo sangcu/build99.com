@@ -22,12 +22,12 @@ const TeamHeader: React.FC = () => {
       <InlineEditableInput
         value={teamName}
         onChanged={onChanged("name")}
-        className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+        className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl !bg-gray-100"
       />
       <InlineEditableInput
         value={teamDescription}
         onChanged={onChanged("description")}
-        className="mt-2 text-lg leading-8 text-gray-600"
+        className="mt-2 text-lg leading-8 text-gray-600 !bg-gray-100"
       />
     </div>
   );
