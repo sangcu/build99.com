@@ -28,14 +28,9 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   return (
     <div id={elementId}>
       <div className="text-gray-900 font-semibold text-2xl">
-        {t('Get latest news from us.')}
+        {t('Subscribe now')}
       </div>
       <div className="mt-2">
-        {/* <p className="text-base text-gray-500">
-          {t(
-            "We're are in private alpha development and will public our work soon.",
-          )}
-        </p> */}
         <p className="text-base text-gray-500">
           {t('No spam and unsubscribe at any time.')}
         </p>
@@ -71,7 +66,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
                 {
                   'border-red-300 text-red-900 focus:outline-none focus:ring-red-500 focus:border-red-300':
                     errors?.email,
-                  'border-gray-300 focus:border-orange-500 focus:ring-orange-500':
+                  'border-gray-300 focus:border-sky-500 focus:ring-sky-500':
                     !errors?.email,
                 },
               )}
@@ -86,7 +81,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         </div>
         <button
           type="submit"
-          className="!w-[128px] !h-12 flex-none inline-flex justify-center items-center rounded-md border border-transparent bg-orange-600 px-6 py-2 text-base font-medium text-white hover:bg-orange-700"
+          className="!w-[128px] !h-12 flex-none inline-flex justify-center items-center rounded-md border border-transparent bg-sky-600 px-6 py-2 text-base font-medium text-white hover:bg-sky-700"
           onClick={() =>
             event(GA.ACTIONS.Subscribe_Button_Click, {
               category: GA.CATEGORIES.Subscription,

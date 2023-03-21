@@ -13,7 +13,7 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
     <Transition.Root show={isOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed z-10 inset-0 overflow-y-auto"
+        className="fixed z-[70] inset-0 overflow-y-auto"
         onClose={onClose}
       >
         <div className="flex items-end justify-center min-h-screen px-4 pb-20 text-center sm:block sm:p-0">
@@ -48,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
               <div className="absolute top-0 right-0 hidden pt-4 pr-4 sm:block">
                 <button
                   type="button"
-                  className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                  className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
                   onClick={onClose}
                 >
                   <span className="sr-only">Close</span>

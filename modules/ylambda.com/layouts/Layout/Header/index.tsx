@@ -9,7 +9,7 @@ import XMarkIcon from 'public/icons/x-mark.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
-const navigation = [  
+const navigation = [
   {
     name: 'Blog',
     href: '/blog',
@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
           <div className="flex flex-1 items-center">
             <div className="flex w-full items-center justify-between md:w-auto">
               <Link href="/">
-                <a className="flex items-center space-x-2 text-orange-500 hover:text-orange-600">
+                <a className="flex items-center space-x-2 text-sky-500 hover:text-sky-600">
                   <LogoIcon />
                   <span className="text-lg font-bold">yLambda</span>
                 </a>
@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                     className={classNames(
                       'text-base font-medium ',
                       item?.isCurrent && item?.isCurrent(router.pathname)
-                        ? 'text-orange-500 hover:text-orange-600 font-semibold'
+                        ? 'text-sky-500 hover:text-sky-600 font-semibold'
                         : 'text-white hover:text-gray-300',
                     )}
                   >
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
             </button> */}
             <button
               onClick={onSignUp}
-              className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white hover:bg-orange-700"
+              className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-base font-medium text-white hover:bg-sky-700"
             >
               {t('Sign Up')}
             </button>
@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                   <LogoIcon />
                 </Link>
                 <div className="-mr-2">
-                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-600">
+                  <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-600">
                     <span className="sr-only">Close menu</span>
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -131,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                         className={classNames(
                           'block rounded-md px-3 py-2 text-base ',
                           item?.isCurrent && item?.isCurrent(router.pathname)
-                            ? 'text-orange-600 hover:bg-gray-50 font-semibold'
+                            ? 'text-sky-600 hover:bg-gray-50 font-semibold'
                             : 'font-medium text-gray-900 hover:bg-gray-50',
                         )}
                       >
@@ -140,25 +140,6 @@ const Header: React.FC<HeaderProps> = ({ onSignIn, onSignUp }) => {
                     </Link>
                   ))}
                 </div>
-                {/* <div className="mt-6 px-5">
-                  <button
-                    onClick={onSignIn}
-                    className="block w-full rounded-md bg-gradient-to-r from-amber-500 to-orange-600 py-3 px-4 text-center font-medium text-white shadow hover:from-amber-600 hover:to-orange-700"
-                  >
-                    {t('Sign Up')}
-                  </button>
-                </div> */}
-                {/* <div className="mt-6 px-5">
-                  <p className="text-center text-base font-medium text-gray-500">
-                    {t('Already have account?')}{' '}
-                    <button
-                      onClick={onSignUp}
-                      className="text-gray-900 hover:underline"
-                    >
-                      {t('Login')}
-                    </button>
-                  </p>
-                </div> */}
               </div>
             </div>
           )}

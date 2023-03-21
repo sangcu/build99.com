@@ -3,15 +3,22 @@ import { NextPageWithLayout } from 'pages/_app'
 import Layout from 'layouts/Layout'
 import { ReactElement } from 'react'
 import Footer from 'molecules/Footer'
-import AppDetail from './AppDetail'
+
+import YourProblems from './YourProblems'
+import BadPractices from './BadPractices'
+import Solutions from './Solutions'
+import Subscription from './Subscription'
+import LeaderFeatures from './LeaderFeatures'
 
 const Home: NextPageWithLayout = () => {
   return (
     <>
       <Introduction />
-      <AppDetail />
-      {/* <Architecture />
-      <HowItWork /> */}
+      <YourProblems />
+      <BadPractices />
+      <Solutions />
+      <Subscription />
+      <LeaderFeatures />
     </>
   )
 }

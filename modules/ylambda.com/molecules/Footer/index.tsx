@@ -79,10 +79,13 @@ const Footer: React.FC = () => {
   return (
     <>
       <footer id="footer" className="w-full bg-gray-50">
-        <h2 id="footer-heading" className="sr-only">
-          Footer
+        <h2
+          id="footer-heading"
+          className="text-center pt-16 text-2xl text-sky-600 font-bold"
+        >
+          {`"A person who feels appreciated will always do more than expected."`}
         </h2>
-        <div className="mx-auto max-w-7xl px-4 pt-12 sm:max-w-7xl sm:px-6 lg:px-8 lg:pt-16">
+        <div className="mx-auto max-w-7xl px-6 pt-12 sm:max-w-7xl sm:px-6 lg:px-8 lg:pt-16">
           <div className="lg:grid lg:grid-cols-2 lg:gap-24">
             <div className="">
               <div className="md:grid md:grid-cols-3 space-y-6 md:space-y-0">
@@ -107,7 +110,7 @@ const Footer: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="mt-8 lg:mt-0 space-y-8 lg:col-span-1 flex lg:justify-end">
+            <div className="w-full mt-8 lg:mt-0 lg:space-y-8 lg:col-span-1 lg:flex lg:justify-end">
               <SubscriptionForm
                 isLoading={isSubscribing}
                 onSubscribe={onSubscribe}
