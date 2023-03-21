@@ -4,14 +4,16 @@ import ChevronDoubleDownIcon from 'public/icons/chevron-double-down.svg'
 const YourProblems: React.FC = () => {
   return (
     <div className="flex justify-center relative w-full">
-      <div className="w-full lg:-top-[240px] z-[40] lg:absolute bg-white lg:w-[520px] p-8 lg:rounded-3xl shadow-lg">
+      <div className="w-full lg:-top-[140px] z-[40] lg:absolute bg-white lg:w-[520px] p-8 lg:rounded-3xl shadow-lg">
         <div className="w-full text-gray-900 flex flex-col items-center">
-          <div className="text-2xl font-bold text-center">Are you... </div>
+          <div className="text-4xl font-extrabold text-center">
+            Is this you?
+          </div>
           <div className="mt-4 space-y-2">
             {[
-              'Self evaluation and manager evaluation is not align.',
-              'Your annual performance review isn’t good.',
-              'Heated debate with your peers about performance.',
+              'Thinking of performance appraisal is time-consuming, stressfull, and not fair.',
+              'Misalignment of what is meet expectation for your members.',
+              "You're engineer and your performance appraisals are biased and subjective",
             ].map((item) => (
               <div className="flex items-center space-x-4" key={item}>
                 <div className="flex-0">

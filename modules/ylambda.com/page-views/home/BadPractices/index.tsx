@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 const badPractices = [
   {
-    name: 'No goal at all.',
+    name: 'No goals.',
     description:
       'Expectation isn’t align prior to performance review. Which cause the difference view for appraisal.',
     href: '#',
@@ -19,16 +19,16 @@ const badPractices = [
     icon: XMarkIcon,
   },
   {
-    name: 'Feedback. Data driven',
+    name: 'Biased and Subjective',
     description:
-      'Quarterly, Yearly. Your performance and your peer feedbacks hasn’t tracked, eventually no data show in the performance review. It’s 2023, be ready for data-driven.',
+      'Without the data be recorded, performance appraisal is influenced by personal beliefs and feelings. Demotivation is inevitable.',
     href: '#',
     icon: XMarkIcon,
   },
 ]
 
 const BadPractices: React.FC = () => {
-  const WORDS = ['career', 'bonus']
+  const WORDS = ['income', 'bonus', 'career']
   const [wordIndex, setWordIndex] = useState(0)
 
   useEffect(() => {
@@ -39,12 +39,12 @@ const BadPractices: React.FC = () => {
   }, [])
 
   return (
-    <div className="lg:pt-80 relative bg-gray-50 pt-12 md:pt-18 sm:pt-24 lg:pb-20 pb-12">
+    <div className="lg:pt-96 relative bg-gray-50 pt-12 md:pt-18 sm:pt-24 lg:pb-20 pb-12">
       <div className="mx-auto max-w-7xl text-center sm:max-w-3xl lg:max-w-7xl">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto lg:text-center max-w-3xl">
             <h2 className="mt-2 text-3xl  font-bold tracking-tight text-gray-900 sm:text-4xl space-x-4 !leading-normal">
-              Performance appraisal doing wrong is slow you down your&nbsp;
+              Performance appraisal doing wrong is slow down your&nbsp;
               <TextTransition
                 inline
                 className="transition-text"

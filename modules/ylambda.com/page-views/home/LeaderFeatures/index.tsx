@@ -1,6 +1,6 @@
 const features = [
   {
-    name: 'Settle clear expectation',
+    name: 'Setting clear expectations',
     description:
       'Don’t let performance appraisal destroy your leadership. Setting a clear expectations with your team members.',
   },
@@ -42,11 +42,11 @@ const LeaderFeatures: React.FC = () => {
         </div>
         <div className="pt-8 pb-8 lg:pb-0 lg:pt-0 flex flex-col items-center gap-y-10 gap-x-8 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
           <div className="w-full pt-0 lg:pt-24">
-            <h2 className=" text-left lg:text-center">
-              <div className="text-white font-bold text-2xl md:text-3xl lg:text-4xl">
+            <h2 className="pt-16 text-left lg:text-center">
+              <div className="text-white font-bold text-3xl md:text-4xl lg:text-5xl">
                 Are you leader?
               </div>
-              <div className="text-lg text-gray-400">
+              <div className="text-lg pt-4 text-gray-400">
                 Let’s fix for your team.
               </div>
             </h2>

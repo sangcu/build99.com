@@ -9,21 +9,21 @@ const images = [image1, image2, image3]
 
 const solutions = [
   {
-    name: 'Setting clear expectations, make your goal achievable.',
+    name: 'Storytelling your performance with data-driven.',
     description:
-      ' Set your goal with S.M.A.R.T principle and do it as your habit. Your goal are track and visualize to motivate you bi-weekly/monthly',
+      'Set your goal with the S.M.A.R.T principle and do it as your habit. Your goals are tracked and visual to motivate you bi-weekly/monthly',
     images: [image1, image2, image3],
   },
   {
     name: 'Feedback early. Constant improvement.',
     description:
-      'Constant improve yourself by periodical review meeting. Result be tracked to compare the baseline and your actual performance.',
+      'Save your time by automatically sending out periodic reviews and feedback.',
     images: [image1, image2, image3],
   },
   {
     name: 'Performance Insights. Anytime.',
     description:
-      'A real-time insight of your achieved, assessment performance score. Always ready for performance appraisal',
+      'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
     images: [image1, image2, image3],
   },
 ]
@@ -35,7 +35,7 @@ const Solutions: React.FC = () => {
       className="relative bg-white pt-16 md:pt-18 py-12 md:py-16 lg:pt-24 lg:pb-[304px]"
     >
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-sky-600">
+        <h2 className="text-5xl lg:text-5xl font-bold">
           Let’s fix it. With help from us.
         </h2>
         <div className="mt-16 space-y-12">
