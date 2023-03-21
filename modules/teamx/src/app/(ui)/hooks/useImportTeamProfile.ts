@@ -21,7 +21,7 @@ const importTeamProfile = async (params: {
   try {
     const team = JSON.parse(window.atob(value));
 
-    await axios.post("/api/teams/:import", {
+    await axios.post("/api/teams/import", {
       override,
       team,
     });

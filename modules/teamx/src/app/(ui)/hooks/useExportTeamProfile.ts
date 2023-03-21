@@ -2,7 +2,7 @@ import axios from "axios";
 import { useMutation } from "react-query";
 
 const exportTeamProfile = async () => {
-  const response = await axios.get(`/api/teams/:export`);
+  const response = await axios.get(`/api/teams/export`);
 
   const blob = new Blob([JSON.stringify(response.data)], {
     type: "application/json",
