@@ -4,7 +4,7 @@ import ChevronDoubleDownIcon from 'public/icons/chevron-double-down.svg'
 const YourProblems: React.FC = () => {
   return (
     <div className="flex justify-center relative w-full">
-      <div className="w-full lg:-top-[140px] z-[40] lg:absolute bg-white lg:w-[520px] p-8 lg:rounded-3xl shadow-lg">
+      <div className="w-full lg:-top-[180px] z-[40] lg:absolute bg-white lg:w-[680px] p-8 lg:rounded-3xl shadow-lg">
         <div className="w-full text-gray-900 flex flex-col items-center">
           <div className="text-4xl font-extrabold text-center">
             Is this you?

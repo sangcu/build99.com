@@ -39,7 +39,7 @@ const BadPractices: React.FC = () => {
   }, [])
 
   return (
-    <div className="lg:pt-96 relative bg-gray-50 pt-12 md:pt-18 sm:pt-24 lg:pb-20 pb-12">
+    <div className="lg:pt-[420px] relative bg-gray-50 pt-12 md:pt-18 sm:pt-24 lg:pb-[124px] pb-12">
       <div className="mx-auto max-w-7xl text-center sm:max-w-3xl lg:max-w-7xl">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto lg:text-center max-w-3xl">
