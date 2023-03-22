@@ -108,7 +108,7 @@ export default function PricingView() {
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
                       <CheckIcon
-                        className="h-6 w-5 flex-none text-orange-600"
+                        className="h-6 w-5 flex-none text-sky-600"
                         aria-hidden="true"
                       />
                       {feature}
@@ -122,8 +122,8 @@ export default function PricingView() {
                   aria-describedby={tier.id}
                   className={classNames(
                     tier.mostPopular
-                      ? 'bg-orange-600 text-white shadow-sm hover:bg-orange-500'
-                      : 'text-orange-600 ring-1 ring-inset ring-orange-200 hover:ring-orange-300',
+                      ? 'bg-sky-600 text-white shadow-sm hover:bg-sky-500'
+                      : 'text-sky-600 ring-1 ring-inset ring-sky-600 hover:ring-sky-700',
                     'mt-8 block rounded-md py-2 px-3 text-center text-sm leading-6 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600',
                   )}
                 >
