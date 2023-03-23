@@ -40,7 +40,7 @@ const LeaderFeatures: React.FC = () => {
             </defs>
           </svg>
         </div>
-        <div className="pt-8 pb-8 lg:pb-0 lg:pt-0 flex flex-col items-center gap-y-10 gap-x-8 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
+        <div className="relative pt-8 pb-8 lg:pb-0 lg:pt-0 flex flex-col items-center gap-y-10 gap-x-8 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
           <div className="w-full pt-0 lg:pt-24">
             <h2 className="pt-16 text-left lg:text-center">
               <div className="text-white font-bold text-3xl md:text-4xl lg:text-5xl">
