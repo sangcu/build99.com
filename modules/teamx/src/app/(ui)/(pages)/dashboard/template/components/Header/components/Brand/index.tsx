@@ -8,8 +8,8 @@ const Brand: React.FC = () => {
         <div className="flex items-center">
           <LogoIcon />
           <div className="pl-2">
-            <div className="text-orange-600 font-bold text-2xl">yLeader</div>
-            <div className="text-orange-600 text-xs font-semibold">
+            <div className="text-sky-600 font-bold text-2xl">yLeader</div>
+            <div className="text-sky-600 text-xs font-semibold">
               Helping people succeed
             </div>
           </div>

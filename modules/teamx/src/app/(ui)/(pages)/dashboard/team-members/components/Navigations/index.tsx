@@ -14,7 +14,7 @@ const Navigations: React.FC<NavigationProps> = ({ navigations }) => {
         <Link href="/dashboard/team-members/add-new">
           <button
             type="button"
-            className="inline-flex items-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            className="inline-flex items-center rounded-md border border-transparent bg-sky-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
           >
             Create New Member
           </button>
@@ -27,7 +27,7 @@ const Navigations: React.FC<NavigationProps> = ({ navigations }) => {
               key={naviation?.name}
               type="button"
               onClick={naviation.onClick}
-              className="rounded-md text-base text-right font-medium text-gray-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              className="rounded-md text-base text-right font-medium text-gray-800 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
             >
               {naviation.name}
             </button>

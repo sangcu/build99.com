@@ -8,7 +8,7 @@ export const MobileMenuButton: React.FC<{
   open: boolean;
 }> = ({ open }) => {
   return (
-    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-orange-700 p-2 text-orange-400 hover:bg-orange-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-orange-600">
+    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-sky-700 p-2 text-sky-400 hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sky-600">
       <span className="sr-only">Open main menu</span>
       {open ? (
         <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -29,7 +29,7 @@ export const MobileMenuPanel: React.FC<{
         <Link href="/dashboard/import-profile">
           <Disclosure.Button
             as="div"
-            className="text-orange-200 hover:text-orange-100 hover:bg-orange-600 block px-3 py-2 rounded-md text-base font-medium"
+            className="text-gray-700 hover:bg-sky-100 block px-3 py-2 rounded-md text-base font-medium"
           >
             Import
           </Disclosure.Button>
@@ -37,13 +37,13 @@ export const MobileMenuPanel: React.FC<{
         <Disclosure.Button
           as="div"
           onClick={onExport}
-          className="text-orange-200 hover:text-orange-100 hover:bg-orange-600 block px-3 py-2 rounded-md text-base font-medium"
+          className="text-gray-700 hover:bg-sky-100 block px-3 py-2 rounded-md text-base font-medium"
         >
           Export
         </Disclosure.Button>
       </div>
 
-      <div className="border-t border-orange-800 pt-4 pb-3 px-2">
+      <div className="border-t border-sky-800 pt-4 pb-3 px-2">
         <div className="space-y-1">
           {navigation.map((item) => (
             <Link href={item.href} key={item.name}>
@@ -51,8 +51,8 @@ export const MobileMenuPanel: React.FC<{
                 as="div"
                 className={classNames(
                   item.current
-                    ? "bg-orange-700 text-white"
-                    : "text-orange-200 hover:bg-orange-600 hover:text-orange-100",
+                    ? "bg-sky-600 text-white"
+                    : "text-gray-700 hover:bg-sky-100",
                   "block rounded-md px-3 py-2 text-base font-medium"
                 )}
               >
