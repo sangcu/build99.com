@@ -48,7 +48,7 @@ const BlogList: NextPage<{
                   </Link>
                   <div className="mt-3">
                     <Link href={`/blog/${post.id}`}>
-                      <a className="text-base font-semibold text-orange-600 hover:text-orange-500">
+                      <a className="text-base font-semibold text-sky-500 hover:text-sky-400">
                         {t('Read full')}
                       </a>
                     </Link>
