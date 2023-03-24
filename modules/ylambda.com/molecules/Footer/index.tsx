@@ -23,7 +23,7 @@ const pageGroups = [
       // },
       {
         name: 'Privacy policy',
-        url: '/pricacy-policy',
+        url: '/privacy-policy',
         target: undefined,
       },
     ],

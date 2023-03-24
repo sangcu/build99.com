@@ -15,7 +15,7 @@ const solutions = [
     images: [image1, image2, image3],
   },
   {
-    name: 'Feedback early. Constant improvement.',
+    name: 'Communicate, feedback regularly.',
     description:
       'Save your time by automatically sending out periodic reviews and feedback.',
     images: [image1, image2, image3],

@@ -44,7 +44,7 @@ const BadPractices: React.FC = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto lg:text-center max-w-3xl">
             <h2 className="mt-2 text-3xl  font-bold tracking-tight text-gray-900 sm:text-4xl space-x-4 !leading-normal">
-              Performance appraisal doing wrong is slow down your&nbsp;
+              Performance appraisal doing wrong is impact your&nbsp;
               <TextTransition
                 inline
                 className="transition-text"
