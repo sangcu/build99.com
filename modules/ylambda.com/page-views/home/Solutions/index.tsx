@@ -2,10 +2,9 @@ import EmblaCarousel from 'molecules/EmblaCarousel'
 
 import overviewGoalRadarChart from './images/overview-goal-radar.png'
 import detailGoalRadarChart from './images/detail-goal-radar.png'
-import image3 from './images/slide-3.jpg'
+import feedbackResponsiveness from './images/feedback-responsiveness.png'
+import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
 import classNames from 'classnames'
-
-const images = [overviewGoalRadarChart, detailGoalRadarChart, image3]
 
 const solutions = [
   {
@@ -17,14 +16,14 @@ const solutions = [
   {
     name: 'Communicate, feedback regularly.',
     description:
-      'Save your time by automatically sending out periodic reviews and feedback.',
-    images: [overviewGoalRadarChart, detailGoalRadarChart, image3],
+      'Save your time by automatically sending out periodic reviews and feedback. Get performance feedback from your peer early.',
+    images: [feedbackResponsiveness, performanceAppraisalEvaluation],
   },
   {
     name: 'Performance Insights. Anytime.',
     description:
       'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
-    images: [overviewGoalRadarChart, detailGoalRadarChart, image3],
+    images: [ ],
   },
 ]
 
