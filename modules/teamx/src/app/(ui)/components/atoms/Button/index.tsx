@@ -12,7 +12,7 @@ const iconClasses = {
 
 const variantClasses = {
   primary:
-    'border-transparent text-white bg-orange-500 hover:bg-orange-600 focus:ring-orange-500',
+    'border-transparent text-white bg-sky-500 hover:bg-sky-600 focus:ring-sky-500',
   white:
     'border-gray-300 text-gray-700 bg-white hover:bg-gray-100 focus:ring-transparent',
   red: 'border-transparent text-white bg-error hover:bg-red-600 focus:ring-transparent',

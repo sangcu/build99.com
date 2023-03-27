@@ -47,43 +47,17 @@ export default function TeamList() {
       <div className="mt-4 grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
         <div className="p-6 bg-white overflow-hidden rounded-lg shadow col-span-2">
           <div className="lg:flex items-center">
-              <div className="flex-1 text-2xl font-semibold">Members</div>
+            <div className="flex-1 text-2xl font-semibold">Members</div>
             <div>
               <Link href="/dashboard/team-members/add-new">
-                <Button>Create New Member</Button>
+                <Button className="mt-2 lg:mt-0 w-full lg:w-auto">
+                  Create New Member
+                </Button>
               </Link>
             </div>
           </div>
           {!isLoading && !isError && (
             <>
-              <div className="mt-4 lg:mt-8">
-                <Disclosure>
-                  {({ open }) => (
-                    <>
-                      <Disclosure.Button
-                        as="div"
-                        className="flex lg:hidden w-full justify-between items-center text-sm font-medium focus:outline-none focus-visible:ring"
-                      >
-                        <div className="flex-1 pr-8">
-                          <Button
-                            onClick={() =>
-                              router.push("/dashboard/team-members/add-new")
-                            }
-                            className="!w-full !bg-orange-600"
-                          >
-                            Create New Member
-                          </Button>
-                        </div>
-                        <ChevronUpIcon
-                          className={`${
-                            open ? "rotate-180 transform" : ""
-                          } h-7 w-7 text-gray-500`}
-                        />
-                      </Disclosure.Button>
-                    </>
-                  )}
-                </Disclosure>
-              </div>
               {memberList && (
                 <TeamMemberList
                   memberList={memberList.map((member) => ({
@@ -95,7 +69,7 @@ export default function TeamList() {
             </>
           )}
         </div>
-        <div className="p-6 bg-white overflow-hidden rounded-lg shadow h-80 flex items-center justify-center">
+        <div className="hidden lg:flex p-6 bg-white overflow-hidden rounded-lg shadow h-80 flex items-center justify-center">
           <div className="text-gray-400">will display overview chart here</div>
         </div>
       </div>

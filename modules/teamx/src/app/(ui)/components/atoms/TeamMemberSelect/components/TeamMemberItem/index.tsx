@@ -41,7 +41,7 @@ const TeamMemberItem: React.FC<TeamMemberItemProps> = ({
         </div>
       </div>
       {isChecked && (
-        <CheckIcon className="h-5 w-5 text-orange-600" aria-hidden="true" />
+        <CheckIcon className="h-5 w-5 text-sky-600" aria-hidden="true" />
       )}
     </div>
   );

@@ -19,14 +19,14 @@ const ImageButton: React.FC<ImageButtonProps> = ({ photoList }) => {
               key={item.key}
               width={20}
               height={20}
-              className="h-8 w-8 rounded-full border-2 border-orange-500"
+              className="h-8 w-8 rounded-full border-2 border-sky-500"
               src={item.photo}
               alt=""
             />
           ) : (
             <div
               key={item.key}
-              className="w-8 h-8 bg-gray-300 rounded-full border-2 border-orange-500"
+              className="w-8 h-8 bg-gray-300 rounded-full border-2 border-sky-500"
             ></div>
           )
         )}

@@ -5,9 +5,15 @@ import useQueryTeamMemberDetail from "../hooks/useQueryTeamMemberDetail";
 import { toModel } from "@/app/(ui)/models/team-members";
 import Image from "next/image";
 import { Loading } from "@/app/(ui)/components/atoms";
+import {
+  ArrowLongLeftIcon,
+  ChevronLeftIcon,
+} from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 const TeamMemberDetail: React.FC<{ params: { id: string } }> = ({ params }) => {
   const { id } = params;
+  const router = useRouter();
 
   const {
     data: teamInfo,
@@ -36,6 +42,11 @@ const TeamMemberDetail: React.FC<{ params: { id: string } }> = ({ params }) => {
     <div className="mx-auto max-w-7xl px-6 lg:px-8 sm-px-4">
       <div className="flex items-center space-x-5 mt-6">
         <div className="flex items-center space-x-5">
+          <ChevronLeftIcon
+            className="h-6 w-6 text-gray-600 cursor-pointer"
+            onClick={() => router?.back()}
+          />
+
           <div className="flex-shrink-0">
             <div className="relative">
               {profilePhoto ? (
@@ -63,7 +74,7 @@ const TeamMemberDetail: React.FC<{ params: { id: string } }> = ({ params }) => {
           </div>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-1 items-start gap-4 lg:grid-cols-5 lg:gap-8">
+      <div className="mt-6 grid grid-cols-1 items-start lg:grid-cols-5 lg:gap-8">
         <div className="p-6 bg-white overflow-hidden rounded-lg shadow col-span-2">
           <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
             <div className="sm:col-span-1">
@@ -84,7 +95,7 @@ const TeamMemberDetail: React.FC<{ params: { id: string } }> = ({ params }) => {
             </div>
           </dl>
         </div>
-        <div className="p-6 bg-white overflow-hidden rounded-lg shadow h-80 flex items-center justify-center col-span-3">
+        <div className="hidden p-6 bg-white overflow-hidden rounded-lg shadow h-80 lg:flex items-center justify-center col-span-3">
           <div className="text-gray-400">will display overview chart here</div>
         </div>
       </div>

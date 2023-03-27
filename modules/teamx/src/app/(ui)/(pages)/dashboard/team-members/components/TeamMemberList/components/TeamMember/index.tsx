@@ -16,7 +16,7 @@ const TeamMemberComp: React.FC<TeamMemberProps> = ({
     <div
       className={classNames(
         "border border-4 px-2 py-4",
-        isSelected ? "border-orange-500" : "border-transparent"
+        isSelected ? "border-sky-500" : "border-transparent"
       )}
     >
       {profilePhoto ? (

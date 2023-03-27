@@ -18,8 +18,8 @@ const SideBar: React.FC<SideBarProps> = ({ navigation }) => {
                 key={item.name}
                 className={classNames(
                   item.current
-                    ? "bg-orange-600 text-white"
-                    : "text-gray-700 hover:bg-orange-50 hover:text-gray-900",
+                    ? "bg-sky-600 text-white"
+                    : "text-gray-700 hover:bg-sky-50 hover:text-gray-900",
                   "group flex items-center rounded-md px-2 py-2 text-sm font-medium"
                 )}
               >

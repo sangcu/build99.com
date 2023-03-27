@@ -51,8 +51,8 @@ const Header: React.FC<HeaderProps> = ({ navigation }) => {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? "text-orange-600" : "text-gray-600",
-                      "rounded-md bg-orange-100 bg-opacity-0 px-3 py-2 text-base font-medium hover:bg-opacity-100"
+                      item.current ? "text-sky-600" : "text-gray-600",
+                      "rounded-md bg-sky-100 bg-opacity-0 px-3 py-2 text-base font-medium hover:bg-opacity-100"
                     )}
                     aria-current={item.current ? "page" : undefined}
                   >
