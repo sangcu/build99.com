@@ -1,30 +1,30 @@
 import EmblaCarousel from 'molecules/EmblaCarousel'
 
-import image1 from './images/slide-1.jpg'
-import image2 from './images/slide-2.jpg'
+import overviewGoalRadarChart from './images/overview-goal-radar.png'
+import detailGoalRadarChart from './images/detail-goal-radar.png'
 import image3 from './images/slide-3.jpg'
 import classNames from 'classnames'
 
-const images = [image1, image2, image3]
+const images = [overviewGoalRadarChart, detailGoalRadarChart, image3]
 
 const solutions = [
   {
     name: 'Storytelling your performance with data-driven.',
     description:
-      'Set your goal with the S.M.A.R.T principle and do it as your habit. Your goals are tracked and visual to motivate you bi-weekly/monthly',
-    images: [image1, image2, image3],
+      'Set your goal with the S.M.A.R.T principle and do it as your habit. Your goals are tracked and visual to motivate you bi-weekly/monthly. Mimimize efforts with predefined goals for Front End, Back End, Quality Assurance, Product Owner.',
+    images: [overviewGoalRadarChart, detailGoalRadarChart],
   },
   {
     name: 'Communicate, feedback regularly.',
     description:
       'Save your time by automatically sending out periodic reviews and feedback.',
-    images: [image1, image2, image3],
+    images: [overviewGoalRadarChart, detailGoalRadarChart, image3],
   },
   {
     name: 'Performance Insights. Anytime.',
     description:
       'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
-    images: [image1, image2, image3],
+    images: [overviewGoalRadarChart, detailGoalRadarChart, image3],
   },
 ]
 
@@ -61,7 +61,7 @@ const Solutions: React.FC = () => {
               <div
                 className={classNames('mt-4 lg:mt-0 lg:col-span-3 relative')}
               >
-                <EmblaCarousel images={images} options={{}} />
+                <EmblaCarousel images={solution.images} options={{}} />
               </div>
             </div>
           ))}
