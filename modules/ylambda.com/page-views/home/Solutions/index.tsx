@@ -20,7 +20,7 @@ const solutions = [
     images: [feedbackResponsiveness, performanceAppraisalEvaluation],
   },
   {
-    name: 'Performance Insights. Anytime.',
+    name: 'Performance Insights. Showcase anytime.',
     description:
       'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
     images: [ ],
