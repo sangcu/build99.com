@@ -6,24 +6,37 @@ import feedbackResponsiveness from './images/feedback-responsiveness.png'
 import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
 import classNames from 'classnames'
 
+import SamplePdf from './sample.pdf'
+import PdfViewer from 'molecules/PdfViewer'
+
 const solutions = [
   {
     name: 'Storytelling your performance with data-driven.',
     description:
       'Set your goal with the S.M.A.R.T principle and do it as your habit. Your goals are tracked and visual to motivate you bi-weekly/monthly. Mimimize efforts with predefined goals for Front End, Back End, Quality Assurance, Product Owner.',
-    images: [overviewGoalRadarChart, detailGoalRadarChart],
+    renderExamples: () => (
+      <EmblaCarousel
+        images={[overviewGoalRadarChart, detailGoalRadarChart]}
+        options={{}}
+      />
+    ),
   },
   {
     name: 'Communicate, feedback regularly.',
     description:
       'Save your time by automatically sending out periodic reviews and feedback. Get performance feedback from your peer early.',
-    images: [feedbackResponsiveness, performanceAppraisalEvaluation],
+    renderExamples: () => (
+      <EmblaCarousel
+        images={[feedbackResponsiveness, performanceAppraisalEvaluation]}
+        options={{}}
+      />
+    ),
   },
   {
     name: 'Performance Insights. Showcase anytime.',
     description:
       'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
-    images: [ ],
+    renderExamples: () => <PdfViewer pdfUrl={SamplePdf} />,
   },
 ]
 
@@ -38,9 +51,9 @@ const Solutions: React.FC = () => {
           Let’s fix it. With help from us.
         </h2>
         <div className="mt-16 space-y-12">
-          {solutions.map((solution, index) => (
+          {solutions.map(({ name, description, renderExamples }, index) => (
             <div
-              key={solution.name}
+              key={name}
               className="grid grid-cols-1 lg:grid-cols-5 items-center gap-8"
             >
               <div
@@ -50,17 +63,13 @@ const Solutions: React.FC = () => {
                 )}
               >
                 <div className="p-1 rounded-l-full w-60 bg-gradient-to-r from-sky-600 via-sky-400 to-white"></div>
-                <div className="mt-2 text-2xl font-semibold">
-                  {solution.name}
-                </div>
-                <p className="mt-2 text-gray-500 text-base">
-                  {solution.description}
-                </p>
+                <div className="mt-2 text-2xl font-semibold">{name}</div>
+                <p className="mt-2 text-gray-500 text-base">{description}</p>
               </div>
               <div
                 className={classNames('mt-4 lg:mt-0 lg:col-span-3 relative')}
               >
-                <EmblaCarousel images={solution.images} options={{}} />
+                {renderExamples()}
               </div>
             </div>
           ))}

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config')
+const path = require('path')
 
 const nextConfig = {
   i18n,
@@ -12,11 +13,19 @@ const nextConfig = {
       },
     ]
   },
+  output: { path: path.resolve(__dirname, 'static') },
   swcMinify: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
+    })
+    config.module.rules.push({
+      test: /\.pdf/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/[hash][ext]',
+      },
     })
     return config
   },

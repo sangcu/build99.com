@@ -6,13 +6,13 @@ const features = [
     name: 'Setting clear expectations',
     description:
       'Don’t let performance appraisal destroy your leadership. Setting a clear expectations with your team members.',
-      image: SettingTeamExpectation
+    image: SettingTeamExpectation,
   },
   {
     name: 'Assess team performance frequently.',
     description:
       'Performance appraisal at the end of the period is a mistake. Instead, do it frequently so your team has a chance to boost their performance.',
-      image: PerformanceExecution
+    image: PerformanceExecution,
   },
 ]
 const LeaderFeatures: React.FC = () => {
@@ -68,7 +68,7 @@ const LeaderFeatures: React.FC = () => {
                 </p>
 
                 {/* Replace Image here */}
-                <Image src={feature.image}/>
+                <Image src={feature.image} alt={feature.name} priority />
                 {/* <div className="mt-8 lg:rounded-t-3xl w-full lg:w-[900px] md:h-[500px] h-[200px] lg:h-[600px] bg-gray-100 bg-opacity-100">
                   
                 </div> */}
