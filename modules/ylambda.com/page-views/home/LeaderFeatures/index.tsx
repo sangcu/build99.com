@@ -1,13 +1,18 @@
+import SettingTeamExpectation from './images/setting-team-expectation.png'
+import PerformanceExecution from './images/performance-execution.png'
+import Image from 'next/image'
 const features = [
   {
     name: 'Setting clear expectations',
     description:
       'Don’t let performance appraisal destroy your leadership. Setting a clear expectations with your team members.',
+      image: SettingTeamExpectation
   },
   {
     name: 'Assess team performance frequently.',
     description:
-      '   Don’t let performance appraisal destroy your leadership. Settle a clear expectation with your team members',
+      'Performance appraisal at the end of the period is a mistake. Instead, do it frequently so your team has a chance to boost their performance.',
+      image: PerformanceExecution
   },
 ]
 const LeaderFeatures: React.FC = () => {
@@ -55,15 +60,18 @@ const LeaderFeatures: React.FC = () => {
                 key={feature.name}
                 className="mt-12 flex flex-col lg:items-center"
               >
-                <div className="text-white text-lg lg:text-2xl font-semibold">
+                <div className="text-white text-lg lg:text-2xl font-semibold pt-14">
                   {feature.name}
                 </div>
-                <p className="text-white mt-2 lg:w-[540px] text-left lg:text-center text-sm lg:text-base">
+                <p className="text-white mt-2 mb-8 lg:w-[540px] text-left lg:text-center text-sm lg:text-base">
                   {feature.description}
                 </p>
 
                 {/* Replace Image here */}
-                <div className="mt-8 lg:rounded-t-3xl w-full lg:w-[900px] md:h-[500px] h-[200px] lg:h-[600px] bg-gray-100 bg-opacity-100"></div>
+                <Image src={feature.image}/>
+                {/* <div className="mt-8 lg:rounded-t-3xl w-full lg:w-[900px] md:h-[500px] h-[200px] lg:h-[600px] bg-gray-100 bg-opacity-100">
+                  
+                </div> */}
               </div>
             ))}
           </div>
