@@ -21,7 +21,7 @@ const TeamMemberList: React.FC<{
   return (
     <ul
       role="list"
-      className="mt-8 grid max-w-2xl grid-cols-2 gap-y-8 gap-x-8 text-center md:grid-cols-3 lg:grid-cols-4 lg:mx-0 lg:max-w-none"
+      className="mt-8 grid max-w-2xl grid-cols-3 gap-y-8 gap-x-8 text-center md:grid-cols-4 lg:grid-cols-6 lg:mx-0 lg:max-w-none"
     >
       {memberList?.map((member) => (
         <li key={member?.id} className="!cursor-pointer">

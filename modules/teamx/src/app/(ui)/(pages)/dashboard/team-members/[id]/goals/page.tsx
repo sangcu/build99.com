@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Legend,
@@ -9,20 +9,21 @@ import {
   RadarChart,
   ResponsiveContainer,
 } from "recharts";
-import { dw_goal_group_detail } from "./exampleData";
+import { truncate } from "lodash";
+import { dw_team_member_goal_overview } from "../../exampleData";
 
 const Overview: React.FC = () => {
   return (
-    <div className="bg-white overflow-hidden rounded-lg shadow">
-      <div className="px-6 py-3 w-full border-b border-gray-200 ">Overview</div>
+    <div className="">
       <div className="h-[540px] flex items-center justify-center py-8">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart
             cx="50%"
             cy="50%"
             outerRadius="80%"
-            data={dw_goal_group_detail.map((group) => ({
+            data={dw_team_member_goal_overview.map((group) => ({
               ...group,
+              title: truncate(group.title),
               fullMark: 100,
             }))}
           >

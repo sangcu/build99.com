@@ -8,7 +8,7 @@ import {
 import { usePathname } from "next/navigation";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
-import type { Route } from 'next';
+import type { Route } from "next";
 
 export interface NavigationItem {
   name: string;
@@ -42,10 +42,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <div className="relative flex min-h-full flex-col bg-gray-100">
+    <div className="relative flex h-screen flex-col bg-gray-100">
       <Header navigation={navigation} />
-      <main className="mx-auto w-full max-w-7xl flex-grow lg:flex content-area">
-        <div className="lg:min-w-0 lg:flex-1">{children}</div>
+      <main className="flex mx-auto w-full max-w-7xl flex-grow lg:flex lg:min-content-area h-full">
+        {children}
       </main>
     </div>
   );
