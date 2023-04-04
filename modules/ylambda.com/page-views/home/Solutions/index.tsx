@@ -22,7 +22,7 @@ const solutions = [
     ),
   },
   {
-    name: 'Communicate, feedback regularly.',
+    name: 'Communication, feedback regularly.',
     description:
       'Save your time by automatically sending out periodic reviews and feedback. Get performance feedback from your peer early.',
     renderExamples: () => (
@@ -33,9 +33,9 @@ const solutions = [
     ),
   },
   {
-    name: 'Performance Insights. Showcase anytime.',
+    name: 'Instant Performance Insights.',
     description:
-      'A real-time insight into your achieved, performance score. Always ready for performance appraisal.',
+      'A real-time insight of how are you performing now.',
     renderExamples: () => <PdfViewer pdfUrl={SamplePdf} />,
   },
 ]
