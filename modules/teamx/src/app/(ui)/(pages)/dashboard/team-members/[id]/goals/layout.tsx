@@ -1,114 +1,90 @@
 "use client";
 
 import { useParams, usePathname } from "next/navigation";
-import { team_member_goals } from "../../exampleData";
+import { team_member_goal_groups } from "../../exampleData";
 import classNames from "classnames";
 import Link from "next/link";
 import { Route } from "next";
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 
 const Layout: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
-  const { id, goalId } = useParams() || {};
+  const { id, goalId, groupId } = useParams() || {};
   const pathName = usePathname();
-
-  const tabs = [
-    {
-      value: "info",
-      label: "Info",
-      href: `/dashboard/team-members/${id}/goals/${goalId}/info` as Route<string>,
-      active: pathName === `/dashboard/team-members/${id}/goals/${goalId}/info`,
-    },
-    {
-      value: "progress",
-      label: "Progress",
-      href: `/dashboard/team-members/${id}/goals/${goalId}/progress` as Route<string>,
-      active:
-        pathName === `/dashboard/team-members/${id}/goals/${goalId}/progress`,
-    },
-    {
-      value: "histories",
-      label: "Histories",
-      href: `/dashboard/team-members/${id}/goals/${goalId}/histories` as Route<string>,
-      active:
-        pathName === `/dashboard/team-members/${id}/goals/${goalId}/histories`,
-    },
-  ];
 
   return (
     <div className="flex flex-col">
       <div className="flex flex-1 pb-8">
         <div className="overflow-y-auto w-[420px] border-r member-detail-content-area">
-          <ul role="list" className="divide-y divide-gray-200">
-            <li>
-              <div className="text-lg text-gray-900 px-4 py-4 font-semibold">
-                Goal List
-              </div>
-            </li>
-            {team_member_goals.map((goal) => (
-              <li
-                key={goal.title}
-                // onClick={() => {
-                //   if (!!selectedGoal) {
-                //     setSelectedGoalId(undefined);
-                //     setSelectedTab(undefined);
-                //     return;
-                //   }
-                //   setSelectedGoalId(goal.id);
-                //   setSelectedTab("info");
-                // }}
+          <ul role="list" className="divide-gray-200 space-y-2 px-4 py-4">
+            {team_member_goal_groups.map((goalGroup) => (
+              <Disclosure
+                key={goalGroup.id}
+                as="div"
+                className={classNames(
+                  "cursor-pointer text-gray-900 w-full bg-white sm:rounded-lg"
+                )}
               >
-                <Link
-                  href={`/dashboard/team-members/${id}/goals/${goal.id}/info`}
-                >
-                  <div
-                    className={classNames(
-                      "cursor-pointer text-sm text-gray-900 px-4 py-3",
-                      Number(goalId) === goal.id
-                        ? "bg-sky-100"
-                        : "hover:bg-sky-200 hover:bg-opacity-20"
-                    )}
-                  >
-                    {goal.title}
-                  </div>
-                </Link>
-              </li>
+                {({ open }) => (
+                  <>
+                    <div
+                      className={classNames(
+                        "w-full flex justify-between items-center space-x-4 rounded-lg border-2",
+                        Number(groupId) === goalGroup.id && "!border-sky-600"
+                      )}
+                    >
+                      <Link
+                        href={
+                          Number(groupId) === goalGroup.id
+                            ? `/dashboard/team-members/${id}/goals`
+                            : `/dashboard/team-members/${id}/goals/group/${goalGroup.id}`
+                        }
+                        className={classNames(
+                          "flex items-center space-x-2 text-lg pl-4 py-3 flex-1"
+                        )}
+                      >
+                        {goalGroup.title}
+                      </Link>
+                      <Disclosure.Button className="pr-4">
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-5 w-5 text-gray-500`}
+                        />
+                      </Disclosure.Button>
+                    </div>
+                    <Disclosure.Panel className="mt-2">
+                      {goalGroup.goals.map((goal) => (
+                        <Link
+                          key={goal.title}
+                          href={
+                            Number(goalId) === goal.id
+                              ? `/dashboard/team-members/${id}/goals`
+                              : `/dashboard/team-members/${id}/goals/${goal.id}/progress`
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              "cursor-pointer text-sm text-gray-900 px-4 py-3",
+                              Number(goalId) === goal.id
+                                ? "bg-sky-200 text-sky-600 font-medium bg-opacity-30"
+                                : "hover:bg-sky-200 hover:bg-opacity-20"
+                            )}
+                          >
+                            {goal.title}
+                          </div>
+                        </Link>
+                      ))}
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
             ))}
           </ul>
         </div>
         <div className="mx-6 flex-1 pl-4 pt-4 overflow-y-auto member-detail-content-area">
-          {!!goalId && (
-            <div className="flex justify-start">
-              <span className="w-1/2 isolate inline-flex rounded-md shadow-sm">
-                {tabs.map((tab, index) => (
-                  <Link
-                    key={tab.value}
-                    className={classNames(
-                      "flex-1 justify-center relative inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-10",
-                      tab.active ? "bg-sky-100" : "bg-white hover:bg-gray-50",
-                      index === 0 ? "rounded-l-md" : "-ml-px",
-                      index === tabs.length - 1 && "rounded-r-md"
-                    )}
-                    href={tab.href}
-                  >
-                    {/* <button
-                      key={tab.value}
-                      type="button"
-                      className={classNames(
-                        "flex-1 justify-center relative inline-flex items-center px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-10",
-                        tab.active ? "bg-sky-100" : "bg-white hover:bg-gray-50",
-                        index === 0 ? "rounded-l-md" : "-ml-px",
-                        index === tabs.length - 1 && "rounded-r-md"
-                      )}
-                      onClick={() => setSelectedTab(tab.value)}
-                    > */}
-                    {tab.label}
-                    {/* </button> */}
-                  </Link>
-                ))}
-              </span>
-            </div>
-          )}
           {children}
         </div>
       </div>

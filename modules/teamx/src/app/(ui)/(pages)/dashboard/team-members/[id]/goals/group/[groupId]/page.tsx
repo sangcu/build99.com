@@ -1,31 +1,46 @@
 "use client";
 
+import { Button } from "@/app/(ui)/components/atoms";
 import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
   Radar,
   RadarChart,
+  PolarGrid,
+  Legend,
+  PolarAngleAxis,
+  PolarRadiusAxis,
   ResponsiveContainer,
+  LineChart,
+  CartesianGrid,
   XAxis,
   YAxis,
+  Line,
 } from "recharts";
 import { truncate } from "lodash";
-import {
-  dw_team_member_goal_group_overview,
-  dw_team_member_goal_group_progress,
-} from "../../exampleData";
 import { useParams, useRouter } from "next/navigation";
-import classNames from "classnames";
+import {
+  dw_goal_group_lists,
+  dw_team_member_goal_detail_progress,
+  team_member_goal_groups,
+} from "../../../../exampleData";
+import { ChevronLeftIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 import { useState } from "react";
+import classNames from "classnames";
 
-const Overview: React.FC = () => {
+const GoalGroupOverview: React.FC = () => {
   const router = useRouter();
-  const { id } = useParams();
+  const { id, groupId } = useParams() || {};
+  const title = team_member_goal_groups.find(
+    (group) => group.id === Number(groupId)
+  )?.title;
+
+  const goalGroupData = dw_goal_group_lists
+    .find((goal) => goal.id === Number(groupId))
+    ?.goals.map((goal) => ({
+      ...goal,
+      fullMark: 100,
+      title: truncate(goal.title, { length: 20 }),
+    }));
 
   const tabs = [
     {
@@ -39,13 +54,17 @@ const Overview: React.FC = () => {
       active: false,
     },
   ];
-
   const [selectedTab, setSelectedTab] = useState("overview");
 
   return (
-    <div className="">
-      <div className="py-3 flex items-center justify-between space-x-4 w-full border-b border-gray-200 ">
-        <div>Goal Categories</div>
+    <div className="bg-white overflow-hidden">
+      <div className="py-3 flex items-center space-x-4 w-full justify-between border-b border-gray-200 ">
+        <div className="flex items-center space-x-4">
+          <Link href={`/dashboard/team-members/${id}/goals`}>
+            <ChevronLeftIcon className="h-5 w-5 text-gray-900" />
+          </Link>
+          <div>{title}</div>
+        </div>
         <div className="isolate inline-flex rounded-md shadow-sm">
           {tabs.map((tab, index) => (
             <div
@@ -72,18 +91,14 @@ const Overview: React.FC = () => {
               cx="50%"
               cy="50%"
               outerRadius="80%"
-              data={dw_team_member_goal_group_overview.map((group) => ({
-                ...group,
-                title: truncate(group.title),
-                fullMark: 100,
-              }))}
+              data={goalGroupData}
             >
               <PolarGrid />
               <PolarAngleAxis
                 dataKey="title"
-                onClick={(_, index) => {
+                onClick={(data, index) => {
                   router.push(
-                    `/dashboard/team-members/${id}/goals/group/${dw_team_member_goal_group_overview[index].id}`
+                    `/dashboard/team-members/${id}/goals/${goalGroupData?.[index].id}/progress`
                   );
                 }}
               />
@@ -140,7 +155,7 @@ const Overview: React.FC = () => {
                 stroke="#8884d8"
                 activeDot={{ r: 8 }}
               /> */}
-              {dw_team_member_goal_group_progress.map((s) => (
+              {dw_team_member_goal_detail_progress.map((s) => (
                 <Line
                   dataKey="value"
                   data={s.data}
@@ -159,4 +174,4 @@ const Overview: React.FC = () => {
   );
 };
 
-export default Overview;
+export default GoalGroupOverview;

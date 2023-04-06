@@ -26,7 +26,7 @@ const TeamMemberList: React.FC<{
       {memberList?.map((member) => (
         <li key={member?.id} className="!cursor-pointer">
           {member.id && (
-            <Link href={`/dashboard/team-members/${member.id}`}>
+            <Link href={`/dashboard/team-members/${member.id}/goals`}>
               <TeamMember {...member} />
             </Link>
           )}

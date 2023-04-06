@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Legend,
@@ -27,7 +27,14 @@ const Overview: React.FC = () => {
             }))}
           >
             <PolarGrid />
-            <PolarAngleAxis dataKey="title" />
+            <PolarAngleAxis
+              dataKey="title"
+              onClick={(data, index, event) => {
+                console.log("data", data);
+                console.log("index", index);
+
+              }}
+            />
             <PolarRadiusAxis angle={90} domain={[0, 100]} />
             <Radar
               name="Progress"
@@ -45,7 +52,7 @@ const Overview: React.FC = () => {
               fillOpacity={0.2}
               dot
             />
-            <Legend />
+            {/* <Legend /> */}
           </RadarChart>
         </ResponsiveContainer>
       </div>

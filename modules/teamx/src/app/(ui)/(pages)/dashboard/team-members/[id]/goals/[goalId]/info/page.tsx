@@ -1,11 +1,13 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { team_member_goals } from "../../../../exampleData";
+import { team_member_goal_groups } from "../../../../exampleData";
 
 const GoalInfo: React.FC = () => {
   const { goalId } = useParams() || {};
-  const goalDetail = team_member_goals.find((g) => g.id === Number(goalId));
+  const goalDetail = team_member_goal_groups
+    .flatMap((group) => group.goals)
+    .find((g) => g.id === Number(goalId));
   const { startDate, endDate, updatePeriod, metric, target } = goalDetail || {};
 
   return (

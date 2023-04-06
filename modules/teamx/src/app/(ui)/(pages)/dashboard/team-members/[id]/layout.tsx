@@ -15,14 +15,14 @@ const Template: React.FC<{
   const pathName = usePathname();
   const tabs = [
     {
-      name: "Profile",
-      href: `/dashboard/team-members/${id}` as Route<string>,
-      current: pathName === `/dashboard/team-members/${id}`,
-    },
-    {
       name: "Goals",
       href: `/dashboard/team-members/${id}/goals` as Route<string>,
       current: pathName?.startsWith(`/dashboard/team-members/${id}/goals`),
+    },
+    {
+      name: "Profile",
+      href: `/dashboard/team-members/${id}` as Route<string>,
+      current: pathName === `/dashboard/team-members/${id}`,
     },
   ];
 
@@ -42,7 +42,7 @@ const Template: React.FC<{
                 href="/dashboard/team-members"
                 className="text-sm font-medium text-gray-500 hover:text-gray-700"
               >
-                Member List
+                Members
               </Link>
             </div>
           </li>
@@ -53,7 +53,7 @@ const Template: React.FC<{
                 aria-hidden="true"
               />
               <div className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">
-                Member Detail
+                {selectedMember.name}
               </div>
             </div>
           </li>
