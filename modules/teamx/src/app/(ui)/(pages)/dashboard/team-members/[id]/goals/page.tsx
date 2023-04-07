@@ -25,7 +25,7 @@ import { useState } from "react";
 
 const Overview: React.FC = () => {
   const router = useRouter();
-  const { id } = useParams();
+  const { id } = useParams() || {};
 
   const tabs = [
     {
