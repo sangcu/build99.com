@@ -6,7 +6,7 @@ import feedbackResponsiveness from './images/feedback-responsiveness.png'
 import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
 import classNames from 'classnames'
 
-import SamplePdf from './sample.pdf'
+import PerformanceInsightPdf from './images/performance-insight.pdf'
 import PdfViewer from 'molecules/PdfViewer'
 
 const solutions = [
@@ -33,10 +33,9 @@ const solutions = [
     ),
   },
   {
-    name: 'Instant Performance Insights.',
-    description:
-      'A real-time insight of how are you performing now.',
-    renderExamples: () => <PdfViewer pdfUrl={SamplePdf} />,
+    name: 'Continues Performance Insights.',
+    description: 'Real-time insight into how you are performing now.',
+    renderExamples: () => <PdfViewer pdfUrl={PerformanceInsightPdf} />,
   },
 ]
 

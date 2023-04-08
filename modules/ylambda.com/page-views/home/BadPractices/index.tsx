@@ -12,16 +12,17 @@ const badPractices = [
     icon: XMarkIcon,
   },
   {
-    name: 'Ambitious goal! Achieve nothing.',
+    name: 'Annual Performance is broken',
+    // https://www.shrm.org/hr-today/news/hr-magazine/pages/0415-qualitative-performance-reviews.aspx
     description:
-      'Having ambitious goal is a great starting point but you’re missing the system to achieve it which is the top most reason you have failed.',
+      '92% companies are opt-out annual performance appraisal. Instead, they are focus on frequency and real-time feeback rather than retrospective.',
     href: '#',
     icon: XMarkIcon,
   },
   {
     name: 'Biased and Subjective',
     description:
-      'Without the data be recorded, performance appraisal is influenced by personal beliefs and feelings. Demotivation is inevitable.',
+      '71% of the American employees thought that. Without the data be recorded, performance appraisal is influenced by personal beliefs and feelings.',
     href: '#',
     icon: XMarkIcon,
   },
