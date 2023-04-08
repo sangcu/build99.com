@@ -74,6 +74,9 @@ const LeaderFeatures: React.FC = () => {
                 </div> */}
               </div>
             ))}
+            <h2 className="pt-20 text-left lg:text-center text-2xl lg:text-3xl text-white font-bold">
+              “A person who feels appreciated will always do more than expected.”
+            </h2>
           </div>
         </div>
       </div>

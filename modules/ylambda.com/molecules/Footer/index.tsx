@@ -16,14 +16,9 @@ const pageGroups = [
   {
     name: 'Company',
     pageList: [
-      // {
-      //   name: 'About Us',
-      //   url: '/about',
-      //   target: undefined,
-      // },
       {
-        name: 'Privacy policy',
-        url: '/privacy-policy',
+        name: 'About Us',
+        url: '/about',
         target: undefined,
       },
     ],
@@ -80,12 +75,6 @@ const Footer: React.FC = () => {
     <>
       <footer id="footer" className="w-full bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 pt-12 sm:max-w-7xl sm:px-6 lg:px-8 lg:pt-16">
-          <h2
-            id="footer-heading"
-            className="text-left lg:text-center text-2xl lg:text-3xl text-gray-900 font-bold"
-          >
-            A person who feels appreciated will always do more than expected.
-          </h2>
           <div className=" pt-16 lg:grid lg:grid-cols-2 lg:gap-24">
             <div className="">
               <div className="md:grid md:grid-cols-3 space-y-6 md:space-y-0">

@@ -32,13 +32,13 @@ const About: NextPageWithLayout = () => {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-orange-100 via-white to-white">
+      <div className="bg-gradient-to-b from-sky-100 via-white to-white">
         <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
           <div className="pb-16 xl:flex xl:items-center xl:justify-between">
             <div>
               <h1 className="text-4xl flex flex-col lg:flex-row font-bold tracking-tight sm:text-5xl lg:space-x-2 space-y-1 lg:space-y-0">
                 <span className="text-gray-900">{t('Simplicity in')}</span>
-                <span className="text-orange-600">
+                <span className="text-sky-600">
                   {t('Software Development.')}
                 </span>
               </h1>
@@ -50,7 +50,7 @@ const About: NextPageWithLayout = () => {
           <div className="border-t border-gray-200 pt-16">
             <div className="mx-auto max-w-xl text-center">
               <div className="flex items-center justify-center">
-                <span className="flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-r from-orange-400 to-orange-600">
+                <span className="flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-r from-sky-400 to-sky-600">
                   <SparklesIcon
                     className="h-6 w-6 text-white"
                     aria-hidden="true"
@@ -59,7 +59,7 @@ const About: NextPageWithLayout = () => {
               </div>
               <p className="mt-4 text-lg text-gray-700">
                 {t(
-                  "We are software engineers who focus on iterating to build high-quality software and believe that simple products take significant time and effort, and it's a continuous discovery process.",
+                  'We are a company that turns realistic business problems into high-quality software.',
                 )}
               </p>
             </div>
@@ -69,7 +69,7 @@ const About: NextPageWithLayout = () => {
               {cultures.map((culture) => (
                 <li
                   key={culture.name}
-                  className="border-l-[6px] border-orange-600 pl-6 ml-9 flex text-base text-gray-500 lg:py-0 lg:py-4 h-full flex items-center"
+                  className="border-l-[6px] border-sky-600 pl-6 ml-9 flex text-base text-gray-500 lg:py-0 lg:py-4 h-full flex items-center"
                 >
                   {t(culture.description)}
                 </li>
@@ -78,10 +78,10 @@ const About: NextPageWithLayout = () => {
           </div>
         </div>
       </div>
-      <div className="bg-orange-400">
+      <div className="bg-sky-400">
         <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-24 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            <span className="block text-orange-900">
+            <span className="block text-sky-900">
               {t('We’d love to hear from you!')}
             </span>
             <span className="block text-white hidden lg:block">
