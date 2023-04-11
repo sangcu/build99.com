@@ -5,12 +5,22 @@ import detailGoalRadarChart from './images/detail-goal-radar.png'
 import feedbackResponsiveness from './images/feedback-responsiveness.png'
 import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
 import classNames from 'classnames'
+import Link from 'next/link'
 
 const solutions = [
   {
     name: 'A guideline of how to become high-performing leader',
-    description:
-      'We provide a collection of guides, use cases, and best practices to help you learn and experience your leading. Learn now at https://ylambda.com/docs',
+    description: (
+      <div>
+        We provide a collection of guides, use cases, and best practices to
+        learn and experience your leading.&nbsp;
+        <div className="font-bold text-sky-500">
+          <Link href="https://ylambda.com/docs" target="_blank">
+            Learn now
+          </Link>
+        </div>
+      </div>
+    ),
     renderExamples: () => (
       <EmblaCarousel
         images={[overviewGoalRadarChart, detailGoalRadarChart]}
@@ -20,8 +30,12 @@ const solutions = [
   },
   {
     name: 'A software tools to save your efforts on leading your team.',
-    description:
-      'Setting goals and periodical send out assessments, feedbacks and a holistic view of your teammate performance, real-time.',
+    description: (
+      <div>
+        Setting goals and periodical send out assessments, feedbacks and a
+        holistic view of your teammate performance, real-time.
+      </div>
+    ),
     renderExamples: () => (
       <EmblaCarousel
         images={[feedbackResponsiveness, performanceAppraisalEvaluation]}
