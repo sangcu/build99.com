@@ -37,13 +37,15 @@ const About: NextPageWithLayout = () => {
           <div className="pb-16 xl:flex xl:items-center xl:justify-between">
             <div>
               <h1 className="text-4xl flex flex-col lg:flex-row font-bold tracking-tight sm:text-5xl lg:space-x-2 space-y-1 lg:space-y-0">
-                <span className="text-gray-900">{t('Simplicity in')}</span>
+                <span className="text-gray-900">{t('Simplicity.')}</span>
                 <span className="text-sky-600">
-                  {t('Software Development.')}
+                  {t('High-performance team.')}
                 </span>
               </h1>
               <p className="mt-5 text-2xl text-gray-500">
-                {t("It's our takeaways from years in the software industry.")}
+                {t(
+                  'Our mission is to help software engineer maximize their performance.',
+                )}
               </p>
             </div>
           </div>
@@ -57,11 +59,11 @@ const About: NextPageWithLayout = () => {
                   />
                 </span>
               </div>
-              <p className="mt-4 text-lg text-gray-700">
+              {/* <p className="mt-4 text-lg text-gray-700">
                 {t(
-                  'We are a company that turns realistic business problems into high-quality software.',
+                  'We are a company that turns life problems into high-quality software.',
                 )}
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="pt-12">
