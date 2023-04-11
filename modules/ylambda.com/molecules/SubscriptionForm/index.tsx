@@ -28,7 +28,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
   return (
     <div id={elementId}>
       <div className="text-gray-900 font-semibold text-2xl">
-        {t('Get early access')}
+        {t('Early access your must-have belt')}
       </div>
       <div className="mt-2">
         <p className="text-base text-gray-500">

@@ -11,20 +11,25 @@ import { useRouter } from 'next/router'
 import classNames from 'classnames'
 const navigation = [
   {
+    name: 'Guides',
+    href: '/docs',
+    isCurrent: (pathName: string) => pathName?.includes('docs'),
+  },
+  {
     name: 'Blog',
     href: '/blog',
     isCurrent: (pathName: string) => pathName?.includes('blog'),
   },
-  {
-    name: 'Pricing',
-    href: '/pricing',
-    isCurrent: (pathName: string) => pathName?.includes('pricing'),
-  },
   // {
-  //   name: 'About Us',
-  //   href: '/about',
-  //   isCurrent: (pathName: string) => pathName?.includes('about'),
+  //   name: 'Pricing',
+  //   href: '/pricing',
+  //   isCurrent: (pathName: string) => pathName?.includes('pricing'),
   // },
+  {
+    name: 'About Us',
+    href: '/about',
+    isCurrent: (pathName: string) => pathName?.includes('about'),
+  },
 ]
 
 interface HeaderProps {

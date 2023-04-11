@@ -6,10 +6,11 @@ import { config } from 'react-spring'
 const Introduction: React.FC = () => {
   const { t } = useTranslation()
   const WORDS = [
-    'set goals and alignment.',
-    'setting expectations.',
+    'goals and alignment.',
+    'learning roadmap.',
     '360 feedback.',
-    'skill roadmap.',
+    '1 on 1 meeting.',
+    'continuous performance management.',
   ]
   const [wordIndex, setWordIndex] = useState(0)
   useEffect(() => {
@@ -18,7 +19,7 @@ const Introduction: React.FC = () => {
     }, 2000)
     return () => clearInterval(intervalId)
   }, [])
-  
+
   return (
     <div
       id="introduction"
@@ -28,13 +29,13 @@ const Introduction: React.FC = () => {
         <div className="px-4 sm:px-6 lg:px-0">
           <h1 className="space-y-1 lg:space-y-2 lg:space-y-0 lg:items-end text-left">
             <div className="text-sky-500 font-bold text-xl md:text-2xl lg:text-3xl lg:pb-1">
-              {t('A must-have belt setup to become')}
+              {t('A must-have belt setup for')}
             </div>
-            <div className="text-white font-bold text-2xl md:text-4xl lg:text-5xl lg:self-end pb-1">
+            <div className="text-white font-bold text-2xl md:text-4xl lg:text-5xl lg:self-end pb-1 pt-1">
               {t('High-performing Leader')}
             </div>
-            <p className="pt-1 text-base lg:text-lg leading-6 text-white text-left">
-              We help you with &nbsp;
+            <div className="pt-1 text-base lg:text-lg leading-6 text-white text-left">
+              Building trust from your team with our tools for &nbsp;
               <TextTransition
                 inline
                 className="transition-text"
@@ -44,7 +45,7 @@ const Introduction: React.FC = () => {
                   {WORDS[wordIndex % WORDS.length]}
                 </div>
               </TextTransition>
-            </p>
+            </div>
           </h1>
         </div>
       </div>

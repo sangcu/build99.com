@@ -6,13 +6,11 @@ import feedbackResponsiveness from './images/feedback-responsiveness.png'
 import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
 import classNames from 'classnames'
 
-import PdfViewer from 'molecules/PdfViewer'
-
 const solutions = [
   {
-    name: 'Storytelling your performance with data-driven.',
+    name: 'A guideline of how to become high-performing leader',
     description:
-      'Set your goal with the S.M.A.R.T principle and do it as your habit. Your goals are tracked and visual to motivate you bi-weekly/monthly. Mimimize efforts with predefined goals for Front End, Back End, Quality Assurance, Product Owner.',
+      'We provide a collection of guides, use cases, and best practices to help you learn and experience your leading. Learn now at https://ylambda.com/docs',
     renderExamples: () => (
       <EmblaCarousel
         images={[overviewGoalRadarChart, detailGoalRadarChart]}
@@ -21,9 +19,9 @@ const solutions = [
     ),
   },
   {
-    name: 'Communication, feedback regularly.',
+    name: 'A software tools to save your efforts on leading your team.',
     description:
-      'Save your time by automatically sending out periodic reviews and feedback. Get performance feedback from your peer early.',
+      'Setting goals and periodical send out assessments, feedbacks and a holistic view of your teammate performance, real-time.',
     renderExamples: () => (
       <EmblaCarousel
         images={[feedbackResponsiveness, performanceAppraisalEvaluation]}
@@ -31,23 +29,16 @@ const solutions = [
       />
     ),
   },
-  {
-    name: 'Continues Performance Insights.',
-    description: 'Real-time insight into how you are performing now.',
-    renderExamples: () => <PdfViewer pdfUrl={'data/performance-insight.pdf'} />,
-  },
 ]
 
 const Solutions: React.FC = () => {
   return (
     <div
       id="architecture-overview"
-      className="relative bg-white pt-16 md:pt-18 py-12 md:py-16 lg:pt-24 lg:pb-[304px]"
+      className="relative bg-white pt-16 md:pt-18 py-12 md:py-16 lg:pt-24 "
     >
       <div className="mx-auto max-w-7xl px-4 text-center sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-5xl lg:text-5xl font-bold">
-          Let’s fix it. With help from us.
-        </h2>
+        <h2 className="text-5xl lg:text-5xl font-bold">Our offers</h2>
         <div className="mt-16 space-y-12">
           {solutions.map(({ name, description, renderExamples }, index) => (
             <div

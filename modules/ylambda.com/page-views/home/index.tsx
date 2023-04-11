@@ -8,7 +8,6 @@ import YourProblems from './YourProblems'
 import BadPractices from './BadPractices'
 import Solutions from './Solutions'
 import Subscription from './Subscription'
-import LeaderFeatures from './LeaderFeatures'
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -18,7 +17,6 @@ const Home: NextPageWithLayout = () => {
       <BadPractices />
       <Solutions />
       <Subscription />
-      <LeaderFeatures />
     </>
   )
 }

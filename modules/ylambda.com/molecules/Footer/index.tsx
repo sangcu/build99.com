@@ -26,11 +26,11 @@ const pageGroups = [
   {
     name: 'Resources',
     pageList: [
-      // {
-      //   name: 'Docs',
-      //   url: `/docs/${DEFAULT_DOCS_SLUG}`,
-      //   target: undefined,
-      // },
+      {
+        name: 'Guides',
+        url: `/docs/${DEFAULT_DOCS_SLUG}`,
+        target: undefined,
+      },
       {
         name: 'Blog',
         url: '/blog',
