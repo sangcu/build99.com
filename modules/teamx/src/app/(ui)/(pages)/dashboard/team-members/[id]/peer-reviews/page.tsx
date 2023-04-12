@@ -33,6 +33,14 @@ const renderCustomizedLabel = ({
   outerRadius,
   percent,
   index,
+}: {
+  cx: any;
+  cy: any;
+  midAngle: any;
+  innerRadius: any;
+  outerRadius: any;
+  percent: any;
+  index: any;
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -83,8 +91,9 @@ const Overview: React.FC = () => {
                   <span>%</span>
                 </div>
                 <div className="mt-1 text-base">
-                  agreed that you're performing very well and is a key driver in
-                  the team
+                  {
+                    "agreed that you're performing very well and is a key driver in the team"
+                  }
                 </div>
               </div>
             </div>
@@ -121,12 +130,14 @@ const Overview: React.FC = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {dw_team_member_peer_review_overview_total.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
+                  {dw_team_member_peer_review_overview_total.map(
+                    (entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    )
+                  )}
                 </Pie>
                 <Tooltip />
                 <Legend />
@@ -150,12 +161,14 @@ const Overview: React.FC = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {dw_team_member_peer_review_overview_total.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
+                  {dw_team_member_peer_review_overview_total.map(
+                    (entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    )
+                  )}
                 </Pie>
                 <Tooltip />
                 <Legend />
