@@ -1,5 +1,7 @@
 import EmblaCarousel from 'molecules/EmblaCarousel'
 
+import setingTeamExpectation from './images/setting-team-expectation.png'
+import performanceExecution from './images/performance-execution.png'
 import overviewGoalRadarChart from './images/overview-goal-radar.png'
 import detailGoalRadarChart from './images/detail-goal-radar.png'
 import feedbackResponsiveness from './images/feedback-responsiveness.png'
@@ -37,6 +39,8 @@ const solutions = [
     renderExamples: () => (
       <EmblaCarousel
         images={[
+          setingTeamExpectation,
+          performanceExecution,
           overviewGoalRadarChart,
           detailGoalRadarChart,
           feedbackResponsiveness,
