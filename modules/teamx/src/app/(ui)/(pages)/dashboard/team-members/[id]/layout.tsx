@@ -24,6 +24,13 @@ const Template: React.FC<{
       href: `/dashboard/team-members/${id}` as Route<string>,
       current: pathName === `/dashboard/team-members/${id}`,
     },
+    {
+      name: "Peer Reviews",
+      href: `/dashboard/team-members/${id}/peer-reviews` as Route<string>,
+      current: pathName?.startsWith(
+        `/dashboard/team-members/${id}/peer-reviews`
+      ),
+    },
   ];
 
   const selectedMember = team_members.find(
