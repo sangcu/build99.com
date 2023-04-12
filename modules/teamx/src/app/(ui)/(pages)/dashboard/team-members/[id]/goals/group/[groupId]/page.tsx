@@ -84,7 +84,7 @@ const GoalGroupOverview: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="h-[540px] flex items-center justify-center py-8">
+      <div className="h-[440px] flex items-center justify-center py-8">
         {selectedTab === "overview" && (
           <ResponsiveContainer width="100%" height="100%">
             <RadarChart

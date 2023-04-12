@@ -13,7 +13,7 @@ import { dw_member_goal_details } from "../../../../exampleData";
 
 const Progress: React.FC = () => {
   return (
-    <div className="h-[540px] flex items-center justify-center py-8">
+    <div className="h-[440px] flex items-center justify-center py-8">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
