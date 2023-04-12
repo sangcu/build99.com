@@ -4,6 +4,7 @@ import overviewGoalRadarChart from './images/overview-goal-radar.png'
 import detailGoalRadarChart from './images/detail-goal-radar.png'
 import feedbackResponsiveness from './images/feedback-responsiveness.png'
 import performanceAppraisalEvaluation from './images/performance-appraisal-evaluation-chart.png'
+import teamMissingPieces from './images/team-missing-pieces.jpeg'
 import classNames from 'classnames'
 import Link from 'next/link'
 
@@ -22,10 +23,7 @@ const solutions = [
       </div>
     ),
     renderExamples: () => (
-      <EmblaCarousel
-        images={[overviewGoalRadarChart, detailGoalRadarChart]}
-        options={{}}
-      />
+      <EmblaCarousel images={[teamMissingPieces]} options={{}} />
     ),
   },
   {
@@ -38,7 +36,12 @@ const solutions = [
     ),
     renderExamples: () => (
       <EmblaCarousel
-        images={[feedbackResponsiveness, performanceAppraisalEvaluation]}
+        images={[
+          overviewGoalRadarChart,
+          detailGoalRadarChart,
+          feedbackResponsiveness,
+          performanceAppraisalEvaluation,
+        ]}
         options={{}}
       />
     ),
