@@ -4,6 +4,6 @@ export const trimFileName = (fileName: string) =>
     .replace(/\.md$/, '')
 
 const getSlugFromFileName = (fileName: string) =>
-  trimFileName(fileName).toLowerCase()
+  trimFileName(fileName).toLowerCase().replaceAll(' ', '-')
 
 export default getSlugFromFileName
