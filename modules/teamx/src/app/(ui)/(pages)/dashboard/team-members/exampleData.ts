@@ -612,23 +612,53 @@ export const dw_team_member_goal_history = [
   },
 ];
 
-export const dw_team_member_peer_review_items = [
+export const dw_team_member_peer_review_groups = 
+[
   {
     id: 1,
-    title: "Job Knowledge",
+    title: "Business Impacts",
+    items: [
+      {
+        id: 1,
+        title: "Item 1",
+      },
+      {
+        id: 2,
+        title: "Item 2",
+      },
+      {
+        id: 3,
+        title: "Item 3",
+      },
+      {
+        id: 4,
+        title: "Item 4",
+      },
+    ]
   },
   {
     id: 2,
-    title: "Efficiency and time management",
+    title: "Behaviors",
+    items: [
+      {
+        id: 5,
+        title: "Item 1",
+      },
+      {
+        id: 6,
+        title: "Item 2",
+      },
+      {
+        id: 7,
+        title: "Item 3",
+      },
+      {
+        id: 8,
+        title: "Item 4",
+      },
+    ]
   },
-  {
-    id: 3,
-    title: "Quality of work",
-  },
-  {
-    id: 4,
-    title: "Communication",
-  },
+ 
 ];
 
 export const dw_team_member_peer_review_overview_total = [

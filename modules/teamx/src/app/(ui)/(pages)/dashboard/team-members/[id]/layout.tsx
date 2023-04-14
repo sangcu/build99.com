@@ -20,16 +20,16 @@ const Template: React.FC<{
       current: pathName?.startsWith(`/dashboard/team-members/${id}/goals`),
     },
     {
-      name: "Profile",
-      href: `/dashboard/team-members/${id}` as Route<string>,
-      current: pathName === `/dashboard/team-members/${id}`,
-    },
-    {
       name: "Peer Reviews",
       href: `/dashboard/team-members/${id}/peer-reviews` as Route<string>,
       current: pathName?.startsWith(
         `/dashboard/team-members/${id}/peer-reviews`
       ),
+    },
+    {
+      name: "Profile",
+      href: `/dashboard/team-members/${id}` as Route<string>,
+      current: pathName === `/dashboard/team-members/${id}`,
     },
   ];
 
@@ -101,6 +101,7 @@ const Template: React.FC<{
                     <nav className="-mb-px flex space-x-8" aria-label="Tabs">
                       {tabs.map((tab) => (
                         <Link
+                          prefetch
                           key={tab.name}
                           href={tab.href}
                           className={classNames(

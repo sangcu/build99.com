@@ -6,9 +6,8 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import {
+  dw_team_member_peer_review_groups,
   dw_team_member_peer_review_history,
-  dw_team_member_peer_review_items,
-  dw_team_member_peer_review_overview_current,
   dw_team_member_peer_review_overview_total,
   dw_team_member_peer_review_progress,
 } from "../../../exampleData";
@@ -17,6 +16,7 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
+  LabelList,
   Legend,
   Pie,
   PieChart,
@@ -27,58 +27,6 @@ import {
 } from "recharts";
 import { orderBy } from "lodash";
 import { Disclosure } from "@headlessui/react";
-
-const data = [
-  {
-    datetime: new Date("2023-01-01").getTime(),
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    datetime: new Date("2023-02-01").getTime(),
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    datetime: new Date("2023-03-01").getTime(),
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    datetime: new Date("2023-04-01").getTime(),
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    datetime: new Date("2023-05-01").getTime(),
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    datetime: new Date("2023-06-01").getTime(),
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    datetime: new Date("2023-07-01").getTime(),
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -115,10 +63,20 @@ const renderCustomizedLabel = ({
   );
 };
 
-const COLORS = ["#16a34a", "#3b82f6", "#dc2626"];
+const COLORS = ["#a1a1aa", "#7dd3fc", "#60a5fa"];
 
 const PeerReviewItem: React.FC = () => {
-  const { id } = useParams() || {};
+  const { id, reviewId } = useParams() || {};
+
+  const selectedItem = dw_team_member_peer_review_groups
+    .flatMap((group) => [
+      ...group.items.map((item) => ({
+        ...item,
+        groupId: group.id,
+      })),
+    ])
+    .find((item) => item.id === Number(reviewId));
+
   const tabs = [
     {
       label: "Overview",
@@ -136,9 +94,9 @@ const PeerReviewItem: React.FC = () => {
       active: false,
     },
   ];
-  const title = dw_team_member_peer_review_items.find(
-    (item) => item.id === Number(id)
-  )?.title;
+  const title = dw_team_member_peer_review_groups
+    .flatMap((group) => group.items)
+    .find((item) => item.id === Number(id))?.title;
 
   const [selectedTab, setSelectedTab] = useState("overview");
 
@@ -146,7 +104,9 @@ const PeerReviewItem: React.FC = () => {
     <div>
       <div className="py-3 flex items-center space-x-4 w-full justify-between border-b border-gray-200 ">
         <div className="flex items-center space-x-4">
-          <Link href={`/dashboard/team-members/${id}/peer-reviews`}>
+          <Link
+            href={`/dashboard/team-members/${id}/peer-reviews/group/${selectedItem?.groupId}`}
+          >
             <ChevronLeftIcon className="h-5 w-5 text-gray-900" />
           </Link>
           <div>{title}</div>
@@ -171,67 +131,33 @@ const PeerReviewItem: React.FC = () => {
         </div>
       </div>
       {selectedTab === "overview" && (
-        <div className="mt-16 flex space-x-8 text-center">
-          <div className="flex-1">
-            <div className="text-lg font-semibold">Total</div>
-            <div className="h-[320px] flex items-center justify-center">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dw_team_member_peer_review_overview_total}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    outerRadius={90}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {dw_team_member_peer_review_overview_total.map(
-                      (entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={COLORS[index % COLORS.length]}
-                        />
-                      )
-                    )}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-          <div className="flex-1">
-            <div className="text-lg font-semibold">Current</div>
-
-            <div className="h-[320px] flex items-center justify-center">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dw_team_member_peer_review_overview_current}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    outerRadius={90}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {dw_team_member_peer_review_overview_current.map(
-                      (entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={COLORS[index % COLORS.length]}
-                        />
-                      )
-                    )}
-                  </Pie>
-                  <Tooltip />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
+        <div className="mt-16 text-center">
+          <div className="h-[320px] flex items-center justify-center">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={dw_team_member_peer_review_overview_total}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={renderCustomizedLabel}
+                  outerRadius={90}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {dw_team_member_peer_review_overview_total.map(
+                    (entry, index) => (
+                      <Cell
+                        key={`cell-${index}`}
+                        fill={COLORS[index % COLORS.length]}
+                      />
+                    )
+                  )}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
         </div>
       )}
@@ -240,7 +166,7 @@ const PeerReviewItem: React.FC = () => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={500}
-              height={300}
+              height={500}
               data={dw_team_member_peer_review_progress}
               margin={{
                 top: 20,
@@ -249,7 +175,7 @@ const PeerReviewItem: React.FC = () => {
                 bottom: 5,
               }}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              {/* <CartesianGrid strokeDasharray="3 3" /> */}
               <XAxis
                 dataKey="datetime"
                 type="number"
@@ -259,12 +185,27 @@ const PeerReviewItem: React.FC = () => {
                 ]}
                 tickFormatter={(date) => new Date(date).toLocaleDateString()}
               />
-              <YAxis domain={[0, 6]} />
-              <Tooltip />
+              {/* <YAxis domain={[0, 6]} /> */}
+              {/* <Tooltip /> */}
               <Legend />
-              <Bar dataKey="Under Expectation" stackId="a" fill="#dc2626" />
-              <Bar dataKey="Meet Expectation" stackId="a" fill="#3b82f6" />
-              <Bar dataKey="Exeed Expectation" stackId="a" fill="#16a34a" />
+              <Bar dataKey="Under Expectation" stackId="a" fill="#d1d5db">
+                <LabelList
+                  dataKey="Under Expectation"
+                  formatter={(label: any) => (label > 0 ? label : null)}
+                />
+              </Bar>
+              <Bar dataKey="Meet Expectation" stackId="a" fill="#7dd3fc">
+                <LabelList
+                  dataKey="Meet Expectation"
+                  formatter={(label: any) => (label > 0 ? label : null)}
+                />
+              </Bar>
+              <Bar dataKey="Exeed Expectation" stackId="a" fill="#60a5fa">
+                <LabelList
+                  dataKey="Exeed Expectation"
+                  formatter={(label: any) => (label > 0 ? label : null)}
+                />
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
