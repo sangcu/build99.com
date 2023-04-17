@@ -27,6 +27,13 @@ const Template: React.FC<{
       ),
     },
     {
+      name: "1-1 meetings",
+      href: `/dashboard/team-members/${id}/1-1-meetings` as Route<string>,
+      current: pathName?.startsWith(
+        `/dashboard/team-members/${id}/1-1-meetings`
+      ),
+    },
+    {
       name: "Profile",
       href: `/dashboard/team-members/${id}` as Route<string>,
       current: pathName === `/dashboard/team-members/${id}`,
