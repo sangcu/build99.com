@@ -6,6 +6,7 @@ import {
   Line,
   LineChart,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -18,7 +19,6 @@ const Progress: React.FC = () => {
         <LineChart
           width={500}
           height={300}
-          // data={}
           margin={{
             top: 5,
             right: 50,
@@ -29,22 +29,12 @@ const Progress: React.FC = () => {
           <CartesianGrid />
           <XAxis
             dataKey="datetime"
-            type="number"
-            domain={[
-              new Date("2023-01-01").getTime(),
-              new Date("2024-01-01").getTime(),
-            ]}
-            tickFormatter={(date) => new Date(date).toLocaleDateString()}
+            type="category"
+            allowDuplicatedCategory={false}
           />
-          <YAxis />
-          {/* <Tooltip formatter={}/> */}
+          <YAxis domain={[0, 100]} />
+          <Tooltip />
           <Legend />
-          {/* <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              /> */}
           {dw_member_goal_details.data.map((s) => (
             <Line
               dataKey="value"
@@ -55,7 +45,6 @@ const Progress: React.FC = () => {
               stroke={s.color}
             />
           ))}
-          {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
         </LineChart>
       </ResponsiveContainer>
     </div>

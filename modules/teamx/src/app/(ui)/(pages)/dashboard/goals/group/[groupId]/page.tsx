@@ -14,6 +14,7 @@ import {
   XAxis,
   YAxis,
   Line,
+  Tooltip,
 } from "recharts";
 import { truncate } from "lodash";
 import {
@@ -97,9 +98,7 @@ const GoalGroupOverview: React.FC = () => {
               <PolarAngleAxis
                 dataKey="title"
                 onClick={(data, index) => {
-                  router.push(
-                    `/dashboard/goals/${goalGroupData?.[index].id}`
-                  );
+                  router.push(`/dashboard/goals/${goalGroupData?.[index].id}`);
                 }}
               />
               <PolarRadiusAxis angle={90} domain={[0, 100]} />
@@ -128,7 +127,6 @@ const GoalGroupOverview: React.FC = () => {
             <LineChart
               width={500}
               height={300}
-              // data={}
               margin={{
                 top: 5,
                 right: 50,
@@ -139,22 +137,12 @@ const GoalGroupOverview: React.FC = () => {
               <CartesianGrid />
               <XAxis
                 dataKey="datetime"
-                type="number"
-                domain={[
-                  new Date("2023-01-01").getTime(),
-                  new Date("2024-01-01").getTime(),
-                ]}
-                tickFormatter={(date) => new Date(date).toLocaleDateString()}
+                type="category"
+                allowDuplicatedCategory={false}
               />
-              <YAxis />
-              {/* <Tooltip formatter={}/> */}
+              <YAxis domain={[0, 100]} />
+              <Tooltip />
               <Legend />
-              {/* <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              /> */}
               {goal_detail_progress.map((s) => (
                 <Line
                   dataKey="value"
@@ -165,7 +153,6 @@ const GoalGroupOverview: React.FC = () => {
                   stroke={s.color}
                 />
               ))}
-              {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
             </LineChart>
           </ResponsiveContainer>
         )}

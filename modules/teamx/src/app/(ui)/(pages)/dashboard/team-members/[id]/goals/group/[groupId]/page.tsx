@@ -14,6 +14,7 @@ import {
   XAxis,
   YAxis,
   Line,
+  Tooltip,
 } from "recharts";
 import { truncate } from "lodash";
 import { useParams, useRouter } from "next/navigation";
@@ -128,7 +129,6 @@ const GoalGroupOverview: React.FC = () => {
             <LineChart
               width={500}
               height={300}
-              // data={}
               margin={{
                 top: 5,
                 right: 50,
@@ -139,33 +139,27 @@ const GoalGroupOverview: React.FC = () => {
               <CartesianGrid />
               <XAxis
                 dataKey="datetime"
-                type="number"
-                domain={[
-                  new Date("2023-01-01").getTime(),
-                  new Date("2024-01-01").getTime(),
-                ]}
-                tickFormatter={(date) => new Date(date).toLocaleDateString()}
+                type="category"
+                allowDuplicatedCategory={false}
               />
-              <YAxis />
-              {/* <Tooltip formatter={}/> */}
+              <YAxis domain={[0, 100]} />
+              <Tooltip />
               <Legend />
-              {/* <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              /> */}
-              {dw_team_member_goal_detail_progress.map((s) => (
-                <Line
-                  dataKey="value"
-                  data={s.data}
-                  name={s.name}
-                  key={s.name}
-                  type="monotone"
-                  stroke={s.color}
-                />
-              ))}
-              {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+              {dw_team_member_goal_detail_progress
+                .map((item) => ({
+                  ...item,
+                  name: truncate(item.name, { length: 20 }),
+                }))
+                .map((s) => (
+                  <Line
+                    dataKey="value"
+                    data={s.data}
+                    name={s.name}
+                    key={s.name}
+                    type="monotone"
+                    stroke={s.color}
+                  />
+                ))}
             </LineChart>
           </ResponsiveContainer>
         )}

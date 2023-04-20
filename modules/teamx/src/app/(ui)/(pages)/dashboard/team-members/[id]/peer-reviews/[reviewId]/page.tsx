@@ -166,24 +166,23 @@ const PeerReviewItem: React.FC = () => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={500}
-              height={500}
+              height={600}
               data={dw_team_member_peer_review_progress}
               margin={{
-                top: 20,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 0,
+                right: 100,
+                left: 100,
+                bottom: 0,
               }}
             >
-              {/* <CartesianGrid strokeDasharray="3 3" /> */}
               <XAxis
                 dataKey="datetime"
-                type="number"
-                domain={[
-                  new Date("2022-11-01").getTime(),
-                  new Date("2023-09-01").getTime(),
-                ]}
-                tickFormatter={(date) => new Date(date).toLocaleDateString()}
+                type="category"
+                // domain={[
+                //   new Date("2022-11-01").getTime(),
+                //   new Date("2023-09-01").getTime(),
+                // ]}
+                // tickFormatter={(date) => new Date(date).toLocaleDateString()}
               />
               {/* <YAxis domain={[0, 6]} /> */}
               {/* <Tooltip /> */}
@@ -215,11 +214,11 @@ const PeerReviewItem: React.FC = () => {
           <div className="mx-auto w-full rounded-2xl bg-white space-y-4">
             {orderBy(dw_team_member_peer_review_history, "datetime").map(
               (item) => (
-                <Disclosure key={item.datetime.toISOString()}>
+                <Disclosure key={item.datetime}>
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-2 text-left text-sm font-medium text-gray-100-900 hover:bg-gray-100-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-100-500 focus-visible:ring-opacity-75">
-                        <span>{item.datetime.toLocaleDateString()}</span>
+                        <span>{item.datetime}</span>
                         <div className="flex space-x-4">
                           <div className="text-gray-900">{item.createdBy}</div>
                           <ChevronUpIcon

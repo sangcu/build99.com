@@ -10,7 +10,7 @@ const History: React.FC = () => {
     <div className="w-full pt-8">
       <div className="mx-auto w-full rounded-2xl bg-white space-y-4">
         {orderBy(dw_team_member_goal_history, "datetime").map((item) => (
-          <Disclosure key={item.datetime.toISOString()}>
+          <Disclosure key={item.datetime}>
             {({ open }) => (
               <>
                 <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-2 text-left text-sm font-medium text-gray-100-900 hover:bg-gray-100-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-100-500 focus-visible:ring-opacity-75">

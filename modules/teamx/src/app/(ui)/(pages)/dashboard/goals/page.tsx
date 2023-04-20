@@ -11,6 +11,7 @@ import {
   Radar,
   RadarChart,
   ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
 } from "recharts";
@@ -105,7 +106,6 @@ const Overview: React.FC = () => {
             <LineChart
               width={500}
               height={300}
-              // data={}
               margin={{
                 top: 5,
                 right: 50,
@@ -116,22 +116,12 @@ const Overview: React.FC = () => {
               <CartesianGrid />
               <XAxis
                 dataKey="datetime"
-                type="number"
-                domain={[
-                  new Date("2023-01-01").getTime(),
-                  new Date("2024-01-01").getTime(),
-                ]}
-                tickFormatter={(date) => new Date(date).toLocaleDateString()}
+                type="category"
+                allowDuplicatedCategory={false}
               />
-              <YAxis />
-              {/* <Tooltip formatter={}/> */}
+              <YAxis domain={[0, 100]} />
+              <Tooltip />
               <Legend />
-              {/* <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              /> */}
               {goal_group_progress.map((s) => (
                 <Line
                   dataKey="value"
@@ -142,7 +132,6 @@ const Overview: React.FC = () => {
                   stroke={s.color}
                 />
               ))}
-              {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
             </LineChart>
           </ResponsiveContainer>
         )}
