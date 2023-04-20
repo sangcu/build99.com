@@ -175,17 +175,7 @@ const PeerReviewItem: React.FC = () => {
                 bottom: 0,
               }}
             >
-              <XAxis
-                dataKey="datetime"
-                type="category"
-                // domain={[
-                //   new Date("2022-11-01").getTime(),
-                //   new Date("2023-09-01").getTime(),
-                // ]}
-                // tickFormatter={(date) => new Date(date).toLocaleDateString()}
-              />
-              {/* <YAxis domain={[0, 6]} /> */}
-              {/* <Tooltip /> */}
+              <XAxis dataKey="datetime" type="category" />
               <Legend />
               <Bar dataKey="Under Expectation" stackId="a" fill="#d1d5db">
                 <LabelList

@@ -110,7 +110,7 @@ const OneOnOneMeetingsPage: React.FC = () => {
               {({ open }) => (
                 <>
                   <Disclosure.Button className="flex w-full justify-between rounded-lg bg-gray-100 px-4 py-2 text-left text-sm font-medium text-gray-100-900 hover:bg-gray-100-200 focus:outline-none focus-visible:ring focus-visible:ring-gray-100-500 focus-visible:ring-opacity-75">
-                    <span>{item.datetime.toLocaleDateString()}</span>
+                    <span>{item.datetime}</span>
                     <ChevronUpIcon
                       className={`${
                         open ? "rotate-180 transform" : ""
