@@ -794,3 +794,162 @@ export const dw_team_member_peer_review_history = [
     createdBy: "Kristen Ramos",
   },
 ];
+
+export const team_member_engagement_factor_groups = [
+  {
+    id: 1,
+    title: "Social experience",
+    factors: [
+      {
+        id: 1,
+        title: "People and relationships",
+      },
+      {
+        id: 2,
+        title: "Teamwork",
+      },
+      {
+        id: 3,
+        title: "Social climate",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Work experience",
+    factors: [
+      {
+        id: 4,
+        title: "Work organization",
+      },
+      {
+        id: 5,
+        title: "Work control and flexibility",
+      },
+      {
+        id: 6,
+        title: "Growth and rewards",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Organization experience",
+    factors: [
+      {
+        id: 7,
+        title: "Purpose",
+      },
+      {
+        id: 8,
+        title: "Technology",
+      },
+      {
+        id: 9,
+        title: "Physical environment",
+      },
+    ],
+  },
+];
+
+export const team_member_engagement_overview = [
+  {
+    id: 1,
+    title: "Social experience",
+    value: 9,
+  },
+  {
+    id: 2,
+    title: "Work experience",
+    value: 6,
+  },
+  {
+    id: 3,
+    title: "Organization experience",
+    value: 8,
+  },
+];
+
+export const team_member_engagement_group_overview = [
+  {
+    id: 1,
+    title: "People and relationships",
+    value: 6,
+  },
+  {
+    id: 2,
+    title: "Teamwork",
+    value: 8,
+  },
+  {
+    id: 3,
+    title: "Social climate",
+    value: 7,
+  },
+];
+
+export const team_member_engagement_progress = [
+  { datetime: "2023-01-01", value: 6 },
+  { datetime: "2023-02-01", value: 5 },
+  { datetime: "2023-03-01", value: 7 },
+  { datetime: "2023-04-01", value: 4 },
+  { datetime: "2023-05-01", value: 8 },
+  { datetime: "2023-06-01", value: 8 },
+  { datetime: "2023-07-01", value: 7 },
+  { datetime: "2023-08-01", value: 9 },
+  { datetime: "2023-09-01", value: 7 },
+  { datetime: "2023-10-01", value: 9 },
+  { datetime: "2023-11-01", value: null },
+  { datetime: "2023-12-01", value: null },
+];
+
+export const team_member_engagement_history = [
+  {
+    datetime: "2023-01-01",
+    value: 6,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui id ornare arcu odio. Vel facilisis volutpat est velit egestas. Nunc lobortis mattis aliquam faucibus purus in. Tempus urna et pharetra pharetra massa massa ultricies mi quis.",
+  },
+  {
+    datetime: "2023-02-01",
+    value: 5,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At tempor commodo ullamcorper a lacus. Interdum velit laoreet id donec ultrices. Dignissim suspendisse in est ante in. Quis varius quam quisque id diam vel quam elementum.",
+  },
+  {
+    datetime: "2023-03-01",
+    value: 7,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi proin sed libero enim sed faucibus turpis in eu. Egestas erat imperdiet sed euismod nisi. Congue nisi vitae suscipit tellus mauris. Scelerisque varius morbi enim nunc faucibus.",
+  },
+  {
+    datetime: "2023-04-01",
+    value: 4,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Ac placerat vestibulum lectus mauris ultrices eros in. Dui id ornare arcu odio ut sem nulla. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor.",
+  },
+  {
+    datetime: "2023-05-01",
+    value: 8,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Id aliquet lectus proin nibh. Vel eros donec ac odio. Lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin.",
+  },
+  {
+    datetime: "2023-06-01",
+    value: 8,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Maecenas sed enim ut sem viverra aliquet eget sit amet. Lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Hac habitasse platea dictumst quisque sagittis purus. Pellentesque dignissim enim sit amet venenatis urna cursus.",
+  },
+  {
+    datetime: "2023-07-01",
+    value: 7,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies tristique nulla aliquet enim tortor at. Massa massa ultricies mi quis hendrerit dolor magna eget est. At consectetur lorem donec massa sapien faucibus et. A scelerisque purus semper eget duis at tellus at.",
+  },
+  {
+    datetime: "2023-08-01",
+    value: 9,
+    notes:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris nunc congue nisi vitae. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Ultrices neque ornare aenean euismod elementum.",
+  },
+];

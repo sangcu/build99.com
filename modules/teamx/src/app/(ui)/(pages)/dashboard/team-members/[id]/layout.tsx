@@ -34,6 +34,13 @@ const Template: React.FC<{
       ),
     },
     {
+      name: "Engagement Experience",
+      href: `/dashboard/team-members/${id}/engagement-experience` as Route<string>,
+      current: pathName?.startsWith(
+        `/dashboard/team-members/${id}/engagement-experience`
+      ),
+    },
+    {
       name: "Profile",
       href: `/dashboard/team-members/${id}` as Route<string>,
       current: pathName === `/dashboard/team-members/${id}`,
