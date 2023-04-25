@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     if (isLoading || isError) return;
     if (data) {
-      return router.push("/dashboard/team-members");
+      return router.push("/dashboard");
     }
 
     return router.push("/onboarding");
