@@ -329,6 +329,83 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
+          <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
+            <div>{`How's your team engagement?`}</div>
+            <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+          </div>
+          <div className="px-4 py-2 sm:px-6 h-[440px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <RadarChart
+                cx="50%"
+                cy="50%"
+                outerRadius="80%"
+                data={[
+                  {
+                    id: 1,
+                    title: "People and relationships",
+                    progress: 70,
+                  },
+                  {
+                    id: 2,
+                    title: "Teamwork",
+                    progress: 70,
+                  },
+                  {
+                    id: 3,
+                    title: "Social climate",
+                    progress: 85,
+                  },
+                  {
+                    id: 4,
+                    title: "Work organization",
+                    progress: 75,
+                  },
+                  {
+                    id: 5,
+                    title: "Work control and flexibility",
+                    progress: 45,
+                  },
+                  {
+                    id: 6,
+                    title: "Growth and rewards",
+                    progress: 80,
+                  },
+                  {
+                    id: 7,
+                    title: "Purpose",
+                    progress: 95,
+                  },
+                  {
+                    id: 8,
+                    title: "Technology",
+                    progress: 60,
+                  },
+                  {
+                    id: 9,
+                    title: "Physical environment",
+                    progress: 80,
+                  },
+                ].map((group) => ({
+                  ...group,
+                  fullMark: 100,
+                }))}
+              >
+                <PolarGrid />
+                <PolarAngleAxis dataKey="title" />
+                <PolarRadiusAxis angle={90} domain={[0, 100]} />
+                <Radar
+                  name="Progress"
+                  dataKey="progress"
+                  stroke="#0284c7"
+                  fill="#7dd3fc"
+                  fillOpacity={0.6}
+                  dot
+                />
+              </RadarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
       </div>
       <div className="lg:col-span-1 space-y-4">
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
