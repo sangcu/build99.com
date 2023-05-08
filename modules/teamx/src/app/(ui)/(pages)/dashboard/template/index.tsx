@@ -39,6 +39,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
       icon: ArrowUpRightIcon,
       current: pathName?.startsWith("/dashboard/goals"),
     },
+    {
+      name: "Engagement Experience",
+      href: "/dashboard/engagement-experience",
+      icon: ArrowUpRightIcon,
+      current: pathName?.startsWith("/dashboard/engagement-experience"),
+    },
   ];
 
   return (
