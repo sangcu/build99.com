@@ -59,7 +59,11 @@ const renderCustomizedLabel = ({
   );
 };
 
-const COLORS = ["#a1a1aa", "#7dd3fc", "#60a5fa"];
+const COLORS = [
+  { fill: "#60a5fa", opacity: 1 },
+  { fill: "#7dd3fc", opacity: 1 },
+  { fill: "#a1a1aa", opacity: 0.7 },
+];
 
 const tasks = [
   {
@@ -120,18 +124,21 @@ const bestMembers = [
     name: "Leslie Alexander",
     imageUrl:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/1/goals" as Route<string>,
   },
   {
     id: 2,
     name: "Michael Foster",
     imageUrl:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/2/goals" as Route<string>,
   },
   {
     id: 3,
     name: "Dries Vincent",
     imageUrl:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/3/goals" as Route<string>,
   },
 ];
 
@@ -141,18 +148,21 @@ const unHappyMembers = [
     name: "Lindsay Walton",
     imageUrl:
       "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/1/goals" as Route<string>,
   },
   {
     id: 2,
     name: "Courtney Henry",
     imageUrl:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/2/goals" as Route<string>,
   },
   {
     id: 3,
     name: "Tom Cook",
     imageUrl:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    href: "/dashboard/team-members/3/goals" as Route<string>,
   },
 ];
 
@@ -168,21 +178,22 @@ export default function Home() {
             <div className="px-4 py-2 sm:px-6">
               <ul role="list" className="divide-y divide-gray-100">
                 {bestMembers.map((member) => (
-                  <li
-                    key={member.id}
-                    className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-2 sm:flex-nowrap"
-                  >
-                    <div className="flex gap-x-4 items-center">
-                      <img
-                        className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                        src={member.imageUrl}
-                        alt=""
-                      />
-                      <p className="text-sm font-semibold text-gray-900">
-                        {member.name}
-                      </p>
-                    </div>
-                    <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+                  <li key={member.id}>
+                    <Link href={member.href} className="w-full">
+                      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-2 sm:flex-nowrap">
+                        <div className="w-full flex gap-x-4 items-center">
+                          <img
+                            className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                            src={member.imageUrl}
+                            alt=""
+                          />
+                          <p className="text-sm font-semibold text-gray-900">
+                            {member.name}
+                          </p>
+                        </div>
+                        <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -195,21 +206,22 @@ export default function Home() {
             <div className="px-4 py-2 sm:px-6">
               <ul role="list" className="divide-y divide-gray-100">
                 {unHappyMembers.map((member) => (
-                  <li
-                    key={member.id}
-                    className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-2 sm:flex-nowrap"
-                  >
-                    <div className="flex gap-x-4 items-center">
-                      <img
-                        className="h-12 w-12 flex-none rounded-full bg-gray-50"
-                        src={member.imageUrl}
-                        alt=""
-                      />
-                      <p className="text-sm font-semibold text-gray-900">
-                        {member.name}
-                      </p>
-                    </div>
-                    <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+                  <li key={member.id}>
+                    <Link href={member.href} className="w-full">
+                      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 py-2 sm:flex-nowrap">
+                        <div className="flex gap-x-4 items-center">
+                          <img
+                            className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                            src={member.imageUrl}
+                            alt=""
+                          />
+                          <p className="text-sm font-semibold text-gray-900">
+                            {member.name}
+                          </p>
+                        </div>
+                        <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -217,10 +229,12 @@ export default function Home() {
           </div>
         </div>
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
-          <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-            <div>{`How's the goal going?`}</div>
-            <ArrowRightIcon className="h-5 w-5 text-gray-400" />
-          </div>
+          <Link href="/dashboard/goals">
+            <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
+              <div>{`How's the goal going?`}</div>
+              <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+            </div>
+          </Link>
           <div className="px-4 py-2 sm:px-6 h-[440px]">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart
@@ -278,7 +292,8 @@ export default function Home() {
                       (entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={COLORS[index % COLORS.length]}
+                          fill={COLORS[index % COLORS.length].fill}
+                          opacity={COLORS[index % COLORS.length].opacity}
                         />
                       )
                     )}
@@ -290,10 +305,12 @@ export default function Home() {
             </div>
           </div>
           <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
-            <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              <div>{`How's your team engagement?`}</div>
-              <ArrowRightIcon className="h-5 w-5 text-gray-400" />
-            </div>
+            <Link href="/dashboard/engagement-experience">
+              <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
+                <div>{`How's your team engagement?`}</div>
+                <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+              </div>
+            </Link>
             <div className="px-4 py-2 sm:px-6 h-[320px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -318,7 +335,8 @@ export default function Home() {
                     ].map((entry, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
+                        fill={COLORS[index % COLORS.length].fill}
+                        opacity={COLORS[index % COLORS.length].opacity}
                       />
                     ))}
                   </Pie>
@@ -330,10 +348,12 @@ export default function Home() {
           </div>
         </div>
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
-          <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-            <div>{`How's your team engagement?`}</div>
-            <ArrowRightIcon className="h-5 w-5 text-gray-400" />
-          </div>
+          <Link href="/dashboard/engagement-experience">
+            <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
+              <div>{`How's your team engagement?`}</div>
+              <ArrowRightIcon className="h-5 w-5 text-gray-400" />
+            </div>
+          </Link>
           <div className="px-4 py-2 sm:px-6 h-[440px]">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart

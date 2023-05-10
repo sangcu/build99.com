@@ -94,7 +94,7 @@ export const engagement_group_overview = [
 export const engagement_progress = [
   {
     name: "Leslie Abbott",
-    color: "#ea580c",
+    color: "#0d9488",
     data: [
       { datetime: "2023-01-01", value: 6 },
       { datetime: "2023-02-01", value: 5 },
@@ -112,7 +112,7 @@ export const engagement_progress = [
   },
   {
     name: "Hector Adams",
-    color: "#ca8a04",
+    color: "#0369a1",
     data: [
       { datetime: "2023-01-01", value: 8 },
       { datetime: "2023-02-01", value: 7 },
@@ -130,7 +130,7 @@ export const engagement_progress = [
   },
   {
     name: "Blake Alexander",
-    color: "#0284c7",
+    color: "#4338ca",
     data: [
       { datetime: "2023-01-01", value: 7 },
       { datetime: "2023-02-01", value: 5 },
@@ -148,7 +148,7 @@ export const engagement_progress = [
   },
   {
     name: "Fabricio Andrews",
-    color: "#14b8a6",
+    color: "#60a5fa",
     data: [
       { datetime: "2023-01-01", value: 6 },
       { datetime: "2023-02-01", value: 6 },

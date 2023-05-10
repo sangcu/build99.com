@@ -26,10 +26,6 @@ const Layout: React.FC<{
       <div className="mt-8 flex flex-1 max-h-full">
         <div className="overflow-y-auto w-[440px] space-y-4 pr-4 border-r-2 border-gray-300 pb-8">
           {goalGroupList
-            .map((group) => ({
-              ...group,
-              progressClassNames: `w-${random(2, 3)}/5`,
-            }))
             .map((goalGroup) => (
               <Disclosure
                 key={goalGroup.id}
@@ -48,11 +44,7 @@ const Layout: React.FC<{
                         )}
                       >
                         <Link
-                          href={
-                            Number(groupId) === goalGroup.id
-                              ? "/dashboard/goals"
-                              : `/dashboard/goals/group/${goalGroup.id}`
-                          }
+                          href={`/dashboard/goals/group/${goalGroup.id}`}
                           className={classNames(
                             "flex items-center space-x-2 text-lg pl-4 py-4 flex-1"
                           )}
@@ -68,47 +60,40 @@ const Layout: React.FC<{
                         </Disclosure.Button>
                       </div>
                       <div
-                        className={classNames(
-                          "bg-sky-400 rounded-bl h-1",
-                          goalGroup.progressClassNames
-                        )}
+                        style={{ width: `${random(50, 95)}%` }}
+                        className={classNames(`bg-sky-400 rounded-bl h-1`)}
                       ></div>
                     </div>
                     <Disclosure.Panel className="divide-y">
-                      {goalGroup.goals
-                        .map((goal) => ({
-                          ...goal,
-                          progressClassNames: `w-${random(2, 3)}/5`,
-                        }))
-                        .map((goal) => (
-                          <Link
-                            key={goal.title}
-                            href={
-                              Number(id) === goal.id
-                                ? "/dashboard/goals"
-                                : `/dashboard/goals/${goal.id}`
-                            }
-                          >
-                            <div>
-                              <div
-                                className={classNames(
-                                  "cursor-pointer text-sm text-gray-900 px-4 py-3",
-                                  Number(id) === goal.id
-                                    ? "bg-sky-200 text-sky-600 font-medium bg-opacity-30"
-                                    : "hover:bg-sky-200 hover:bg-opacity-20"
-                                )}
-                              >
-                                {goal.title}
-                              </div>
-                              <div
-                                className={classNames(
-                                  "bg-sky-400 rounded-bl h-1",
-                                  goal.progressClassNames
-                                )}
-                              ></div>
+                      {goalGroup.goals.map((goal) => (
+                        <Link
+                          key={goal.title}
+                          href={
+                            Number(id) === goal.id
+                              ? "/dashboard/goals"
+                              : `/dashboard/goals/${goal.id}`
+                          }
+                        >
+                          <div>
+                            <div
+                              className={classNames(
+                                "cursor-pointer text-sm text-gray-900 px-4 py-3",
+                                Number(id) === goal.id
+                                  ? "bg-sky-200 text-sky-600 font-medium bg-opacity-30"
+                                  : "hover:bg-sky-200 hover:bg-opacity-20"
+                              )}
+                            >
+                              {goal.title}
                             </div>
-                          </Link>
-                        ))}
+                            <div
+                              style={{ width: `${random(50, 95)}%` }}
+                              className={classNames(
+                                "bg-sky-400 rounded-bl h-1"
+                              )}
+                            ></div>
+                          </div>
+                        </Link>
+                      ))}
                     </Disclosure.Panel>
                   </>
                 )}

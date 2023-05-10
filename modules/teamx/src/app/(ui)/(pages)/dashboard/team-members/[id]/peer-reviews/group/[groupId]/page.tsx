@@ -18,13 +18,11 @@ import {
   dw_team_member_peer_review_overview_total,
 } from "../../../../exampleData";
 
-const data = [
-  { name: "Exceed Expectation", value: 300 },
-  { name: "Meet Expectation", value: 300 },
-  { name: "Under Expectation", value: 400 },
+const COLORS = [
+  { fill: "#60a5fa", opacity: 1 },
+  { fill: "#7dd3fc", opacity: 1 },
+  { fill: "#a1a1aa", opacity: 0.7 },
 ];
-
-const COLORS = ["#a1a1aa", "#7dd3fc", "#60a5fa"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -96,7 +94,8 @@ const Overview: React.FC = () => {
                   (entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
+                      fill={COLORS[index % COLORS.length].fill}
+                      opacity={COLORS[index % COLORS.length].opacity}
                     />
                   )
                 )}

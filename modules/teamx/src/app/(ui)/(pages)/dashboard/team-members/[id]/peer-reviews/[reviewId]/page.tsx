@@ -63,7 +63,11 @@ const renderCustomizedLabel = ({
   );
 };
 
-const COLORS = ["#a1a1aa", "#7dd3fc", "#60a5fa"];
+const COLORS = [
+  { fill: "#60a5fa", opacity: 1 },
+  { fill: "#7dd3fc", opacity: 1 },
+  { fill: "#a1a1aa", opacity: 0.7 },
+];
 
 const PeerReviewItem: React.FC = () => {
   const { id, reviewId } = useParams() || {};
@@ -149,7 +153,8 @@ const PeerReviewItem: React.FC = () => {
                     (entry, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={COLORS[index % COLORS.length]}
+                        fill={COLORS[index % COLORS.length].fill}
+                        opacity={COLORS[index % COLORS.length].opacity}
                       />
                     )
                   )}

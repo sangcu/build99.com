@@ -214,7 +214,7 @@ export const dw_goal_group_detail = [
 export const goal_group_progress = [
   {
     name: "Job Knowledge",
-    color: "#ea580c",
+    color: "#0d9488",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 12 },
@@ -232,7 +232,7 @@ export const goal_group_progress = [
   },
   {
     name: "Efficiency and time management",
-    color: "#ca8a04",
+    color: "#0369a1",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 5 },
@@ -250,7 +250,7 @@ export const goal_group_progress = [
   },
   {
     name: "Quality of work",
-    color: "#0284c7",
+    color: "#4338ca",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 8 },
@@ -268,7 +268,7 @@ export const goal_group_progress = [
   },
   {
     name: "Communication",
-    color: "#14b8a6",
+    color: "#60a5fa",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 10 },
@@ -286,23 +286,7 @@ export const goal_group_progress = [
   },
   {
     name: "Teamwork",
-    color: "#15803d",
-    data: [
-      { datetime: "2023-01-01", value: 0 },
-      { datetime: "2023-02-01", value: 14 },
-      { datetime: "2023-03-01", value: 20 },
-      { datetime: "2023-04-01", value: 30 },
-      { datetime: "2023-05-01", value: 42 },
-      { datetime: "2023-06-01", value: 56 },
-      { datetime: "2023-07-01", value: 60 },
-      { datetime: "2023-08-01", value: 65 },
-      { datetime: "2023-09-01", value: 66 },
-      { datetime: "2023-10-01", value: 70 },
-    ],
-  },
-  {
-    name: "Teamwork",
-    color: "#15803d",
+    color: "#4c1d95",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 14 },
@@ -318,7 +302,7 @@ export const goal_group_progress = [
   },
   {
     name: "Attendance",
-    color: "#7c3aed",
+    color: "#a855f7",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 14 },
@@ -342,10 +326,11 @@ export const goal_group_progress = [
   },
 ];
 
+
 export const goal_detail_progress = [
   {
     name: "Increase c# programming skill by getting at least AZ-204 certificate from Azure",
-    color: "#ea580c",
+    color: "#0d9488",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 12 },
@@ -363,7 +348,7 @@ export const goal_detail_progress = [
   },
   {
     name: "100% delivered on time with no complain in quality from clients, leaders",
-    color: "#ca8a04",
+    color: "#0369a1",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 5 },
@@ -381,7 +366,7 @@ export const goal_detail_progress = [
   },
   {
     name: "Ship features which have business impact with no or least than half day support from leader",
-    color: "#0284c7",
+    color: "#4338ca",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 8 },
@@ -399,7 +384,7 @@ export const goal_detail_progress = [
   },
   {
     name: "Go beyond and above to propose technical solution which bring business value",
-    color: "#14b8a6",
+    color: "#60a5fa",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 10 },
@@ -417,7 +402,7 @@ export const goal_detail_progress = [
   },
   {
     name: "Deep understanding about project domain, project tech stack",
-    color: "#15803d",
+    color: "#4c1d95",
     data: [
       { datetime: "2023-01-01", value: 0 },
       { datetime: "2023-02-01", value: 14 },
@@ -448,7 +433,7 @@ export const dw_goal_details = {
   data: [
     {
       name: "Calvin Hawkins",
-      color: "#ca8a04",
+      color: "#0d9488",
       data: [
         { datetime: "2023-01-01", value: 0 },
         { datetime: "2023-02-01", value: 5 },
@@ -464,7 +449,7 @@ export const dw_goal_details = {
     },
     {
       name: "Kristen Ramos",
-      color: "#0284c7",
+      color: "#0369a1",
       data: [
         { datetime: "2023-01-01", value: 0 },
         { datetime: "2023-02-01", value: 8 },
@@ -480,7 +465,7 @@ export const dw_goal_details = {
     },
     {
       name: "Ted Fox",
-      color: "#14b8a6",
+      color: "#60a5fa",
       data: [
         { datetime: "2023-01-01", value: 0 },
         { datetime: "2023-02-01", value: 5 },
