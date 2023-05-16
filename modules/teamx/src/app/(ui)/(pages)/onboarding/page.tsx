@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="p-4 lg:p-0 w-full mt-4 lg:mt-20">
       <h1 className="text-center text-4xl font-bold text-sky-600">
-        Welcome to yLeader!
+        Welcome to yLambda!
       </h1>
       <div className="mt-2 w-full flex justify-center items-center">
         <p className="w-120 text-center text-lg text-gray-500">

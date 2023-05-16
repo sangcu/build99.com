@@ -6,9 +6,9 @@ const Brand: React.FC = () => {
     <div className="flex items-center px-2 lg:px-0 flex-0 lg:w-80">
       <Link href="/dashboard">
         <div className="flex items-center">
-          <LogoIcon />
+          {/* <LogoIcon /> */}
           <div className="pl-2">
-            <div className="text-sky-600 font-bold text-2xl">yLeader</div>
+            <div className="text-sky-600 font-bold text-2xl">yLambda</div>
             <div className="text-sky-600 text-xs font-semibold">
               Helping people succeed
             </div>

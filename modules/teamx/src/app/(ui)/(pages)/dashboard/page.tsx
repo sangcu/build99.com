@@ -173,7 +173,7 @@ export default function Home() {
         <div className="grid grid-cols-2 space-x-6">
           <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
             <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              Top 3 high-performing members
+              Top 3 high-performing
             </div>
             <div className="px-4 py-2 sm:px-6">
               <ul role="list" className="divide-y divide-gray-100">
@@ -201,7 +201,7 @@ export default function Home() {
           </div>
           <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
             <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              Top 3 unhappy members
+              Top 3 struggling
             </div>
             <div className="px-4 py-2 sm:px-6">
               <ul role="list" className="divide-y divide-gray-100">
@@ -231,7 +231,7 @@ export default function Home() {
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
           <Link href="/dashboard/goals">
             <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              <div>{`How's the goal going?`}</div>
+              <div>{`How's goals going?`}</div>
               <ArrowRightIcon className="h-5 w-5 text-gray-400" />
             </div>
           </Link>
@@ -272,7 +272,7 @@ export default function Home() {
         <div className="grid grid-cols-2 space-x-6">
           <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
             <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              <div>{`How's your team performing?`}</div>
+              <div>{`How's team performing?`}</div>
               <ArrowRightIcon className="h-5 w-5 text-gray-400" />
             </div>
             <div className="px-4 py-2 sm:px-6 h-[320px]">
@@ -307,7 +307,7 @@ export default function Home() {
           <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
             <Link href="/dashboard/engagement-experience">
               <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-                <div>{`How's your team engagement?`}</div>
+                <div>{`How's team engaging?`}</div>
                 <ArrowRightIcon className="h-5 w-5 text-gray-400" />
               </div>
             </Link>
@@ -350,7 +350,7 @@ export default function Home() {
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
           <Link href="/dashboard/engagement-experience">
             <div className="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-              <div>{`How's your team engagement?`}</div>
+              <div>{`Team engagement overview`}</div>
               <ArrowRightIcon className="h-5 w-5 text-gray-400" />
             </div>
           </Link>
@@ -430,7 +430,7 @@ export default function Home() {
       <div className="lg:col-span-1 space-y-4">
         <div className="overflow-hidden bg-white sm:rounded-lg sm:shadow">
           <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6 font-semibold">
-            Tasks
+            Upcoming Activities
           </div>
           <div className="px-4 py-2 sm:px-6">
             <ul role="list" className="divide-y divide-gray-100">
